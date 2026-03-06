@@ -1081,27 +1081,35 @@
 
       <div class="form-label">Prefisso + Numero</div>
       <div class="input-row">
-        <select class="select-pill">
+        <select class="select-pill" id="regPrefix">
           <option>🇮🇹 +39</option>
           <option>🇺🇸 +1</option>
           <option>🇬🇧 +44</option>
+          <option>🇩🇪 +49</option>
+          <option>🇫🇷 +33</option>
         </select>
-        <input class="input-field" type="tel" placeholder="333 456 7890">
+        <input class="input-field" id="regPhone" type="tel" placeholder="333 456 7890">
       </div>
 
-      <div class="form-label">Codice OTP</div>
-      <div class="otp-row">
-        <input class="otp-field" type="text" maxlength="5" placeholder="· · · · ·">
-        <div class="otp-btn">Invia<br>OTP</div>
+      <!-- OTP block: hidden until requested -->
+      <div id="regOtpBlock" style="display:none">
+        <div class="form-label" style="margin-top:20px">Codice OTP</div>
+        <input class="otp-field" id="regOtpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
+        <div class="otp-status-row">
+          <span id="regOtpMsg" class="otp-msg">⏳ Codice inviato — inseriscilo entro</span>
+          <span id="regOtpCountdown" class="otp-countdown">2:00</span>
+        </div>
+        <div id="regOtpError" class="otp-error" style="display:none"></div>
       </div>
 
-      <div class="form-label">Nickname</div>
+      <div class="form-label" style="margin-top:16px">Nickname</div>
       <div class="nickname-wrapper">
-        <input class="input-field" type="text" placeholder="scegli il tuo nome" style="width:100%" value="SpeedyRunner42">
-        <div class="nickname-badge">✓ libero</div>
+        <input class="input-field" id="regNickname" type="text" placeholder="scegli il tuo nome" style="width:100%" oninput="handleNicknameInput(this.value)">
+        <div class="nickname-badge" id="nickBadge" style="display:none"></div>
       </div>
+      <div id="regWarning" class="otp-error" style="display:none"></div>
 
-      <button class="btn-primary" style="margin-top:28px" onclick="showScreen('list')">CREA ACCOUNT →</button>
+      <button class="btn-primary" id="regBtn" style="margin-top:28px" onclick="handleRegister()">CREA ACCOUNT →</button>
     </div>
   </div>
 
@@ -1550,6 +1558,150 @@
 </div><!-- /phone -->
 
 <script>
+// ===== REGISTER STATE MACHINE =====
+let registrationState = 'idle'; // idle | otp_sent | completed
+let regOtpTimer = null;
+let regOtpSeconds = 120;
+let nicknameAvailable = false;
+let nicknameDebounceTimer = null;
+
+function handleRegister() {
+  if (registrationState === 'idle') {
+    const phone = document.getElementById('regPhone').value.trim();
+    if (!phone) { flashRegError('Inserisci il numero di telefono'); return; }
+    if (!nicknameAvailable) { flashRegError('Scegli un nickname valido e disponibile'); return; }
+    requestRegOTP();
+
+  } else if (registrationState === 'otp_sent') {
+    const otp = document.getElementById('regOtpInput').value.trim();
+    if (!otp || otp.length < 5) { showRegOtpError('Inserisci il codice OTP a 5 caratteri'); return; }
+    verifyRegOTP(otp);
+  }
+}
+
+function requestRegOTP() {
+  // Simula POST /api/auth/request-otp
+  registrationState = 'otp_sent';
+  regOtpSeconds = 120;
+  document.getElementById('regOtpBlock').style.display = 'block';
+  document.getElementById('regBtn').textContent = 'VERIFICA →';
+  document.getElementById('regOtpError').style.display = 'none';
+  document.getElementById('regOtpMsg').textContent = '⏳ Codice inviato — inseriscilo entro';
+  startRegCountdown();
+}
+
+function startRegCountdown() {
+  if (regOtpTimer) clearInterval(regOtpTimer);
+  updateRegCountdownDisplay();
+  regOtpTimer = setInterval(() => {
+    regOtpSeconds--;
+    updateRegCountdownDisplay();
+    if (regOtpSeconds <= 0) {
+      clearInterval(regOtpTimer);
+      regOtpExpired();
+    }
+  }, 1000);
+}
+
+function updateRegCountdownDisplay() {
+  const el = document.getElementById('regOtpCountdown');
+  const m = Math.floor(regOtpSeconds / 60);
+  const s = regOtpSeconds % 60;
+  el.textContent = m + ':' + String(s).padStart(2, '0');
+  el.classList.toggle('expiring', regOtpSeconds <= 20);
+}
+
+function regOtpExpired() {
+  registrationState = 'idle';
+  document.getElementById('regOtpMsg').textContent = '❌ Codice scaduto';
+  document.getElementById('regOtpCountdown').textContent = '0:00';
+  document.getElementById('regOtpInput').value = '';
+  document.getElementById('regBtn').textContent = 'RICHIEDI NUOVO CODICE →';
+  showRegOtpError('Il codice OTP è scaduto. Premi CREA ACCOUNT per riceverne uno nuovo.');
+}
+
+function verifyRegOTP(otp) {
+  // Simula POST /api/users/register
+  // Codice demo fisso: AB12C → successo
+  // Numero demo già registrato: 000 → warning → redirect login
+  const phone = document.getElementById('regPhone').value.trim();
+  const isAlreadyRegistered = phone === '000';
+  const isValid = otp.toUpperCase() === 'AB12C';
+
+  if (isAlreadyRegistered) {
+    // xretCod: "warning" → "Phone number already registered" → redirect Screen 1
+    clearInterval(regOtpTimer);
+    registrationState = 'idle';
+    const w = document.getElementById('regWarning');
+    w.textContent = '⚠️ Numero già registrato — effettua il login';
+    w.style.display = 'block';
+    setTimeout(() => { w.style.display = 'none'; showScreen('login'); }, 2000);
+    return;
+  }
+
+  if (isValid) {
+    clearInterval(regOtpTimer);
+    registrationState = 'completed';
+    // Set global auth state — TN-001
+    loginState = 'authenticated';
+    document.getElementById('loggedNick').textContent = document.getElementById('regNickname').value;
+    document.getElementById('regOtpMsg').textContent = '✓ Account creato con successo';
+    document.getElementById('regOtpCountdown').textContent = '';
+    document.getElementById('regBtn').textContent = 'CREA ACCOUNT →';
+    setTimeout(() => showScreen('list'), 600);
+  } else {
+    showRegOtpError('Codice errato — riprova');
+    document.getElementById('regOtpInput').value = '';
+  }
+}
+
+function showRegOtpError(msg) {
+  const el = document.getElementById('regOtpError');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function flashRegError(msg) {
+  const btn = document.getElementById('regBtn');
+  const orig = btn.textContent;
+  btn.textContent = msg;
+  btn.style.background = 'var(--accent2)';
+  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1800);
+}
+
+function handleNicknameInput(value) {
+  // Validazione locale immediata
+  const badge = document.getElementById('nickBadge');
+  const valid = /^[a-zA-Z0-9_]{2,13}$/.test(value);
+
+  if (!valid) {
+    nicknameAvailable = false;
+    badge.style.display = value.length > 0 ? 'block' : 'none';
+    badge.textContent = value.length < 2 ? 'troppo corto' : value.length > 13 ? 'troppo lungo' : 'caratteri non validi';
+    badge.style.background = 'rgba(255,71,87,.1)';
+    badge.style.color = 'var(--accent2)';
+    return;
+  }
+
+  // Debounce per chiamata API check-nickname
+  clearTimeout(nicknameDebounceTimer);
+  badge.style.display = 'block';
+  badge.textContent = '...';
+  badge.style.background = 'rgba(102,102,102,.1)';
+  badge.style.color = 'var(--muted)';
+
+  nicknameDebounceTimer = setTimeout(() => {
+    // Simula GET /api/users/check-nickname
+    // Nickname demo già preso: "taken"
+    const isTaken = value.toLowerCase() === 'taken';
+    nicknameAvailable = !isTaken;
+    badge.textContent = isTaken ? '✕ già utilizzato' : '✓ libero';
+    badge.style.background = isTaken ? 'rgba(255,71,87,.1)' : 'rgba(57,217,138,.1)';
+    badge.style.color = isTaken ? 'var(--accent2)' : 'var(--green)';
+  }, 600);
+}
+// ===== END REGISTER STATE MACHINE =====
+
 // ===== LOGIN STATE MACHINE =====
 // Stati: 'idle' | 'otp_sent' | 'authenticated'
 let loginState = 'idle';
