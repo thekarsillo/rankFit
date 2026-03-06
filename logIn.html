@@ -1055,7 +1055,7 @@
           <div class="form-label" style="margin-top:20px">Codice OTP</div>
           <input class="otp-field" id="otpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
           <div id="otpStatus" class="otp-status-row">
-            <span id="otpMsg" class="otp-msg">⏳ Codice inviato — inseriscilo entro</span>
+            <span id="otpMsg" class="otp-msg">Ti è stato inviato un codice OTP. Ti preghiamo di inserirlo per verificare la tua identità</span>
             <span id="otpCountdown" class="otp-countdown">2:00</span>
           </div>
           <div id="otpError" class="otp-error" style="display:none"></div>
@@ -1096,7 +1096,7 @@
         <div class="form-label" style="margin-top:20px">Codice OTP</div>
         <input class="otp-field" id="regOtpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
         <div class="otp-status-row">
-          <span id="regOtpMsg" class="otp-msg">⏳ Codice inviato — inseriscilo entro</span>
+          <span id="regOtpMsg" class="otp-msg">Ti è stato inviato un codice OTP. Ti preghiamo di inserirlo per verificare la tua identità</span>
           <span id="regOtpCountdown" class="otp-countdown">2:00</span>
         </div>
         <div id="regOtpError" class="otp-error" style="display:none"></div>
@@ -1586,7 +1586,7 @@ function requestRegOTP() {
   document.getElementById('regOtpBlock').style.display = 'block';
   document.getElementById('regBtn').textContent = 'VERIFICA →';
   document.getElementById('regOtpError').style.display = 'none';
-  document.getElementById('regOtpMsg').textContent = '⏳ Codice inviato — inseriscilo entro';
+  document.getElementById('regOtpMsg').textContent = 'Ti è stato inviato un codice OTP. Ti preghiamo di inserirlo per verificare la tua identità';
   startRegCountdown();
 }
 
@@ -1740,7 +1740,7 @@ function requestOTP() {
   document.getElementById('otpBlock').style.display = 'block';
   document.getElementById('loginBtn').textContent = 'VERIFICA →';
   document.getElementById('otpError').style.display = 'none';
-  document.getElementById('otpMsg').textContent = '⏳ Codice inviato — inseriscilo entro';
+  document.getElementById('otpMsg').textContent = 'Ti è stato inviato un codice OTP. Ti preghiamo di inserirlo per verificare la tua identità';
 
   startCountdown();
 }
