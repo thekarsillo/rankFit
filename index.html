@@ -32,7 +32,6 @@
     padding: 24px 16px 40px;
   }
 
-  /* Nav tabs */
   .nav-tabs {
     display: flex;
     gap: 8px;
@@ -62,7 +61,6 @@
     font-weight: 600;
   }
 
-  /* Phone shell */
   .phone {
     width: 375px;
     min-height: 780px;
@@ -74,7 +72,6 @@
     position: relative;
   }
 
-  /* Status bar */
   .status-bar {
     display: flex;
     justify-content: space-between;
@@ -93,11 +90,10 @@
     margin: 0 auto -6px;
   }
 
-  /* Screen */
   .screen { display: none; padding: 0 0 40px; }
   .screen.active { display: block; }
 
-  /* ========== SCREEN 1: LOGIN ========== */
+  /* LOGIN */
   .login-screen {
     min-height: 740px;
     display: flex;
@@ -106,13 +102,6 @@
   }
 
   .logo-block { margin-top: 40px; margin-bottom: 48px; }
-  .logo-main {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 72px;
-    line-height: 1;
-    color: var(--accent);
-    letter-spacing: 2px;
-  }
   .logo-sub {
     font-size: 11px;
     font-family: 'DM Mono', monospace;
@@ -125,17 +114,14 @@
   .form-label {
     font-size: 10px;
     font-family: 'DM Mono', monospace;
-    color: var(--muted);
+    color: var(--accent);
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 8px;
     margin-top: 20px;
   }
 
-  .input-row {
-    display: flex;
-    gap: 8px;
-  }
+  .input-row { display: flex; gap: 8px; }
 
   .select-pill {
     background: var(--surface);
@@ -167,11 +153,6 @@
   .input-field:focus { border-color: var(--accent); }
   .input-field::placeholder { color: #444; }
 
-  .otp-row {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
   .otp-field {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -223,17 +204,10 @@
     font-size: 13px;
     color: var(--muted);
   }
-  .link-small span {
-    color: var(--accent);
-    cursor: pointer;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+  .link-small span { color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
-  /* ========== SCREEN 2: REGISTER ========== */
-  .register-screen {
-    padding: 24px 28px 40px;
-  }
+  /* REGISTER */
+  .register-screen { padding: 24px 28px 40px; }
   .screen-header {
     display: flex;
     align-items: center;
@@ -258,9 +232,7 @@
     letter-spacing: 1px;
   }
 
-  .nickname-wrapper {
-    position: relative;
-  }
+  .nickname-wrapper { position: relative; }
   .nickname-badge {
     position: absolute;
     right: 12px;
@@ -274,7 +246,7 @@
     border-radius: 6px;
   }
 
-  /* ========== SCREEN 3: COMPETITIONS LIST ========== */
+  /* LIST */
   .list-screen { padding: 0 0 40px; }
 
   .list-header {
@@ -283,18 +255,8 @@
     justify-content: space-between;
     align-items: flex-end;
   }
-  .list-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: var(--text);
-    letter-spacing: 1px;
-  }
-  .list-subtitle {
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 1px;
-  }
+  .list-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--text); letter-spacing: 1px; }
+  .list-subtitle { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 1px; }
   .icon-btn {
     width: 40px; height: 40px;
     background: var(--surface);
@@ -324,12 +286,7 @@
     white-space: nowrap;
     transition: all .2s;
   }
-  .filter-chip.active {
-    background: var(--accent);
-    color: #000;
-    border-color: var(--accent);
-    font-weight: 600;
-  }
+  .filter-chip.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
 
   .race-card {
     margin: 0 16px 12px;
@@ -354,18 +311,8 @@
   .race-card.upcoming::before { background: var(--accent); }
   .race-card.soon::before { background: var(--orange); }
 
-  .race-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 12px;
-  }
-  .race-name {
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--text);
-    line-height: 1.2;
-  }
+  .race-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .race-name { font-weight: 600; font-size: 16px; color: var(--text); line-height: 1.2; }
   .race-badge {
     font-size: 10px;
     font-family: 'DM Mono', monospace;
@@ -379,24 +326,9 @@
   .badge-open { background: rgba(232,255,71,.1); color: var(--accent); border: 1px solid rgba(232,255,71,.2); }
   .badge-soon { background: rgba(255,159,67,.1); color: var(--orange); border: 1px solid rgba(255,159,67,.2); }
 
-  .race-meta {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .race-stat {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-  }
-  .race-stat .val {
-    color: var(--text);
-    font-weight: 500;
-  }
+  .race-meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .race-stat { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
+  .race-stat .val { color: var(--text); font-weight: 500; }
 
   .race-bottom {
     display: flex;
@@ -406,11 +338,7 @@
     padding-top: 12px;
     border-top: 1px solid var(--border);
   }
-  .race-datetime {
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-  }
+  .race-datetime { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; }
   .join-btn {
     padding: 7px 16px;
     border-radius: 8px;
@@ -425,9 +353,8 @@
   .join-btn.leave { background: rgba(255,71,87,.1); color: var(--accent2); border: 1px solid rgba(255,71,87,.3); }
   .join-btn.disabled { background: var(--surface2); color: var(--muted); cursor: not-allowed; }
 
-  /* ========== SCREEN 4: MONITOR ========== */
+  /* MONITOR */
   .monitor-screen { padding: 0; }
-
   .monitor-header {
     padding: 16px 24px 12px;
     display: flex;
@@ -448,12 +375,8 @@
     background: var(--accent2);
     animation: pulse 1.2s infinite;
   }
-  @keyframes pulse {
-    0%,100% { opacity: 1; transform: scale(1); }
-    50% { opacity: .4; transform: scale(.7); }
-  }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.7); } }
 
-  /* Podium */
   .podium-section {
     padding: 16px 20px;
     background: var(--surface);
@@ -461,16 +384,8 @@
     border-radius: 16px;
     border: 1px solid var(--border);
   }
-  .podium-label {
-    font-size: 10px; font-family: 'DM Mono', monospace;
-    color: var(--muted); letter-spacing: 2px;
-    text-transform: uppercase; margin-bottom: 14px;
-  }
-  .podium-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  .podium-label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+  .podium-row { display: flex; flex-direction: column; gap: 10px; }
   .podium-item {
     display: flex;
     align-items: center;
@@ -480,17 +395,8 @@
     background: var(--surface2);
     border: 1px solid var(--border);
   }
-  .podium-item.me {
-    background: rgba(232,255,71,.05);
-    border-color: rgba(232,255,71,.3);
-  }
-  .pos-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    width: 28px;
-    text-align: center;
-    flex-shrink: 0;
-  }
+  .podium-item.me { background: rgba(232,255,71,.05); border-color: rgba(232,255,71,.3); }
+  .pos-num { font-family: 'Bebas Neue', sans-serif; font-size: 22px; width: 28px; text-align: center; flex-shrink: 0; }
   .pos-1 { color: #FFD700; }
   .pos-2 { color: #C0C0C0; }
   .pos-3 { color: #CD7F32; }
@@ -498,21 +404,12 @@
   .runner-info { flex: 1; }
   .runner-name { font-weight: 600; font-size: 14px; color: var(--text); }
   .runner-city { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; }
-  .runner-progress {
-    text-align: right;
-  }
+  .runner-progress { text-align: right; }
   .runner-km { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--text); }
   .runner-km span { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); }
-  .progress-bar {
-    width: 80px; height: 3px; background: var(--border);
-    border-radius: 2px; margin-top: 4px; margin-left: auto;
-  }
-  .progress-fill {
-    height: 100%; border-radius: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--green));
-  }
+  .progress-bar { width: 80px; height: 3px; background: var(--border); border-radius: 2px; margin-top: 4px; margin-left: auto; }
+  .progress-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--green)); }
 
-  /* My stats */
   .my-stats-section {
     margin: 0 16px 12px;
     background: var(--surface);
@@ -520,63 +417,28 @@
     border-radius: 16px;
     padding: 16px 20px;
   }
-  .my-stats-label {
-    font-size: 10px; font-family: 'DM Mono', monospace;
-    color: var(--accent); letter-spacing: 2px;
-    text-transform: uppercase; margin-bottom: 14px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .stat-box {
-    background: var(--surface2);
-    border-radius: 10px;
-    padding: 12px;
-    border: 1px solid var(--border);
-  }
+  .my-stats-label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-box { background: var(--surface2); border-radius: 10px; padding: 12px; border: 1px solid var(--border); }
   .stat-box.full { grid-column: 1 / -1; }
-  .stat-key {
-    font-size: 9px; font-family: 'DM Mono', monospace;
-    color: var(--muted); letter-spacing: 1.5px;
-    text-transform: uppercase; margin-bottom: 6px;
-  }
-  .stat-val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    color: var(--text);
-    line-height: 1;
-  }
+  .stat-key { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--text); line-height: 1; }
   .stat-val.positive { color: var(--green); }
   .stat-val.negative { color: var(--accent2); }
   .stat-unit { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; }
+  .refresh-note { text-align: center; font-size: 10px; color: #333; font-family: 'DM Mono', monospace; padding: 8px; letter-spacing: 1px; }
 
-  .refresh-note {
-    text-align: center;
-    font-size: 10px;
-    color: #333;
-    font-family: 'DM Mono', monospace;
-    padding: 8px;
-    letter-spacing: 1px;
-  }
-
-  /* ========== SCREEN 5: CREATE RACE ========== */
+  /* CREATE */
   .create-screen { padding: 20px 24px 40px; }
-
   .section-divider {
     font-size: 10px; font-family: 'DM Mono', monospace;
-    color: var(--muted); letter-spacing: 2px;
+    color: var(--accent); letter-spacing: 2px;
     text-transform: uppercase;
     padding: 16px 0 8px;
     border-top: 1px solid var(--border);
     margin-top: 16px;
   }
   .section-divider:first-of-type { border-top: none; margin-top: 0; }
-
-  .input-group { margin-bottom: 4px; }
-
   .textarea-field {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -593,210 +455,8 @@
   }
   .textarea-field:focus { border-color: var(--accent); }
   .textarea-field::placeholder { color: #444; }
-
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-  .map-placeholder {
-    background: var(--surface);
-    border: 1px dashed var(--border);
-    border-radius: 12px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 8px;
-    cursor: pointer;
-    transition: border-color .2s;
-    color: var(--muted);
-  }
-  .map-placeholder:hover { border-color: var(--accent); color: var(--accent); }
-  .map-placeholder .map-icon { font-size: 28px; }
-  .map-placeholder .map-text { font-size: 11px; font-family: 'DM Mono', monospace; letter-spacing: 1px; }
-
-  /* ========== SCREEN 6: HISTORY ========== */
-  .history-screen { padding: 0 0 40px; }
-
-  .history-header { padding: 20px 24px 8px; }
-  .history-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--text); letter-spacing: 1px; }
-  .history-stats-row {
-    display: flex;
-    gap: 10px;
-    padding: 0 16px 16px;
-  }
-  .history-stat-box {
-    flex: 1;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 14px 12px;
-    text-align: center;
-  }
-  .history-stat-val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--accent);
-  }
-  .history-stat-key {
-    font-size: 9px; font-family: 'DM Mono', monospace;
-    color: var(--muted); letter-spacing: 1.5px;
-    text-transform: uppercase; margin-top: 2px;
-  }
-
-  .history-card {
-    margin: 0 16px 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 16px 18px;
-    cursor: pointer;
-    transition: border-color .2s;
-  }
-  .history-card:hover { border-color: #444; }
-
-  .history-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-  }
-  .history-race-name { font-weight: 600; font-size: 15px; color: var(--text); }
-  .history-date { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); }
-
-  .result-badge {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    padding: 2px 10px;
-    border-radius: 8px;
-    flex-shrink: 0;
-  }
-  .result-1 { color: #FFD700; background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.3); }
-  .result-2 { color: #C0C0C0; background: rgba(192,192,192,.1); border: 1px solid rgba(192,192,192,.3); }
-  .result-top { color: var(--green); background: rgba(57,217,138,.1); border: 1px solid rgba(57,217,138,.3); }
-
-  .history-row {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-  }
-  .history-mini-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .h-val { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--text); }
-  .h-key { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
-
-  /* Logged-in card */
-  .logged-in-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px;
-    background: var(--surface);
-    border: 1px solid rgba(232,255,71,.25);
-    border-radius: 16px;
-  }
-  .logged-in-avatar {
-    font-size: 32px;
-    width: 52px; height: 52px;
-    background: var(--surface2);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .logged-in-label {
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-  .logged-in-nick {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--accent);
-    letter-spacing: 1px;
-  }
-
-  .btn-logout-soft {
-    width: 100%;
-    margin-top: 12px;
-    padding: 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,71,87,.3);
-    background: rgba(255,71,87,.06);
-    color: var(--accent2);
-    font-size: 14px;
-    font-weight: 600;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .btn-logout-soft:hover { background: rgba(255,71,87,.12); }
-
-  /* OTP status row */
-  .otp-status-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    padding: 10px 14px;
-    background: rgba(232,255,71,.06);
-    border: 1px solid rgba(232,255,71,.2);
-    border-radius: 10px;
-  }
-  .otp-msg {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-  }
-  .otp-countdown {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--accent);
-    letter-spacing: 1px;
-    min-width: 44px;
-    text-align: right;
-  }
-  .otp-countdown.expiring { color: var(--accent2); animation: blink .8s infinite; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-
-  .otp-error {
-    margin-top: 8px;
-    padding: 10px 14px;
-    background: rgba(255,71,87,.08);
-    border: 1px solid rgba(255,71,87,.3);
-    border-radius: 10px;
-    font-size: 12px;
-    font-family: 'DM Mono', monospace;
-    color: var(--accent2);
-  }
-
-  .otp-field-full {
-    width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    color: var(--accent);
-    font-size: 24px;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 10px;
-    outline: none;
-    text-align: center;
-    transition: border-color .2s;
-  }
-  .otp-field-full:focus { border-color: var(--accent); }
-
-  /* Toggle group */
-  .toggle-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 4px;
-  }
+  .toggle-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
   .toggle-option {
     display: flex;
     align-items: center;
@@ -808,21 +468,12 @@
     cursor: pointer;
     transition: all .2s;
   }
-  .toggle-option.active {
-    border-color: var(--accent);
-    background: rgba(232,255,71,.05);
-  }
+  .toggle-option.active { border-color: var(--accent); background: rgba(232,255,71,.05); }
   .toggle-icon { font-size: 22px; flex-shrink: 0; }
   .toggle-text { flex: 1; }
   .toggle-label { font-size: 14px; font-weight: 600; color: var(--text); }
   .toggle-desc { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; margin-top: 2px; }
-  .toggle-check {
-    font-size: 13px; color: var(--accent);
-    font-weight: 700;
-    transition: opacity .2s;
-  }
-
-  /* GPS button */
+  .toggle-check { font-size: 13px; color: var(--accent); font-weight: 700; transition: opacity .2s; }
   .gps-auto-btn {
     margin-top: 10px;
     padding: 11px 16px;
@@ -837,8 +488,6 @@
     letter-spacing: .5px;
   }
   .gps-auto-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* Invite */
   .invite-row { display: flex; gap: 8px; align-items: center; }
   .invite-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
   .invite-chip {
@@ -853,78 +502,304 @@
   }
   .invite-chip span { color: var(--muted); cursor: pointer; font-size: 10px; }
   .invite-chip span:hover { color: var(--accent2); }
-
-  /* Share link */
-  .share-link-box {
-    margin-top: 14px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 12px 14px;
-  }
+  .share-link-box { margin-top: 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
   .share-link-label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1px; margin-bottom: 8px; }
   .share-link-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
   .share-link-val { font-size: 13px; font-family: 'DM Mono', monospace; color: var(--accent); }
-  .share-link-copy {
-    font-size: 11px; font-family: 'DM Mono', monospace;
-    color: #000; background: var(--accent);
-    padding: 5px 10px; border-radius: 6px;
-    cursor: pointer; font-weight: 600; flex-shrink: 0;
-  }
+  .share-link-copy { font-size: 11px; font-family: 'DM Mono', monospace; color: #000; background: var(--accent); padding: 5px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; flex-shrink: 0; }
 
-  .segment-bar {
-    flex: 1;
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-top: 4px;
-  }
-  .segment-fill {
-    height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--green));
-    transition: width 1s ease;
-  }
+  /* HISTORY */
+  .history-screen { padding: 0 0 40px; }
+  .history-header { padding: 20px 24px 8px; }
+  .history-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--text); letter-spacing: 1px; }
+  .history-stats-row { display: flex; gap: 10px; padding: 0 16px 16px; }
+  .history-stat-box { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 12px; text-align: center; }
+  .history-stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--accent); }
+  .history-stat-key { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+  .history-card { margin: 0 16px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; cursor: pointer; transition: border-color .2s; }
+  .history-card:hover { border-color: #444; }
+  .history-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .history-race-name { font-weight: 600; font-size: 15px; color: var(--text); }
+  .history-date { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); }
+  .result-badge { font-family: 'Bebas Neue', sans-serif; font-size: 22px; padding: 2px 10px; border-radius: 8px; flex-shrink: 0; }
+  .result-1 { color: #FFD700; background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.3); }
+  .result-2 { color: #C0C0C0; background: rgba(192,192,192,.1); border: 1px solid rgba(192,192,192,.3); }
+  .result-top { color: var(--green); background: rgba(57,217,138,.1); border: 1px solid rgba(57,217,138,.3); }
+  .history-row { display: flex; gap: 20px; align-items: center; }
+  .history-mini-stat { display: flex; flex-direction: column; gap: 2px; }
+  .h-val { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--text); }
+  .h-key { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+  .segment-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .segment-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--green)); transition: width 1s ease; }
 
-  /* Floating logout button */
-  .fab-logout {
-    position: absolute;
-    bottom: 90px;
-    right: 18px;
-    width: 40px;
-    height: 40px;
+  /* Auth cards */
+  .logged-in-card { display: flex; align-items: center; gap: 14px; padding: 16px; background: var(--surface); border: 1px solid rgba(232,255,71,.25); border-radius: 16px; }
+  .logged-in-avatar { font-size: 32px; width: 52px; height: 52px; background: var(--surface2); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .logged-in-label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .logged-in-nick { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--accent); letter-spacing: 1px; }
+  .btn-logout-soft { width: 100%; margin-top: 12px; padding: 14px; border-radius: 12px; border: 1px solid rgba(255,71,87,.3); background: rgba(255,71,87,.06); color: var(--accent2); font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all .2s; }
+  .btn-logout-soft:hover { background: rgba(255,71,87,.12); }
+
+  .otp-status-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 10px 14px; background: rgba(232,255,71,.06); border: 1px solid rgba(232,255,71,.2); border-radius: 10px; }
+  .otp-msg { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); }
+  .otp-countdown { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--accent); letter-spacing: 1px; min-width: 44px; text-align: right; }
+  .otp-countdown.expiring { color: var(--accent2); animation: blink .8s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .otp-error { margin-top: 8px; padding: 10px 14px; background: rgba(255,71,87,.08); border: 1px solid rgba(255,71,87,.3); border-radius: 10px; font-size: 12px; font-family: 'DM Mono', monospace; color: var(--accent2); }
+  .otp-field-full { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; color: var(--accent); font-size: 24px; font-family: 'DM Mono', monospace; letter-spacing: 10px; outline: none; text-align: center; transition: border-color .2s; }
+  .otp-field-full:focus { border-color: var(--accent); }
+
+  /* Logout overlay */
+  .logout-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.7); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: flex-end; justify-content: center; padding-bottom: 40px; }
+  .logout-overlay.visible { display: flex; }
+  .logout-sheet { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 24px 20px; width: 100%; margin: 0 16px; }
+  .logout-sheet-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--text); margin-bottom: 6px; }
+  .logout-sheet-sub { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--muted); margin-bottom: 20px; }
+  .logout-sheet-btns { display: flex; gap: 10px; }
+  .btn-cancel { flex: 1; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--muted); font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all .2s; }
+  .btn-cancel:hover { border-color: #555; color: var(--text); }
+  .btn-logout-confirm { flex: 1; padding: 14px; border-radius: 12px; border: none; background: var(--accent2); color: #fff; font-size: 14px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: opacity .2s; }
+  .btn-logout-confirm:hover { opacity: .85; }
+
+  /* Bottom nav */
+  .bottom-nav { display: flex; justify-content: space-around; padding: 10px 8px 20px; border-top: 1px solid var(--border); background: rgba(10,10,10,.95); backdrop-filter: blur(10px); }
+  .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; padding: 6px 14px; border-radius: 10px; transition: all .2s; }
+  .nav-item.active { background: rgba(232,255,71,.1); }
+  .nav-icon { font-size: 20px; }
+  .nav-label { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1px; }
+  .nav-item.active .nav-label { color: var(--accent); }
+
+  /* Comp type info box */
+  .comp-info-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(232,255,71,.06);
+    border: 1px solid rgba(232,255,71,.2);
+    border-radius: 12px;
+  }
+  .comp-info-icon { font-size: 18px; flex-shrink: 0; }
+  .comp-info-text { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--muted); line-height: 1.5; }
+  .comp-info-text strong { color: var(--accent); font-weight: 600; }
+
+  #timeSection .comp-info-box {
+    background: rgba(57,217,138,.06);
+    border-color: rgba(57,217,138,.2);
+  }
+  #timeSection .comp-info-text strong { color: var(--green); }
+
+  #compTypeToggle .toggle-option:nth-child(2).active {
+    border-color: var(--green);
+    background: rgba(57,217,138,.05);
+  }
+  #compTypeToggle .toggle-option:nth-child(2).active .toggle-check { color: var(--green); }
+
+  /* === LABEL VISIBILITY: yellow on black === */
+  .form-label,
+  .section-divider,
+  .stat-key,
+  .h-key,
+  .podium-label,
+  .history-stat-key,
+  .share-link-label,
+  .logged-in-label,
+  .list-subtitle,
+  .otp-msg,
+  .runner-city,
+  .race-datetime,
+  .refresh-note,
+  .comp-info-text,
+  .toggle-desc,
+  .race-stat,
+  .logo-sub,
+  .nav-label,
+  .stat-unit,
+  .runner-km span,
+  .history-date,
+  .otp-countdown { color: var(--accent) !important; }
+
+  /* Keep nav active label already accent, keep muted only for placeholders/hints */
+  .input-field::placeholder,
+  .textarea-field::placeholder { color: #555 !important; }
+
+  /* === SECRET CODE === */
+  .secret-code-wrapper { margin-top: 4px; }
+
+  .secret-code-input { text-transform: uppercase; }
+  .secret-code-input:focus { border-color: var(--accent) !important; }
+
+  .gen-btn {
+    width: 46px; height: 46px;
     background: var(--surface2);
     border: 1px solid var(--border);
     border-radius: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all .2s;
+  }
+  .gen-btn:hover { border-color: var(--accent); background: rgba(232,255,71,.08); }
+  .gen-btn:active { transform: scale(.93); }
+
+  .secret-code-hint {
+    margin-top: 6px;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    padding: 4px 2px;
+  }
+  .secret-code-hint.valid { color: var(--green); }
+  .secret-code-hint.invalid { color: var(--accent2); }
+
+  .secret-code-info {
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 16px;
-    z-index: 100;
-    transition: all .2s;
-    box-shadow: 0 4px 16px rgba(0,0,0,.4);
+    gap: 10px;
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: rgba(232,255,71,.06);
+    border: 1px solid rgba(232,255,71,.25);
+    border-radius: 12px;
+    animation: fadeIn .3s ease;
   }
-  .fab-logout:hover {
-    border-color: var(--accent2);
-    background: rgba(255,71,87,.1);
+  @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:translateY(0); } }
+
+  .secret-code-empty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: var(--surface2);
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    transition: all .3s;
   }
 
-  /* Logout confirm overlay */
-  .logout-overlay {
+  /* === RACE BOARD === */
+  .rb-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--accent);
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    cursor: pointer;
+    transition: all .2s;
+    letter-spacing: .5px;
+    white-space: nowrap;
+  }
+  .rb-filter-btn.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* My race cards */
+  .my-race-card {
+    margin: 0 16px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px 18px;
+    transition: border-color .2s;
+  }
+  .my-race-card.warning { border-color: rgba(255,159,67,.35); background: rgba(255,159,67,.04); }
+  .my-race-card.past { opacity: .7; }
+
+  .my-race-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+  .my-race-name { font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 4px; }
+  .my-race-meta { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--accent); }
+
+  .my-race-badge {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .my-race-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .my-race-time-left {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: var(--accent);
+  }
+  .my-race-time-left.warning-text { color: var(--orange); }
+  .my-race-time-left strong { color: var(--accent); }
+
+  .my-race-actions { display: flex; gap: 7px; }
+
+  .action-btn {
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .edit-btn {
+    background: rgba(232,255,71,.08);
+    border-color: rgba(232,255,71,.3);
+    color: var(--accent);
+  }
+  .edit-btn:hover { background: rgba(232,255,71,.15); }
+  .cancel-btn {
+    background: rgba(255,159,67,.08);
+    border-color: rgba(255,159,67,.3);
+    color: var(--orange);
+  }
+  .cancel-btn:hover { background: rgba(255,159,67,.15); }
+  .delete-btn {
+    background: rgba(255,71,87,.08);
+    border-color: rgba(255,71,87,.3);
+    color: var(--accent2);
+  }
+  .delete-btn:hover { background: rgba(255,71,87,.15); }
+
+  /* Overlays / sheets */
+  .rb-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.75);
     backdrop-filter: blur(4px);
-    z-index: 200;
+    z-index: 300;
     display: none;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 40px;
+    padding-bottom: 32px;
   }
-  .logout-overlay.visible { display: flex; }
-  .logout-sheet {
+  .rb-overlay.visible { display: flex; }
+  .rb-sheet {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 20px;
@@ -932,65 +807,47 @@
     width: 100%;
     margin: 0 16px;
   }
-  .logout-sheet-title {
+  .rb-sheet-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 22px;
     color: var(--text);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
   }
-  .logout-sheet-sub {
+  .rb-sheet-sub {
     font-size: 12px;
     font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    margin-bottom: 20px;
+    color: var(--accent);
+    margin-bottom: 4px;
   }
-  .logout-sheet-btns { display: flex; gap: 10px; }
-  .btn-cancel {
+  .rb-sheet-btns {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  /* === RACE BOARD TABS === */
+  .rb-tab {
     flex: 1;
-    padding: 14px;
-    border-radius: 12px;
+    padding: 9px 10px;
+    border-radius: 20px;
     border: 1px solid var(--border);
-    background: var(--surface2);
-    color: var(--muted);
-    font-size: 14px;
-    font-weight: 600;
-    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--accent);
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
     cursor: pointer;
     transition: all .2s;
+    letter-spacing: .3px;
+    white-space: nowrap;
+    text-align: center;
   }
-  .btn-cancel:hover { border-color: #555; color: var(--text); }
-  .btn-logout-confirm {
-    flex: 1;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    background: var(--accent2);
-    color: #fff;
-    font-size: 14px;
+  .rb-tab.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
     font-weight: 700;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    transition: opacity .2s;
   }
-  .btn-logout-confirm:hover { opacity: .85; }
-
-  /* Bottom nav */
-  .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 8px 20px;
-    border-top: 1px solid var(--border);
-    background: rgba(10,10,10,.95);
-    backdrop-filter: blur(10px);
-  }
-  .nav-item {
-    display: flex; flex-direction: column; align-items: center; gap: 4px;
-    cursor: pointer; padding: 6px 14px; border-radius: 10px; transition: all .2s;
-  }
-  .nav-item.active { background: rgba(232,255,71,.1); }
-  .nav-icon { font-size: 20px; }
-  .nav-label { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1px; }
-  .nav-item.active .nav-label { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -1001,11 +858,10 @@
   <div class="nav-tab" onclick="showScreen('list')">③ Gare</div>
   <div class="nav-tab" onclick="showScreen('monitor')">④ Monitor</div>
   <div class="nav-tab" onclick="showScreen('create')">⑤ Crea</div>
-  <div class="nav-tab" onclick="showScreen('history')">⑥ Storico</div>
+  <div class="nav-tab" onclick="showScreen('history')">⑥ Race Board</div>
 </div>
 
 <div class="phone">
-  <!-- Status bar -->
   <div class="notch"></div>
   <div class="status-bar">
     <span class="time">09:41</span>
@@ -1016,15 +872,14 @@
     </div>
   </div>
 
-  <!-- ===== SCREEN 1: LOGIN ===== -->
+  <!-- SCREEN 1: LOGIN -->
   <div id="screen-login" class="screen active">
     <div class="login-screen">
       <div class="logo-block">
-        <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACqASIDASIAAhEBAxEB/8QAHQABAAIDAQEBAQAAAAAAAAAAAAQHBQYIAwkCAf/EAEwQAAEDAgIEAxQHBgYDAAAAAAABAgMEBQYRBwgSIRMxURQYIjU2N0FVYXFzdHWBkZSxssLTFyMyMzRWoRVCUrPB0URUYnKC4ZOio//EABsBAQACAwEBAAAAAAAAAAAAAAAEBgECAwUH/8QAOhEAAgEDAQQFCQcEAwAAAAAAAAECAwQRMQUSIVEGEzJhwRUiNEFTcYGRsRQzQnKCodGSsuHwNsLx/9oADAMBAAIRAxEAPwDjIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHvQU0lZXU9HErUknlbE1XLuRXLkmfc3l686jpI7Z4Z9bm+URLm+t7VpVpqOdMm0YSloigwX5zqOkjtnhn1ub5Q51HSR2zwz63N8oi+W9n+1Rt1M+RQYL851HSR2zwz63N8oc6jpI7Z4Z9bm+UPLez/AGqHUz5FBgvznUdJHbPDPrc3yhzqOkjtnhn1ub5Q8t7P9qh1M+RQYL851HSR2zwz63N8oc6jpI7Z4Z9bm+UPLez/AGqHUz5FBgvznUdJHbPDPrc3yhzqOkjtnhn1ub5Q8t7P9qh1M+RQYLU0naCcY6PcMLiG+VtllpEmZDs0s8j37Ts8tzo2plu5Sqydb3NK5hv0pZXcaSi4vDAAO5gAAAAAAAAAAAAAAAAAA/rUVzkRONT04CTkT0n5g+9aTDeMUwReAk5E9I4CTkT0ko2PDuGnXTCV/vqukRLYkTWNbl0T3q5d/ZyRjHrmnZROUxUcKa3pPl+7wZSyajwL+56RwL+56SSf1DpuIYIb2KxcnH5Paq+2nePE5SWHgwAAYBkcL9Utr8ch99D6iHy7wv1S2vxyH30PqIUPpn26Px8CbaaMAApJLAAAAJDaKsc1HNpKhUVM0VI1yUOoqxrVc6kqEREzVVjXcd/s1ZLO4/kzG8uZHB+0hlWFZkiesaLkr9ldlPOeraKsc1HNpKhUVM0VI13msaFWWkW/gMojgkcwV3+TqP8AxO/seMjHxvVkjHMcnGjkyVBOjUprMote9BNPQo7XX6yb/KVP8Rwydza6/WTf5Sp/iOGT6P0T9A/U/AgXPbAALMRwAAAAAAAAAAAAAAAAAD9wfetJhDg+9aSzrDQAsLBzcqGw2VsSOkvctUz6uTJ0iyMSGJru4j0Vf+Sle8a5G0YrnfbL1Z6eCRm3baKmVHx7lR7kSVc/9SOerV/2nC5j1mILv+n8tG8eHE1h7FZI5juNq5KDN48gip8XXJIImwwSzLPDG1c0ZHJ0bUz7iORDCEmnLfgpczDI1V9tO8eJ7VX207x4nKepqwADUGRwv1S2vxyH30PqVQxNnrIoXqqNe5EXLjPlrhfqltfjkPvofU609M6fwiFK6UxUrm3i9G39US7bsyM5VYfo4qaSRstQqtaqpm5P7Gsm+XD8DP4N3sNDPM6UWVC1q01Rio5T0OltNyTyAAVUkmw3erqaWgoOZ5XR7Ue/Ls7kMW+6XB7FY6qerXJkqZJxGZuNwqKGgoeA2Ojj37SZ8SIYmtu9XV07oJeD2HZZ5NyXcWzbVeMa80q8k8LzUnjsrhne9fuI1JeavNRLp+pOfwv9UIlJc69JIokqX7G0jct3ES6fqTn8L/VDEUv4mL/entI95Xq0qtsqcmswhnDxzNopOMs82ZzEdfV01wSOCdzG8Gi5Jlx7zBTSyTSullcrnu3qq9kymLOmieCT2qYgh7br1Z3lWEpNpSeFngjaikoJlIa6/WTf5Sp/iOGTubXX6yb/AClT/EcMl06J+gfqfgRLntgAFmI4AAAAAAAAAAAAAAAB1Vot1ccD4p0aWfE1wuuIoqytpOHkZBUQpGjt+5EWJVy3cqmT0MatOHXWRt3x3BUV1RVZvgoUnfE2GJfs7asVrleqb13oiZ5Zdk8Gr0jsqSnlvMXjGOOe75HZUJvByLD960lKdX6wOgzRxhvRvcsTWGiqrTWUCMdGxlW+WOVXPazZckiuX97sKhyk5j25bTVbnyoensvaVHaFJ1KWcZxxMTpSg+JOw1RpccQUFC5ytZPUMY5yJnstVUzXzIemK7g+7Ymudzk2dqqqpJV2UyTe5V3JyE7ATFjulVcujRlvopqhXtTPZdsq1mfcV7mJ5zX1XNcydHjWb5L6/wCo19RsGMESamslxRY15ptzGuRnGjo3Oj6LuqjEXzoa+bG+TmvR1HGqs2rbcnKibPRK2didnkRYf/ZTXERVXJEVVFDhFx5N/wCP2D1I1V9tO8eJcmrjowsWkzEN2t+IKq6UsdFSsljWjkYxyqrlRc9tjt3oN2vGq/zRpObZbBca+nw3BRRT1dfXKyWThHOeixxo1rUVdlqLv4s81z3IeTc7ZtKFeVGpLDSy+RsqM2spHMoO77Xq4aILbSRU1faqi4zZZcNV3GVj3r3o3Mb6EIOMNV7R1daBzbA2tsFWiLwckdQ+eNV7G02RVVU7zkPLj0ssXLdaklzxw+uf2N/s0zi/C/VLa/HIffQ+p1p6Z0/hEPmriDBl5wHpQpMO3uNqTxVkLo5GfYmjV6bL2ryLl5lRUPpVaemdP4RCB0jqRqXFrODym/FHS3WIyTNyuH4GfwbvYaGb5cPwM/g3ew0emglqZmwwtVz3HDpfCU69KMVltP6mbV4iz+0tPLUzthhbtPd+ndM4mGd2a1qJy/Vf9mVtNvit8GSZLIqdG9ez/wBGGv144bapaV31fE96fvdxO4arZNls2062/W9N6Ry18OD+b08XWzqSxDQjX6qhlSCmhdtpTt2Vf2HLu4vQYsAqt3dTuq0q09X/AOEmMd1YRNjr9i0yUHBZ7btrb2uLi7GXcIkTtiVr8s9lyLkfkGKl1VqOMpPjFJLuS0MqKWSZdq3m+qSfguDyajctrMhgGlatOvUdSo8t8WEklhFIa6/WTf5Sp/iOGTubXX6yb/KVP8RwyfR+ifoH6n4EC57YABZiOAAAAAAAAAAAAAAAfRTVz6yGFPEG+1Tn7Wo0zYnjxvV4Pwxdqq0UNtVrKiakkWOWaXJFXo29EjUzRMkVM9+eZ0Fq5dZDCniDfapwdpSnlqdJeJ5pnK57rtVZqvIkrkT9EKFsO0p19p151Fndbxnm2Ta0nGnFIm3DSVjm8YdXDV4xLX3K2PmbMsdW/hX7Td6fWOzfln2M8tyGVraeHEWF46umY1KyjYjZWtTe5qcSleQ/etNiwxeJbPcGzN3xu3PavE5Oyhca1niG/bpKUXnhwzz+ZP2LfUqU5ULnjTqLD7uTXuZNtavoMEXmdNtklbPDRZou5zEVZHov/JkSmuFm46sbZcHWmrs8augqXS1j2ouapmuwmadxWOK1dFI12y5jkXkyO9jcwrxlNat8V61jh4EbaGzqtnU3ZLMfU1o1zRnsKotTaL9bkVVc+jSoY1G5q50T0cvobtr5iVge1ROWS716IlJTJtdF+8vYQmaJLTVTYrpZpUdDRSbVPUyLu+qlasb+P/S5SNjm6RU7nWC3tWOnpXqx/K5yblVSJcVZVq0rai9cNvktH8eB6uyrWFlD7fdrhHsxf4n6vgvX8i7NTGt/aGkbFVVso3boo1yRMk+8Us3Wn0k1+j3A8LbJI2K73SVYIJVajuBYiZveiLuVU3ImfZUqPUS6scR+IRfzFP1r9vct/wAKRqvQtpahyJ3VezP2IVW5s6dXb6oyXmpLh7onkVbidWMqstW2/mzm263GvutdJX3Otqa2rlXOSaolWR7l7qrvU6a1JtIN6qr9VYGulbPWUfMi1FFwrlcsCsVEcxFXfsqjs8uJMjlsurUu691P4hUexCx7boU6mz6ia0WV3YIdGTU0W3rn2mmW4YGviMRKltzSlVydliq1yIveVq+k6atPTOn8IhztrndK8E+X2e6dE2npnT+EQobk3Qs885f3Im/imbpWMdJSSsambnMVE9BGtFuioIckydK77b/6J3CcqoiKqrkicamIjvkElzSmaicEvQpJyu/sfQbudnRrwq12lLSOe/8A3UgxUnFpaEXFVbURuSkY1WRPbmrv4+4a6bveKJtdRuj3JI3exeRTSntcx7mPRWuauSovYKN0ptq9O76ybzGWnd3Ey2knHCPyACsEgAAAAAApDXX6yb/KVP8AEcMnc2uv1k3+Uqf4jhk+mdE/QP1PwPPue2AAWYjgAAAAAAAAAAAAAAH0V1cushhTxBvtU4K0k9cTEvlaq/nOO9dXLrIYU8Qb7VOCtJPXExL5Wqv5zimdHPT7n3+LJdfsRMFB960mNRVciJxquRDg+9abBhKkSuxPbaVyo1slSxHK7iRu0mar3Mi7qSjByfqIqNgxLfayzYkbSUT0ZHQUsNKrEXNquYxEevnftL5zzXGVFIqSVFgpXy/xIuSL5jWr3VrXXisrV4553yelVUhEXydQqRTnHjjVZX0PXtduX1pDq6U/N5NJr4ZTwbLc8YXCrdGyFrKWFjkc2OJMk3KeOP4eDxZWSo1WsqdiqYirn0MrUei+hxgENlxUraqw4fuTW9EtK6lmdnvc+J65f/N0aeY6woU7ecVTWE8rx8CLd31xez6yvJyZdOon1Y4j8Qi/mKfzX66pMLeJz++0/uon1Y4j8Qi/mKfzX66pMLeJz++0qFT/AJL8P+po/uDmUurUu699P4hUexClS6tS7r30/iFR7EPe2x6DW/KzhS7aLs1zuleCfL7PdOibT0zp/CIc7a53SvBPl9nunRNp6Z0/hEPnq+4s/wA0v7kTvxSNyuH4GfwbvYaGm5c0N8uH4GfwbvYaGer0y++pe5/U5WujNxw/X82Umy9fro9zu6nYUgYpt/8Ajom9yRE9phrbVvoqtk7N6JucnKhuzHRVNOjkyfHI30opO2fWhtzZ7tqz8+Pr+j8H/k0mnRnvLQ0AE28UTqGsWPesbt7F5UIRRK9CdCpKlUWGuBNi1JZQABxMgAAFIa6/WTf5Sp/iOGTubXX6yb/KVP8AEcMn0zon6B+p+B59z2wACzEcAAAAAAAAAAAAAAAsXDmm/Shh2x0lks+J+ZaCkjSOCLmCmfsN5M3Rqq+dTQrlW1NxuNTcK2ThamqmfNM/ZRNp7lVzlyTcmaqvERwcadtRpScqcEm9Wkln3mXJvVn6Y7Zcjss8iTT109PKksDnRPRFTaa7JclTJf0UiA75eMGD2WoVf3f1HDr/AAoeIM78ge3NC/woejq2Z0LYVcqxsVXNYrtyKuWa5eZPQRQN9mcm0YGx/ivA9bU1mFbp+zp6mNI5nczxS7TUXNEyka5E38h/MfY+xZjyppanFd2/aMtIxzIHczxRbDXKiqn1bW58ScZrAI7t6Lq9c4Lf54WfnqN54xkGbwXiq/4Nvjb3huv5hr2xujSXgWSZNdxpk9qp+hhAdJwjOLjJZTMJ40N2xnpWx9jGKiixJfubmUNQlTTJzJBHsSJxO6BiZ95c0M5T6wmmGCZk0WM5kexc2qtFTLv7yx5FWgjqxtkkurjw04Lh7jbflzLkm1oNOcsT4n45VWvRUVEtVGm7vpCYr6ftL35yn9Tp/llYA3rWtCu06sFLHNJ/UKTWjLP+n7S9+cp/U6f5ZkKDWY03UMHAU2OHtjzzydbaR/6uiVSoAa0rO3oy3qdNRfckg5SerLduOsppsuEbY6rGzntauabNtpGKnnbEikH6ftL35yn9Tp/llYAVbK2qy3qlOLfNpMKcloyz/p+0vfnKf1On+WPp+0vfnKf1On+WVgDn5Ns/ZR/pX8GesnzLP+n7S9+cp/U6f5Y+n7S9+cp/U6f5ZWAHk2z9lH+lfwOsnzN1xjpW0gYwsy2fEeIpK+hWRsixOp4mJtN4lzaxF7PKaUASaVGnRju04pLuWDVtvUAA6GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==" alt="rankFit" style="width:220px;height:auto;border-radius:8px;margin-bottom:8px;">
+        <img src="data:image/png;base64,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" alt="rankFit" style="width:200px;height:auto;display:block;margin-bottom:12px;">
         <div class="logo-sub">Race. Anywhere. Together.</div>
       </div>
 
-      <!-- STATO A: già autenticato -->
       <div id="alreadyLoggedBlock" style="display:none">
         <div class="logged-in-card">
           <div class="logged-in-avatar">🏃</div>
@@ -1037,7 +892,6 @@
         <button class="btn-logout-soft" onclick="showLogoutSheet()">🚪 Esci dall'account</button>
       </div>
 
-      <!-- STATO B: non autenticato -->
       <div id="notLoggedBlock">
         <div class="form-label">Prefisso + Numero</div>
         <div class="input-row">
@@ -1055,7 +909,7 @@
           <div class="form-label" style="margin-top:20px">Codice OTP</div>
           <input class="otp-field" id="otpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
           <div id="otpStatus" class="otp-status-row">
-            <span id="otpMsg" class="otp-msg">Ti è stato inviato un codice OTP. Ti preghiamo di inserirlo per verificare la tua identità</span>
+            <span id="otpMsg" class="otp-msg">Ti è stato inviato un codice OTP. Inseriscilo per verificare la tua identità</span>
             <span id="otpCountdown" class="otp-countdown">2:00</span>
           </div>
           <div id="otpError" class="otp-error" style="display:none"></div>
@@ -1067,11 +921,10 @@
           Non hai un account? <span onclick="showScreen('register')">Registrati</span>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- ===== SCREEN 2: REGISTER ===== -->
+  <!-- SCREEN 2: REGISTER -->
   <div id="screen-register" class="screen">
     <div class="register-screen">
       <div class="screen-header">
@@ -1091,12 +944,11 @@
         <input class="input-field" id="regPhone" type="tel" placeholder="333 456 7890">
       </div>
 
-      <!-- OTP block: hidden until requested -->
       <div id="regOtpBlock" style="display:none">
         <div class="form-label" style="margin-top:20px">Codice OTP</div>
         <input class="otp-field" id="regOtpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
         <div class="otp-status-row">
-          <span id="regOtpMsg" class="otp-msg">Ti è stato inviato un codice OTP. Ti preghiamo di inserirlo per verificare la tua identità</span>
+          <span id="regOtpMsg" class="otp-msg">Ti è stato inviato un codice OTP. Inseriscilo per verificare la tua identità</span>
           <span id="regOtpCountdown" class="otp-countdown">2:00</span>
         </div>
         <div id="regOtpError" class="otp-error" style="display:none"></div>
@@ -1113,7 +965,7 @@
     </div>
   </div>
 
-  <!-- ===== SCREEN 3: LIST ===== -->
+  <!-- SCREEN 3: LIST -->
   <div id="screen-list" class="screen">
     <div class="list-screen">
       <div class="list-header">
@@ -1132,7 +984,6 @@
         <div class="filter-chip">21K</div>
       </div>
 
-      <!-- Race cards -->
       <div class="race-card live" onclick="showScreen('monitor')">
         <div class="race-top">
           <div class="race-name">Milano Urban Sprint</div>
@@ -1198,16 +1049,15 @@
       </div>
     </div>
 
-    <!-- Bottom nav -->
     <div class="bottom-nav">
       <div class="nav-item active" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
       <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
       <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">＋</div><div class="nav-label">CREA</div></div>
-      <div class="nav-item" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">STORICO</div></div>
+      <div class="nav-item" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">RACE BOARD</div></div>
     </div>
   </div>
 
-  <!-- ===== SCREEN 4: MONITOR ===== -->
+  <!-- SCREEN 4: MONITOR -->
   <div id="screen-monitor" class="screen">
     <div class="monitor-screen">
       <div class="monitor-header">
@@ -1218,89 +1068,42 @@
         <div class="live-pill"><div class="live-dot"></div>LIVE</div>
       </div>
 
-      <!-- Top 3 + me -->
       <div class="podium-section">
         <div class="podium-label">Classifica in tempo reale</div>
         <div class="podium-row">
           <div class="podium-item">
             <div class="pos-num pos-1">1</div>
-            <div class="runner-info">
-              <div class="runner-name">FastLeg_Marco</div>
-              <div class="runner-city">Milano</div>
-            </div>
-            <div class="runner-progress">
-              <div class="runner-km">4.21 <span>km</span></div>
-              <div class="progress-bar"><div class="progress-fill" style="width:84%"></div></div>
-            </div>
+            <div class="runner-info"><div class="runner-name">FastLeg_Marco</div><div class="runner-city">Milano</div></div>
+            <div class="runner-progress"><div class="runner-km">4.21 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:84%"></div></div></div>
           </div>
           <div class="podium-item">
             <div class="pos-num pos-2">2</div>
-            <div class="runner-info">
-              <div class="runner-name">RunnerX_Giulia</div>
-              <div class="runner-city">Roma</div>
-            </div>
-            <div class="runner-progress">
-              <div class="runner-km">4.05 <span>km</span></div>
-              <div class="progress-bar"><div class="progress-fill" style="width:81%"></div></div>
-            </div>
+            <div class="runner-info"><div class="runner-name">RunnerX_Giulia</div><div class="runner-city">Roma</div></div>
+            <div class="runner-progress"><div class="runner-km">4.05 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:81%"></div></div></div>
           </div>
           <div class="podium-item">
             <div class="pos-num pos-3">3</div>
-            <div class="runner-info">
-              <div class="runner-name">BlazePaolo</div>
-              <div class="runner-city">Torino</div>
-            </div>
-            <div class="runner-progress">
-              <div class="runner-km">3.88 <span>km</span></div>
-              <div class="progress-bar"><div class="progress-fill" style="width:77.6%"></div></div>
-            </div>
+            <div class="runner-info"><div class="runner-name">BlazePaolo</div><div class="runner-city">Torino</div></div>
+            <div class="runner-progress"><div class="runner-km">3.88 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:77.6%"></div></div></div>
           </div>
           <div class="podium-item me">
             <div class="pos-num pos-me">4</div>
-            <div class="runner-info">
-              <div class="runner-name">SpeedyRunner42</div>
-              <div class="runner-city" style="color:var(--accent);font-size:10px">● TU</div>
-            </div>
-            <div class="runner-progress">
-              <div class="runner-km" style="color:var(--accent)">3.61 <span>km</span></div>
-              <div class="progress-bar"><div class="progress-fill" style="width:72.2%"></div></div>
-            </div>
+            <div class="runner-info"><div class="runner-name">SpeedyRunner42</div><div class="runner-city" style="color:var(--accent);font-size:10px">● TU</div></div>
+            <div class="runner-progress"><div class="runner-km" style="color:var(--accent)">3.61 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:72.2%"></div></div></div>
           </div>
         </div>
       </div>
 
-      <!-- My stats -->
       <div class="my-stats-section">
         <div class="my-stats-label">● I tuoi dati</div>
         <div class="stats-grid">
-          <div class="stat-box">
-            <div class="stat-key">Distanza da 1°</div>
-            <div class="stat-val negative">-600</div>
-            <div class="stat-unit">metri</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-key">Ritardo su 3°</div>
-            <div class="stat-val negative">+01:14</div>
-            <div class="stat-unit">min:sec</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-key">Vantaggio su 5°</div>
-            <div class="stat-val positive">+02:31</div>
-            <div class="stat-unit">min:sec</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-key">Al traguardo</div>
-            <div class="stat-val">1.39</div>
-            <div class="stat-unit">km</div>
-          </div>
-          <div class="stat-box full">
-            <div class="stat-key">Andamento medio</div>
-            <div class="stat-val">5:08</div>
-            <div class="stat-unit">min/km</div>
-          </div>
+          <div class="stat-box"><div class="stat-key">Distanza da 1°</div><div class="stat-val negative">-600</div><div class="stat-unit">metri</div></div>
+          <div class="stat-box"><div class="stat-key">Ritardo su 3°</div><div class="stat-val negative">+01:14</div><div class="stat-unit">min:sec</div></div>
+          <div class="stat-box"><div class="stat-key">Vantaggio su 5°</div><div class="stat-val positive">+02:31</div><div class="stat-unit">min:sec</div></div>
+          <div class="stat-box"><div class="stat-key">Al traguardo</div><div class="stat-val">1.39</div><div class="stat-unit">km</div></div>
+          <div class="stat-box full"><div class="stat-key">Andamento medio</div><div class="stat-val">5:08</div><div class="stat-unit">min/km</div></div>
         </div>
       </div>
-
       <div class="refresh-note">↻ AGGIORNAMENTO OGNI 3 SEC</div>
     </div>
 
@@ -1308,112 +1111,145 @@
       <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
       <div class="nav-item active" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
       <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">＋</div><div class="nav-label">CREA</div></div>
-      <div class="nav-item" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">STORICO</div></div>
+      <div class="nav-item" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">RACE BOARD</div></div>
     </div>
   </div>
 
-  <!-- ===== SCREEN 5: CREATE RACE ===== -->
+  <!-- SCREEN 5: CREATE -->
   <div id="screen-create" class="screen">
     <div class="create-screen">
       <div class="screen-header" style="margin-bottom:20px">
-        <div class="back-btn" onclick="showScreen('list')">←</div>
-        <div class="screen-title">CREA GARA</div>
+        <div class="back-btn" onclick="exitCreateMode()">←</div>
+        <div class="screen-title" id="createScreenTitle">CREA GARA</div>
+      </div>
+
+      <!-- Edit mode banner (hidden by default) -->
+      <div id="createModeBanner" style="display:none;align-items:center;gap:10px;padding:10px 14px;background:rgba(232,255,71,.07);border:1px solid rgba(232,255,71,.25);border-radius:12px;margin-bottom:16px">
+        <span style="font-size:16px">✏️</span>
+        <div style="flex:1">
+          <div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);letter-spacing:1px;margin-bottom:2px">MODIFICA GARA</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text)" id="createModeRaceName"></div>
+        </div>
+        <div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);cursor:pointer" onclick="resetCreateMode()">✕ Nuova</div>
       </div>
 
       <div class="section-divider">Informazioni base</div>
-
       <div class="form-label">Nome della gara</div>
       <input class="input-field" style="width:100%" type="text" placeholder="es. Milano Sprint 5K">
-
       <div class="form-label" style="margin-top:14px">Descrizione</div>
       <textarea class="textarea-field" placeholder="Breve descrizione della gara..."></textarea>
 
-      <div class="section-divider">Data e distanza</div>
-
+      <div class="section-divider">Data e orario</div>
       <div class="two-col">
-        <div>
-          <div class="form-label">Data</div>
-          <input class="input-field" style="width:100%" type="date" value="2026-03-10">
+        <div><div class="form-label">Data</div><input class="input-field" style="width:100%" type="date" value="2026-03-10"></div>
+        <div><div class="form-label">Ora inizio</div><input class="input-field" style="width:100%" type="time" value="08:00"></div>
+      </div>
+
+      <div class="section-divider">Tipo di competizione</div>
+      <div class="toggle-group" id="compTypeToggle">
+        <div class="toggle-option active" onclick="selectCompType('distance')">
+          <div class="toggle-icon">📏</div>
+          <div class="toggle-text">
+            <div class="toggle-label">A distanza</div>
+            <div class="toggle-desc">Vince chi raggiunge il traguardo prima</div>
+          </div>
+          <div class="toggle-check" id="check-dist">✓</div>
         </div>
-        <div>
-          <div class="form-label">Ora inizio</div>
-          <input class="input-field" style="width:100%" type="time" value="08:00">
+        <div class="toggle-option" onclick="selectCompType('time')">
+          <div class="toggle-icon">⏱</div>
+          <div class="toggle-text">
+            <div class="toggle-label">A tempo</div>
+            <div class="toggle-desc">Vince chi percorre più km nel tempo dato</div>
+          </div>
+          <div class="toggle-check" id="check-time" style="opacity:0">✓</div>
         </div>
       </div>
 
-      <div class="form-label" style="margin-top:12px">Distanza (km)</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
-        <div class="filter-chip active">5</div>
-        <div class="filter-chip">10</div>
-        <div class="filter-chip">21.1</div>
-        <div class="filter-chip">42.2</div>
-        <div class="filter-chip">Custom</div>
+      <!-- SEZIONE A DISTANZA -->
+      <div id="distanceSection">
+        <div class="form-label" style="margin-top:14px">Distanza (km)</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px" id="distChips">
+          <div class="dist-chip filter-chip active" onclick="selectDistChip(this,'5')">5</div>
+          <div class="dist-chip filter-chip" onclick="selectDistChip(this,'10')">10</div>
+          <div class="dist-chip filter-chip" onclick="selectDistChip(this,'21.1')">21.1</div>
+          <div class="dist-chip filter-chip" onclick="selectDistChip(this,'42.2')">42.2</div>
+          <div class="dist-chip filter-chip" onclick="selectDistChip(this,'custom')">Custom</div>
+        </div>
+        <div id="customDistBox" style="display:none;margin-top:10px">
+          <div class="form-label">Inserisci la distanza</div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <input class="input-field" id="customDistInput" type="number" min="0.1" step="0.1" placeholder="es. 15.5" style="flex:1">
+            <span style="font-family:'DM Mono',monospace;color:var(--muted);font-size:13px;flex-shrink:0">km</span>
+          </div>
+        </div>
+        <div class="comp-info-box" style="margin-top:12px">
+          <span class="comp-info-icon">🏁</span>
+          <span class="comp-info-text">Vince chi raggiunge i <strong id="distSummary">5 km</strong> nel minor tempo</span>
+        </div>
       </div>
 
-      <!-- TIPO GARA: VIRTUALE / IN PRESENZA -->
+      <!-- SEZIONE A TEMPO -->
+      <div id="timeSection" style="display:none">
+        <div class="form-label" style="margin-top:14px">Durata (minuti)</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px" id="timeChips">
+          <div class="time-chip filter-chip active" onclick="selectTimeChip(this,'20')">20 min</div>
+          <div class="time-chip filter-chip" onclick="selectTimeChip(this,'30')">30 min</div>
+          <div class="time-chip filter-chip" onclick="selectTimeChip(this,'45')">45 min</div>
+          <div class="time-chip filter-chip" onclick="selectTimeChip(this,'60')">60 min</div>
+          <div class="time-chip filter-chip" onclick="selectTimeChip(this,'custom')">Custom</div>
+        </div>
+        <div id="customTimeBox" style="display:none;margin-top:10px">
+          <div class="form-label">Inserisci la durata</div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <input class="input-field" id="customTimeInput" type="number" min="1" step="1" placeholder="es. 90" style="flex:1">
+            <span style="font-family:'DM Mono',monospace;color:var(--muted);font-size:13px;flex-shrink:0">min</span>
+          </div>
+        </div>
+        <div class="comp-info-box" style="margin-top:12px">
+          <span class="comp-info-icon">⏱</span>
+          <span class="comp-info-text">Tutti corrono per <strong id="timeSummary">20 minuti</strong> — vince chi percorre più km</span>
+        </div>
+      </div>
+
       <div class="section-divider">Tipo di gara</div>
-
       <div class="toggle-group" id="raceTypeToggle">
         <div class="toggle-option active" onclick="selectRaceType('virtual')">
           <div class="toggle-icon">🌐</div>
-          <div class="toggle-text">
-            <div class="toggle-label">Virtuale</div>
-            <div class="toggle-desc">Ognuno corre sul proprio percorso</div>
-          </div>
+          <div class="toggle-text"><div class="toggle-label">Virtuale</div><div class="toggle-desc">Ognuno corre sul proprio percorso</div></div>
           <div class="toggle-check" id="check-virtual">✓</div>
         </div>
         <div class="toggle-option" onclick="selectRaceType('physical')">
           <div class="toggle-icon">📍</div>
-          <div class="toggle-text">
-            <div class="toggle-label">In presenza</div>
-            <div class="toggle-desc">Tutti si ritrovano nello stesso luogo</div>
-          </div>
+          <div class="toggle-text"><div class="toggle-label">In presenza</div><div class="toggle-desc">Tutti si ritrovano nello stesso luogo</div></div>
           <div class="toggle-check" id="check-physical" style="opacity:0">✓</div>
         </div>
       </div>
 
-      <!-- SEZIONE IN PRESENZA (nascosta di default) -->
       <div id="physicalSection" style="display:none">
         <div class="form-label" style="margin-top:16px">Indirizzo punto di ritrovo</div>
         <input class="input-field" style="width:100%" type="text" placeholder="es. Via Sempione 12, Milano">
-
         <div class="form-label" style="margin-top:12px">Coordinate GPS</div>
         <div class="two-col">
-          <div>
-            <input class="input-field" style="width:100%" type="text" placeholder="Lat  45.4654">
-          </div>
-          <div>
-            <input class="input-field" style="width:100%" type="text" placeholder="Lon  9.1859">
-          </div>
+          <input class="input-field" style="width:100%" type="text" placeholder="Lat  45.4654">
+          <input class="input-field" style="width:100%" type="text" placeholder="Lon  9.1859">
         </div>
-        <div class="gps-auto-btn" onclick="this.textContent='📡 Posizione acquisita ✓'; this.style.color='var(--green)'; this.style.borderColor='var(--green)'">
-          📡 Usa la mia posizione attuale
-        </div>
+        <div class="gps-auto-btn" onclick="this.textContent='📡 Posizione acquisita ✓'; this.style.color='var(--green)'; this.style.borderColor='var(--green)'">📡 Usa la mia posizione attuale</div>
       </div>
 
-      <!-- VISIBILITÀ: PUBBLICA / PRIVATA -->
       <div class="section-divider">Visibilità</div>
-
       <div class="toggle-group" id="visibilityToggle">
         <div class="toggle-option active" onclick="selectVisibility('public')">
           <div class="toggle-icon">🌍</div>
-          <div class="toggle-text">
-            <div class="toggle-label">Pubblica</div>
-            <div class="toggle-desc">Tutti possono vedere e iscriversi</div>
-          </div>
+          <div class="toggle-text"><div class="toggle-label">Pubblica</div><div class="toggle-desc">Tutti possono vedere e iscriversi</div></div>
           <div class="toggle-check" id="check-public">✓</div>
         </div>
         <div class="toggle-option" onclick="selectVisibility('private')">
           <div class="toggle-icon">🔒</div>
-          <div class="toggle-text">
-            <div class="toggle-label">Privata</div>
-            <div class="toggle-desc">Solo chi riceve l'invito può partecipare</div>
-          </div>
+          <div class="toggle-text"><div class="toggle-label">Privata</div><div class="toggle-desc">Solo chi riceve l'invito può partecipare</div></div>
           <div class="toggle-check" id="check-private" style="opacity:0">✓</div>
         </div>
       </div>
 
-      <!-- SEZIONE INVITI (nascosta di default) -->
       <div id="privateSection" style="display:none">
         <div class="form-label" style="margin-top:16px">Invita partecipanti</div>
         <div class="invite-row">
@@ -1433,117 +1269,148 @@
         </div>
       </div>
 
-      <button class="btn-primary" style="margin-top:28px" onclick="showScreen('list')">PUBBLICA GARA →</button>
+      <div class="section-divider">Codice segreto <span style="font-size:9px;color:var(--muted);letter-spacing:1px">(opzionale)</span></div>
+
+      <div class="secret-code-wrapper">
+        <div class="form-label" style="margin-top:0">Codice di accesso</div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <input
+            class="input-field secret-code-input"
+            id="secretCodeInput"
+            type="text"
+            maxlength="6"
+            placeholder="es. RUN24"
+            style="flex:1;letter-spacing:4px;font-family:'DM Mono',monospace;font-size:18px;text-transform:uppercase"
+            oninput="handleSecretCode(this.value)"
+          >
+          <button class="gen-btn" onclick="generateSecretCode()" type="button" title="Genera codice casuale">⚡</button>
+        </div>
+        <div id="secretCodeHint" class="secret-code-hint" style="display:none"></div>
+        <div class="secret-code-info" id="secretCodeInfo" style="display:none">
+          <span class="comp-info-icon">🔑</span>
+          <div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);margin-bottom:3px">Codice attivo: <strong id="secretCodeDisplay"></strong></div>
+            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted)">Solo chi inserisce questo codice potrà iscriversi</div>
+          </div>
+        </div>
+        <div class="secret-code-empty">
+          <span style="font-size:16px">🔓</span>
+          <span id="secretCodeEmptyMsg">Nessun codice — la gara è liberamente accessibile (in base alla visibilità)</span>
+        </div>
+      </div>
+
+      <button class="btn-primary" style="margin-top:28px" id="publishBtn" onclick="handlePublish()">PUBBLICA GARA →</button>
     </div>
   </div>
 
-  <!-- ===== SCREEN 6: HISTORY ===== -->
+  <!-- SCREEN 6: RACE BOARD -->
   <div id="screen-history" class="screen">
     <div class="history-screen">
-      <div class="history-header">
-        <div class="history-title">STORICO</div>
+
+      <!-- Header -->
+      <div class="history-header" style="padding-bottom:14px">
+        <div class="history-title">RACE BOARD</div>
       </div>
 
-      <div class="history-stats-row">
-        <div class="history-stat-box">
-          <div class="history-stat-val">24</div>
-          <div class="history-stat-key">Gare</div>
-        </div>
-        <div class="history-stat-box">
-          <div class="history-stat-val">186</div>
-          <div class="history-stat-key">km tot</div>
-        </div>
-        <div class="history-stat-box">
-          <div class="history-stat-val">3</div>
-          <div class="history-stat-key">Vittorie</div>
-        </div>
+      <!-- Toggle filter tabs -->
+      <div style="display:flex;gap:8px;padding:0 16px 16px">
+        <button class="rb-tab active" id="rbTabMie" onclick="switchRbTab('mie')">🏃 Le mie gare</button>
+        <button class="rb-tab" id="rbTabCreate" onclick="switchRbTab('create')">🎯 Competizioni create</button>
       </div>
 
-      <div class="history-card">
-        <div class="history-card-top">
-          <div>
-            <div class="history-race-name">Milano Urban Sprint</div>
-            <div class="history-date">Oggi · 5.0 km</div>
-          </div>
-          <div class="result-badge result-2">2°</div>
+      <!-- ===== TAB: LE MIE GARE ===== -->
+      <div id="rbTabMieView">
+        <div class="history-stats-row">
+          <div class="history-stat-box"><div class="history-stat-val">24</div><div class="history-stat-key">Gare</div></div>
+          <div class="history-stat-box"><div class="history-stat-val">186</div><div class="history-stat-key">km tot</div></div>
+          <div class="history-stat-box"><div class="history-stat-val">3</div><div class="history-stat-key">Vittorie</div></div>
         </div>
-        <div class="history-row">
-          <div class="history-mini-stat">
-            <div class="h-val">24:31</div>
-            <div class="h-key">Tempo</div>
-          </div>
-          <div class="history-mini-stat">
-            <div class="h-val">4:54</div>
-            <div class="h-key">min/km</div>
-          </div>
-          <div class="history-mini-stat">
-            <div class="h-val">12</div>
-            <div class="h-key">Corridori</div>
-          </div>
-          <div class="segment-bar"><div class="segment-fill" style="width:92%"></div></div>
+
+        <div class="history-card">
+          <div class="history-card-top"><div><div class="history-race-name">Milano Urban Sprint</div><div class="history-date">Oggi · 5.0 km</div></div><div class="result-badge result-2">2°</div></div>
+          <div class="history-row"><div class="history-mini-stat"><div class="h-val">24:31</div><div class="h-key">Tempo</div></div><div class="history-mini-stat"><div class="h-val">4:54</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">12</div><div class="h-key">Corridori</div></div><div class="segment-bar"><div class="segment-fill" style="width:92%"></div></div></div>
+        </div>
+        <div class="history-card">
+          <div class="history-card-top"><div><div class="history-race-name">Roma Parkway 10K</div><div class="history-date">28 Feb · 10.0 km</div></div><div class="result-badge result-1">1°</div></div>
+          <div class="history-row"><div class="history-mini-stat"><div class="h-val">47:12</div><div class="h-key">Tempo</div></div><div class="history-mini-stat"><div class="h-val">4:43</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">27</div><div class="h-key">Corridori</div></div><div class="segment-bar"><div class="segment-fill" style="width:100%"></div></div></div>
+        </div>
+        <div class="history-card">
+          <div class="history-card-top"><div><div class="history-race-name">Torino Riverside Half</div><div class="history-date">15 Feb · 21.1 km</div></div><div class="result-badge result-top">5°</div></div>
+          <div class="history-row"><div class="history-mini-stat"><div class="h-val">1:48:03</div><div class="h-key">Tempo</div></div><div class="history-mini-stat"><div class="h-val">5:07</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">34</div><div class="h-key">Corridori</div></div><div class="segment-bar"><div class="segment-fill" style="width:68%"></div></div></div>
         </div>
       </div>
 
-      <div class="history-card">
-        <div class="history-card-top">
-          <div>
-            <div class="history-race-name">Roma Parkway 10K</div>
-            <div class="history-date">28 Feb · 10.0 km</div>
+      <!-- ===== TAB: COMPETIZIONI CREATE ===== -->
+      <div id="rbTabCreateView" style="display:none">
+        <div style="padding:0 16px 8px;font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);letter-spacing:1px">3 GARE CREATE · tocca per modificare</div>
+
+        <!-- Gara futura: modificabile -->
+        <div class="race-card upcoming" onclick="editRace({name:'Torino Riverside Half',date:'2026-03-06',time:'07:00',km:'21.1',type:'distance',visibility:'public',badge:'APERTA'})">
+          <div class="race-top">
+            <div class="race-name">Torino Riverside Half</div>
+            <div class="race-badge badge-open">APERTA</div>
           </div>
-          <div class="result-badge result-1">1°</div>
+          <div class="race-meta">
+            <div class="race-stat">🏃 <span class="val">8</span> iscritti</div>
+            <div class="race-stat">📍 <span class="val">21.1</span> km</div>
+            <div class="race-stat">📅 <span class="val">dom</span></div>
+          </div>
+          <div class="race-bottom">
+            <div class="race-datetime">Dom 06 Mar · 07:00</div>
+            <div style="display:flex;gap:6px">
+              <button class="join-btn" style="background:rgba(232,255,71,.1);color:var(--accent);border:1px solid rgba(232,255,71,.3)" onclick="event.stopPropagation();editRace({name:'Torino Riverside Half',date:'2026-03-06',time:'07:00',km:'21.1',type:'distance',visibility:'public'})">✏️ Modifica</button>
+              <button class="join-btn leave" onclick="event.stopPropagation();openCancelSheet('cr1','Torino Riverside Half')">✕ Annulla</button>
+            </div>
+          </div>
         </div>
-        <div class="history-row">
-          <div class="history-mini-stat">
-            <div class="h-val">47:12</div>
-            <div class="h-key">Tempo</div>
+
+        <!-- Gara imminente: solo annullamento -->
+        <div class="race-card soon" style="border-color:rgba(255,159,67,.35)">
+          <div class="race-top">
+            <div class="race-name">Firenze Hills 5K</div>
+            <div class="race-badge badge-soon">TRA 4 ORE</div>
           </div>
-          <div class="history-mini-stat">
-            <div class="h-val">4:43</div>
-            <div class="h-key">min/km</div>
+          <div class="race-meta">
+            <div class="race-stat">🏃 <span class="val">41</span> iscritti</div>
+            <div class="race-stat">📍 <span class="val">5.0</span> km</div>
+            <div class="race-stat">⚠️ <span class="val" style="color:var(--orange)">no modifica</span></div>
           </div>
-          <div class="history-mini-stat">
-            <div class="h-val">27</div>
-            <div class="h-key">Corridori</div>
+          <div class="race-bottom">
+            <div class="race-datetime">Lun 07 Mar · 18:30</div>
+            <button class="join-btn leave" onclick="openCancelSheet('cr2','Firenze Hills 5K')">✕ Annulla</button>
           </div>
-          <div class="segment-bar"><div class="segment-fill" style="width:100%"></div></div>
         </div>
+
+        <!-- Gara live: solo visualizzazione -->
+        <div class="race-card live">
+          <div class="race-top">
+            <div class="race-name">Milano Urban Sprint</div>
+            <div class="race-badge badge-live">● LIVE</div>
+          </div>
+          <div class="race-meta">
+            <div class="race-stat">🏃 <span class="val">12</span> iscritti</div>
+            <div class="race-stat">📍 <span class="val">5.0</span> km</div>
+            <div class="race-stat">⏱ <span class="val">00:18:22</span></div>
+          </div>
+          <div class="race-bottom">
+            <div class="race-datetime">In corso · non modificabile</div>
+            <button class="join-btn disabled">🔒 Live</button>
+          </div>
+        </div>
+
       </div>
 
-      <div class="history-card">
-        <div class="history-card-top">
-          <div>
-            <div class="history-race-name">Torino Riverside Half</div>
-            <div class="history-date">15 Feb · 21.1 km</div>
-          </div>
-          <div class="result-badge result-top">5°</div>
-        </div>
-        <div class="history-row">
-          <div class="history-mini-stat">
-            <div class="h-val">1:48:03</div>
-            <div class="h-key">Tempo</div>
-          </div>
-          <div class="history-mini-stat">
-            <div class="h-val">5:07</div>
-            <div class="h-key">min/km</div>
-          </div>
-          <div class="history-mini-stat">
-            <div class="h-val">34</div>
-            <div class="h-key">Corridori</div>
-          </div>
-          <div class="segment-bar"><div class="segment-fill" style="width:68%"></div></div>
-        </div>
-      </div>
     </div>
 
     <div class="bottom-nav">
       <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
       <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
       <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">＋</div><div class="nav-label">CREA</div></div>
-      <div class="nav-item active" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">STORICO</div></div>
+      <div class="nav-item active" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">RACE BOARD</div></div>
     </div>
   </div>
 
-  <!-- Logout confirm sheet -->
+  <!-- Logout overlay -->
   <div class="logout-overlay" id="logoutOverlay">
     <div class="logout-sheet">
       <div class="logout-sheet-title">Esci da rankFit?</div>
@@ -1554,12 +1421,13 @@
       </div>
     </div>
   </div>
-
-</div><!-- /phone -->
+</div>
 
 <script>
-// ===== REGISTER STATE MACHINE =====
-let registrationState = 'idle'; // idle | otp_sent | completed
+// ============================================================
+// REGISTER STATE MACHINE
+// ============================================================
+let registrationState = 'idle';
 let regOtpTimer = null;
 let regOtpSeconds = 120;
 let nicknameAvailable = false;
@@ -1571,7 +1439,6 @@ function handleRegister() {
     if (!phone) { flashRegError('Inserisci il numero di telefono'); return; }
     if (!nicknameAvailable) { flashRegError('Scegli un nickname valido e disponibile'); return; }
     requestRegOTP();
-
   } else if (registrationState === 'otp_sent') {
     const otp = document.getElementById('regOtpInput').value.trim();
     if (!otp || otp.length < 5) { showRegOtpError('Inserisci il codice OTP a 5 caratteri'); return; }
@@ -1580,13 +1447,12 @@ function handleRegister() {
 }
 
 function requestRegOTP() {
-  // Simula POST /api/auth/request-otp
   registrationState = 'otp_sent';
   regOtpSeconds = 120;
   document.getElementById('regOtpBlock').style.display = 'block';
   document.getElementById('regBtn').textContent = 'VERIFICA →';
   document.getElementById('regOtpError').style.display = 'none';
-  document.getElementById('regOtpMsg').textContent = 'Ti è stato inviato un codice OTP. Ti preghiamo di inserirlo per verificare la tua identità';
+  document.getElementById('regOtpMsg').textContent = 'Ti è stato inviato un codice OTP.';
   startRegCountdown();
 }
 
@@ -1596,10 +1462,7 @@ function startRegCountdown() {
   regOtpTimer = setInterval(() => {
     regOtpSeconds--;
     updateRegCountdownDisplay();
-    if (regOtpSeconds <= 0) {
-      clearInterval(regOtpTimer);
-      regOtpExpired();
-    }
+    if (regOtpSeconds <= 0) { clearInterval(regOtpTimer); regOtpExpired(); }
   }, 1000);
 }
 
@@ -1621,15 +1484,10 @@ function regOtpExpired() {
 }
 
 function verifyRegOTP(otp) {
-  // Simula POST /api/users/register
-  // Codice demo fisso: AB12C → successo
-  // Numero demo già registrato: 000 → warning → redirect login
   const phone = document.getElementById('regPhone').value.trim();
   const isAlreadyRegistered = phone === '000';
   const isValid = otp.toUpperCase() === 'AB12C';
-
   if (isAlreadyRegistered) {
-    // xretCod: "warning" → "Phone number already registered" → redirect Screen 1
     clearInterval(regOtpTimer);
     registrationState = 'idle';
     const w = document.getElementById('regWarning');
@@ -1638,11 +1496,9 @@ function verifyRegOTP(otp) {
     setTimeout(() => { w.style.display = 'none'; showScreen('login'); }, 2000);
     return;
   }
-
   if (isValid) {
     clearInterval(regOtpTimer);
     registrationState = 'completed';
-    // Set global auth state — TN-001
     loginState = 'authenticated';
     document.getElementById('loggedNick').textContent = document.getElementById('regNickname').value;
     document.getElementById('regOtpMsg').textContent = '✓ Account creato con successo';
@@ -1670,10 +1526,8 @@ function flashRegError(msg) {
 }
 
 function handleNicknameInput(value) {
-  // Validazione locale immediata
   const badge = document.getElementById('nickBadge');
   const valid = /^[a-zA-Z0-9_]{2,13}$/.test(value);
-
   if (!valid) {
     nicknameAvailable = false;
     badge.style.display = value.length > 0 ? 'block' : 'none';
@@ -1682,17 +1536,12 @@ function handleNicknameInput(value) {
     badge.style.color = 'var(--accent2)';
     return;
   }
-
-  // Debounce per chiamata API check-nickname
   clearTimeout(nicknameDebounceTimer);
   badge.style.display = 'block';
   badge.textContent = '...';
   badge.style.background = 'rgba(102,102,102,.1)';
   badge.style.color = 'var(--muted)';
-
   nicknameDebounceTimer = setTimeout(() => {
-    // Simula GET /api/users/check-nickname
-    // Nickname demo già preso: "taken"
     const isTaken = value.toLowerCase() === 'taken';
     nicknameAvailable = !isTaken;
     badge.textContent = isTaken ? '✕ già utilizzato' : '✓ libero';
@@ -1700,48 +1549,36 @@ function handleNicknameInput(value) {
     badge.style.color = isTaken ? 'var(--accent2)' : 'var(--green)';
   }, 600);
 }
-// ===== END REGISTER STATE MACHINE =====
 
-// ===== LOGIN STATE MACHINE =====
-// Stati: 'idle' | 'otp_sent' | 'authenticated'
+// ============================================================
+// LOGIN STATE MACHINE
+// ============================================================
 let loginState = 'idle';
 let otpTimer = null;
 let otpSeconds = 120;
-const MAX_ATTEMPTS = 3; // simulato — viene dal backend in produzione
+const MAX_ATTEMPTS = 3;
 let attempts = 0;
 
 function handleLogin() {
   if (loginState === 'idle') {
-    // Stato 1: campo OTP vuoto → richiedi OTP
     const phone = document.getElementById('loginPhone').value.trim();
-    if (!phone) {
-      flashError('Inserisci il numero di telefono');
-      return;
-    }
+    if (!phone) { flashLoginError('Inserisci il numero di telefono'); return; }
     requestOTP();
-
   } else if (loginState === 'otp_sent') {
-    // Stato 2: campo OTP compilato → verifica OTP
     const otp = document.getElementById('otpInput').value.trim();
-    if (!otp || otp.length < 5) {
-      showOtpError('Inserisci il codice OTP a 5 caratteri');
-      return;
-    }
+    if (!otp || otp.length < 5) { showOtpError('Inserisci il codice OTP a 5 caratteri'); return; }
     verifyOTP(otp);
   }
 }
 
 function requestOTP() {
-  // Simula POST /api/auth/request-otp
   loginState = 'otp_sent';
   attempts = 0;
   otpSeconds = 120;
-
   document.getElementById('otpBlock').style.display = 'block';
   document.getElementById('loginBtn').textContent = 'VERIFICA →';
   document.getElementById('otpError').style.display = 'none';
-  document.getElementById('otpMsg').textContent = 'Ti è stato inviato un codice OTP. Ti preghiamo di inserirlo per verificare la tua identità';
-
+  document.getElementById('otpMsg').textContent = 'Ti è stato inviato un codice OTP.';
   startCountdown();
 }
 
@@ -1749,14 +1586,10 @@ function startCountdown() {
   if (otpTimer) clearInterval(otpTimer);
   otpSeconds = 120;
   updateCountdownDisplay();
-
   otpTimer = setInterval(() => {
     otpSeconds--;
     updateCountdownDisplay();
-    if (otpSeconds <= 0) {
-      clearInterval(otpTimer);
-      otpExpired();
-    }
+    if (otpSeconds <= 0) { clearInterval(otpTimer); otpExpired(); }
   }, 1000);
 }
 
@@ -1778,10 +1611,7 @@ function otpExpired() {
 }
 
 function verifyOTP(otp) {
-  // Simula POST /api/auth/verify-otp
-  // In produzione: risposta dal backend con esito + tentativi rimasti
-  const isValid = otp.toUpperCase() === 'AB12C'; // codice demo fisso
-
+  const isValid = otp.toUpperCase() === 'AB12C';
   if (isValid) {
     clearInterval(otpTimer);
     loginState = 'authenticated';
@@ -1801,7 +1631,7 @@ function verifyOTP(otp) {
       document.getElementById('loginBtn').textContent = 'ACCEDI →';
       showOtpError('⛔ Troppi tentativi errati. Richiedi un nuovo codice.');
     } else {
-      showOtpError(`Codice errato — ${remaining} tentativ${remaining === 1 ? 'o' : 'i'} rimast${remaining === 1 ? 'o' : 'i'}`);
+      showOtpError('Codice errato — ' + remaining + ' tentativ' + (remaining === 1 ? 'o' : 'i') + ' rimast' + (remaining === 1 ? 'o' : 'i'));
       document.getElementById('otpInput').value = '';
     }
   }
@@ -1813,7 +1643,7 @@ function showOtpError(msg) {
   el.style.display = 'block';
 }
 
-function flashError(msg) {
+function flashLoginError(msg) {
   const btn = document.getElementById('loginBtn');
   const orig = btn.textContent;
   btn.textContent = msg;
@@ -1821,14 +1651,11 @@ function flashError(msg) {
   setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1800);
 }
 
-// ===== END LOGIN STATE MACHINE =====
-
-function showLogoutSheet() {
-  document.getElementById('logoutOverlay').classList.add('visible');
-}
-function hideLogoutSheet() {
-  document.getElementById('logoutOverlay').classList.remove('visible');
-}
+// ============================================================
+// LOGOUT
+// ============================================================
+function showLogoutSheet() { document.getElementById('logoutOverlay').classList.add('visible'); }
+function hideLogoutSheet() { document.getElementById('logoutOverlay').classList.remove('visible'); }
 function doLogout() {
   loginState = 'idle';
   if (otpTimer) clearInterval(otpTimer);
@@ -1841,6 +1668,9 @@ function doLogout() {
   showScreen('login');
 }
 
+// ============================================================
+// SCREEN NAVIGATION
+// ============================================================
 function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
@@ -1848,15 +1678,61 @@ function showScreen(name) {
   const tabs = ['login','register','list','monitor','create','history'];
   const idx = tabs.indexOf(name);
   if (idx >= 0) document.querySelectorAll('.nav-tab')[idx].classList.add('active');
-
-  // Se torno allo screen login, mostro il blocco corretto in base allo stato
   if (name === 'login') {
     const isAuth = loginState === 'authenticated';
     document.getElementById('alreadyLoggedBlock').style.display = isAuth ? 'block' : 'none';
     document.getElementById('notLoggedBlock').style.display = isAuth ? 'none' : 'block';
   }
-
   document.querySelector('.phone').scrollTop = 0;
+}
+
+// ============================================================
+// CREATE RACE — COMP TYPE
+// ============////////////////////////////////////////////////
+let currentDist = '5';
+let currentTime = '20';
+
+function selectCompType(type) {
+  document.querySelectorAll('#compTypeToggle .toggle-option').forEach(o => o.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById('check-dist').style.opacity = type === 'distance' ? '1' : '0';
+  document.getElementById('check-time').style.opacity = type === 'time' ? '1' : '0';
+  document.getElementById('distanceSection').style.display = type === 'distance' ? 'block' : 'none';
+  document.getElementById('timeSection').style.display = type === 'time' ? 'block' : 'none';
+}
+
+function selectCompTypeDirect(type) {
+  const els = document.querySelectorAll('#compTypeToggle .toggle-option');
+  els.forEach(o => o.classList.remove('active'));
+  if (type === 'distance') els[0] && els[0].classList.add('active');
+  else els[1] && els[1].classList.add('active');
+  document.getElementById('check-dist').style.opacity = type === 'distance' ? '1' : '0';
+  document.getElementById('check-time').style.opacity = type === 'time' ? '1' : '0';
+  document.getElementById('distanceSection').style.display = type === 'distance' ? 'block' : 'none';
+  document.getElementById('timeSection').style.display = type === 'time' ? 'block' : 'none';
+}
+
+function selectDistChip(el, val) {
+  document.querySelectorAll('.dist-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const isCustom = val === 'custom';
+  document.getElementById('customDistBox').style.display = isCustom ? 'block' : 'none';
+  if (!isCustom) {
+    currentDist = val;
+    document.getElementById('distSummary').textContent = val + ' km';
+  }
+}
+
+function selectTimeChip(el, val) {
+  document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const isCustom = val === 'custom';
+  document.getElementById('customTimeBox').style.display = isCustom ? 'block' : 'none';
+  if (!isCustom) {
+    currentTime = val;
+    const lbl = val === '60' ? '1 ora' : val + ' minuti';
+    document.getElementById('timeSummary').textContent = lbl;
+  }
 }
 
 function selectRaceType(type) {
@@ -1875,20 +1751,214 @@ function selectVisibility(type) {
   document.getElementById('privateSection').style.display = type === 'private' ? 'block' : 'none';
 }
 
-// Filter chips toggle
-document.querySelectorAll('.filter-chip').forEach(chip => {
-  chip.addEventListener('click', function() {
-    this.closest('.filter-row, div').querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
+function selectVisibilityDirect(type) {
+  const els = document.querySelectorAll('#visibilityToggle .toggle-option');
+  els.forEach(o => o.classList.remove('active'));
+  if (type === 'public') els[0] && els[0].classList.add('active');
+  else els[1] && els[1].classList.add('active');
+  document.getElementById('check-public').style.opacity = type === 'public' ? '1' : '0';
+  document.getElementById('check-private').style.opacity = type === 'private' ? '1' : '0';
+  document.getElementById('privateSection').style.display = type === 'private' ? 'block' : 'none';
+}
 
-// Distance chips
-document.querySelectorAll('.create-screen .filter-chip').forEach(chip => {
-  chip.addEventListener('click', function() {
-    document.querySelectorAll('.create-screen .filter-chip').forEach(c => c.classList.remove('active'));
-    this.classList.add('active');
+// ============================================================
+// SECRET CODE
+// ============================================================
+function handleSecretCode(raw) {
+  const val = raw.toUpperCase().replace(/[^A-Z0-9]/g,'');
+  const input = document.getElementById('secretCodeInput');
+  input.value = val;
+  const hint  = document.getElementById('secretCodeHint');
+  const info  = document.getElementById('secretCodeInfo');
+  const empty = document.querySelector('.secret-code-empty');
+  if (val.length === 0) {
+    hint.style.display = 'none';
+    info.style.display = 'none';
+    empty.style.display = 'flex';
+    return;
+  }
+  empty.style.display = 'none';
+  if (val.length < 3) {
+    hint.className = 'secret-code-hint invalid';
+    hint.textContent = '⚠ Minimo 3 caratteri';
+    hint.style.display = 'block';
+    info.style.display = 'none';
+    return;
+  }
+  hint.className = 'secret-code-hint valid';
+  hint.textContent = '✓ Codice valido · ' + val.length + '/6 caratteri';
+  hint.style.display = 'block';
+  info.style.display = 'flex';
+  document.getElementById('secretCodeDisplay').textContent = val;
+}
+
+function generateSecretCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 5; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  document.getElementById('secretCodeInput').value = code;
+  handleSecretCode(code);
+  const btn = document.querySelector('.gen-btn');
+  btn.textContent = '✓';
+  btn.style.borderColor = 'var(--accent)';
+  btn.style.color = 'var(--accent)';
+  setTimeout(() => { btn.textContent = '⚡'; btn.style.borderColor = ''; btn.style.color = ''; }, 1200);
+}
+
+// ============================================================
+// PUBLISH / EDIT FLOW
+// ============================================================
+let isEditMode = false;
+
+function exitCreateMode() {
+  if (isEditMode) {
+    resetCreateMode();
+    showScreen('history');
+    switchRbTab('create');
+  } else {
+    showScreen('list');
+  }
+}
+
+function resetCreateMode() {
+  isEditMode = false;
+  document.getElementById('createModeBanner').style.display = 'none';
+  document.getElementById('createScreenTitle').textContent = 'CREA GARA';
+  document.getElementById('publishBtn').textContent = 'PUBBLICA GARA →';
+}
+
+function handlePublish() {
+  const codeEl = document.getElementById('secretCodeInput');
+  const code = codeEl ? codeEl.value.trim() : '';
+  if (code.length > 0 && code.length < 3) {
+    const hint = document.getElementById('secretCodeHint');
+    hint.className = 'secret-code-hint invalid';
+    hint.textContent = '⚠ Codice troppo corto — minimo 3 caratteri o lascia vuoto';
+    hint.style.display = 'block';
+    codeEl.focus();
+    return;
+  }
+  if (isEditMode) {
+    resetCreateMode();
+    showScreen('history');
+    switchRbTab('create');
+    setTimeout(() => flashToast('✓ Gara aggiornata con successo'), 150);
+  } else {
+    showScreen('list');
+  }
+}
+
+// ============================================================
+// RACE BOARD
+// ============================================================
+function switchRbTab(tab) {
+  const mieView    = document.getElementById('rbTabMieView');
+  const createView = document.getElementById('rbTabCreateView');
+  const tabMie     = document.getElementById('rbTabMie');
+  const tabCreate  = document.getElementById('rbTabCreate');
+  if (tab === 'mie') {
+    mieView.style.display    = 'block';
+    createView.style.display = 'none';
+    tabMie.classList.add('active');
+    tabCreate.classList.remove('active');
+  } else {
+    mieView.style.display    = 'none';
+    createView.style.display = 'block';
+    tabMie.classList.remove('active');
+    tabCreate.classList.add('active');
+  }
+}
+
+function editRace(data) {
+  isEditMode = true;
+  const nameInput = document.querySelector('#screen-create input[placeholder="es. Milano Sprint 5K"]');
+  const dateInputs = document.querySelectorAll('#screen-create input[type="date"]');
+  const timeInputs = document.querySelectorAll('#screen-create input[type="time"]');
+  if (nameInput) nameInput.value = data.name || '';
+  if (dateInputs[0]) dateInputs[0].value = data.date || '';
+  if (timeInputs[0]) timeInputs[0].value = data.time || '';
+  selectCompTypeDirect(data.type || 'distance');
+  if (data.type === 'distance') {
+    document.querySelectorAll('.dist-chip').forEach(c => {
+      c.classList.remove('active');
+      if (c.textContent.trim() === (data.km || '')) c.classList.add('active');
+    });
+    const ds = document.getElementById('distSummary');
+    if (ds) ds.textContent = (data.km || '') + ' km';
+  }
+  selectVisibilityDirect(data.visibility || 'public');
+  document.getElementById('createModeBanner').style.display = 'flex';
+  document.getElementById('createModeRaceName').textContent = data.name || '';
+  document.getElementById('createScreenTitle').textContent = 'MODIFICA GARA';
+  document.getElementById('publishBtn').textContent = 'SALVA MODIFICHE →';
+  showScreen('create');
+}
+
+// ============================================================
+// CANCEL / DELETE SHEETS
+// ============================================================
+let currentActionName = null;
+
+function openCancelSheet(cardId, name) {
+  currentActionName = name;
+  document.getElementById('cancelSheetSub').textContent = name;
+  document.getElementById('cancelOverlay').classList.add('visible');
+}
+
+function openDeleteSheet(cardId, name) {
+  currentActionName = name;
+  document.getElementById('deleteSheetSub').textContent = name;
+  document.getElementById('deleteOverlay').classList.add('visible');
+}
+
+function closeAllSheets() {
+  document.querySelectorAll('.rb-overlay, .logout-overlay').forEach(o => o.classList.remove('visible'));
+}
+
+function confirmCancel() {
+  closeAllSheets();
+  flashToast('Gara annullata — iscritti notificati');
+}
+
+function confirmDelete() {
+  closeAllSheets();
+  flashToast('🗑 Eliminata dallo storico');
+}
+
+function flashToast(msg) {
+  const toast = document.createElement('div');
+  toast.textContent = msg;
+  toast.style.cssText = 'position:absolute;bottom:110px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--accent);color:var(--accent);font-family:"DM Mono",monospace;font-size:11px;padding:8px 16px;border-radius:20px;white-space:nowrap;z-index:400;letter-spacing:.5px;transition:opacity .5s';
+  document.querySelector('.phone').appendChild(toast);
+  setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 500); }, 1800);
+}
+
+// ============================================================
+// FILTER CHIPS (list screen)
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.filter-row .filter-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      this.closest('.filter-row').querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+    });
   });
+  const customDist = document.getElementById('customDistInput');
+  if (customDist) {
+    customDist.addEventListener('input', function() {
+      if (this.value) document.getElementById('distSummary').textContent = this.value + ' km';
+    });
+  }
+  const customTime = document.getElementById('customTimeInput');
+  if (customTime) {
+    customTime.addEventListener('input', function() {
+      if (this.value) {
+        const mins = parseInt(this.value);
+        const lbl = mins >= 60 ? Math.floor(mins/60) + 'h ' + (mins % 60 ? (mins % 60) + 'min' : '') : mins + ' minuti';
+        document.getElementById('timeSummary').textContent = lbl.trim();
+      }
+    });
+  }
 });
 </script>
 </body>
