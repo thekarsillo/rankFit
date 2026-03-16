@@ -93,7 +93,6 @@
   .screen { display: none; padding: 0 0 40px; }
   .screen.active { display: block; }
 
-  /* LOGIN */
   .login-screen {
     min-height: 740px;
     display: flex;
@@ -206,7 +205,6 @@
   }
   .link-small span { color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
-  /* REGISTER */
   .register-screen { padding: 24px 28px 40px; }
   .screen-header {
     display: flex;
@@ -246,7 +244,6 @@
     border-radius: 6px;
   }
 
-  /* LIST */
   .list-screen { padding: 0 0 40px; }
 
   .list-header {
@@ -353,7 +350,6 @@
   .join-btn.leave { background: rgba(255,71,87,.1); color: var(--accent2); border: 1px solid rgba(255,71,87,.3); }
   .join-btn.disabled { background: var(--surface2); color: var(--muted); cursor: not-allowed; }
 
-  /* MONITOR */
   .monitor-screen { padding: 0; }
   .monitor-header {
     padding: 16px 24px 12px;
@@ -428,7 +424,6 @@
   .stat-unit { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; }
   .refresh-note { text-align: center; font-size: 10px; color: #333; font-family: 'DM Mono', monospace; padding: 8px; letter-spacing: 1px; }
 
-  /* CREATE */
   .create-screen { padding: 20px 24px 40px; }
   .section-divider {
     font-size: 10px; font-family: 'DM Mono', monospace;
@@ -508,7 +503,6 @@
   .share-link-val { font-size: 13px; font-family: 'DM Mono', monospace; color: var(--accent); }
   .share-link-copy { font-size: 11px; font-family: 'DM Mono', monospace; color: #000; background: var(--accent); padding: 5px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; flex-shrink: 0; }
 
-  /* HISTORY */
   .history-screen { padding: 0 0 40px; }
   .history-header { padding: 20px 24px 8px; }
   .history-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--text); letter-spacing: 1px; }
@@ -532,7 +526,6 @@
   .segment-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin-top: 4px; }
   .segment-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--green)); transition: width 1s ease; }
 
-  /* Auth cards */
   .logged-in-card { display: flex; align-items: center; gap: 14px; padding: 16px; background: var(--surface); border: 1px solid rgba(232,255,71,.25); border-radius: 16px; }
   .logged-in-avatar { font-size: 32px; width: 52px; height: 52px; background: var(--surface2); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .logged-in-label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
@@ -549,7 +542,6 @@
   .otp-field-full { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; color: var(--accent); font-size: 24px; font-family: 'DM Mono', monospace; letter-spacing: 10px; outline: none; text-align: center; transition: border-color .2s; }
   .otp-field-full:focus { border-color: var(--accent); }
 
-  /* Logout overlay */
   .logout-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.7); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: flex-end; justify-content: center; padding-bottom: 40px; }
   .logout-overlay.visible { display: flex; }
   .logout-sheet { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 24px 20px; width: 100%; margin: 0 16px; }
@@ -561,7 +553,6 @@
   .btn-logout-confirm { flex: 1; padding: 14px; border-radius: 12px; border: none; background: var(--accent2); color: #fff; font-size: 14px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: opacity .2s; }
   .btn-logout-confirm:hover { opacity: .85; }
 
-  /* Bottom nav */
   .bottom-nav { display: flex; justify-content: space-around; padding: 10px 8px 20px; border-top: 1px solid var(--border); background: rgba(10,10,10,.95); backdrop-filter: blur(10px); }
   .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; padding: 6px 14px; border-radius: 10px; transition: all .2s; }
   .nav-item.active { background: rgba(232,255,71,.1); }
@@ -569,7 +560,6 @@
   .nav-label { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 1px; }
   .nav-item.active .nav-label { color: var(--accent); }
 
-  /* Comp type info box */
   .comp-info-box {
     display: flex;
     align-items: center;
@@ -583,49 +573,20 @@
   .comp-info-text { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--muted); line-height: 1.5; }
   .comp-info-text strong { color: var(--accent); font-weight: 600; }
 
-  #timeSection .comp-info-box {
-    background: rgba(57,217,138,.06);
-    border-color: rgba(57,217,138,.2);
-  }
+  #timeSection .comp-info-box { background: rgba(57,217,138,.06); border-color: rgba(57,217,138,.2); }
   #timeSection .comp-info-text strong { color: var(--green); }
-
-  #compTypeToggle .toggle-option:nth-child(2).active {
-    border-color: var(--green);
-    background: rgba(57,217,138,.05);
-  }
+  #compTypeToggle .toggle-option:nth-child(2).active { border-color: var(--green); background: rgba(57,217,138,.05); }
   #compTypeToggle .toggle-option:nth-child(2).active .toggle-check { color: var(--green); }
 
-  /* === LABEL VISIBILITY: yellow on black === */
-  .form-label,
-  .section-divider,
-  .stat-key,
-  .h-key,
-  .podium-label,
-  .history-stat-key,
-  .share-link-label,
-  .logged-in-label,
-  .list-subtitle,
-  .otp-msg,
-  .runner-city,
-  .race-datetime,
-  .refresh-note,
-  .comp-info-text,
-  .toggle-desc,
-  .race-stat,
-  .logo-sub,
-  .nav-label,
-  .stat-unit,
-  .runner-km span,
-  .history-date,
-  .otp-countdown { color: var(--accent) !important; }
+  .form-label, .section-divider, .stat-key, .h-key, .podium-label,
+  .history-stat-key, .share-link-label, .logged-in-label, .list-subtitle,
+  .otp-msg, .runner-city, .race-datetime, .refresh-note, .comp-info-text,
+  .toggle-desc, .race-stat, .logo-sub, .nav-label, .stat-unit,
+  .runner-km span, .history-date, .otp-countdown { color: var(--accent) !important; }
 
-  /* Keep nav active label already accent, keep muted only for placeholders/hints */
-  .input-field::placeholder,
-  .textarea-field::placeholder { color: #555 !important; }
+  .input-field::placeholder, .textarea-field::placeholder { color: #555 !important; }
 
-  /* === SECRET CODE === */
   .secret-code-wrapper { margin-top: 4px; }
-
   .secret-code-input { text-transform: uppercase; }
   .secret-code-input:focus { border-color: var(--accent) !important; }
 
@@ -643,211 +604,63 @@
   .gen-btn:hover { border-color: var(--accent); background: rgba(232,255,71,.08); }
   .gen-btn:active { transform: scale(.93); }
 
-  .secret-code-hint {
-    margin-top: 6px;
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 1px;
-    padding: 4px 2px;
-  }
+  .secret-code-hint { margin-top: 6px; font-size: 10px; font-family: 'DM Mono', monospace; letter-spacing: 1px; padding: 4px 2px; }
   .secret-code-hint.valid { color: var(--green); }
   .secret-code-hint.invalid { color: var(--accent2); }
 
   .secret-code-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 12px 14px;
-    background: rgba(232,255,71,.06);
-    border: 1px solid rgba(232,255,71,.25);
-    border-radius: 12px;
+    display: flex; align-items: center; gap: 10px; margin-top: 10px;
+    padding: 12px 14px; background: rgba(232,255,71,.06);
+    border: 1px solid rgba(232,255,71,.25); border-radius: 12px;
     animation: fadeIn .3s ease;
   }
   @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:translateY(0); } }
 
   .secret-code-empty {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    padding: 10px 12px;
-    background: var(--surface2);
-    border: 1px dashed var(--border);
-    border-radius: 10px;
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    transition: all .3s;
+    display: flex; align-items: center; gap: 8px; margin-top: 10px;
+    padding: 10px 12px; background: var(--surface2);
+    border: 1px dashed var(--border); border-radius: 10px;
+    font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); transition: all .3s;
   }
 
-  /* === RACE BOARD === */
   .rb-filter-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--accent);
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    cursor: pointer;
-    transition: all .2s;
-    letter-spacing: .5px;
-    white-space: nowrap;
+    display: flex; align-items: center; gap: 6px; padding: 8px 14px;
+    border-radius: 20px; border: 1px solid var(--border); background: var(--surface);
+    color: var(--accent); font-size: 11px; font-family: 'DM Mono', monospace;
+    cursor: pointer; transition: all .2s; letter-spacing: .5px; white-space: nowrap;
   }
-  .rb-filter-btn.active {
-    background: var(--accent);
-    color: #000;
-    border-color: var(--accent);
-    font-weight: 700;
-  }
+  .rb-filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 700; }
 
-  /* My race cards */
-  .my-race-card {
-    margin: 0 16px 12px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 16px 18px;
-    transition: border-color .2s;
-  }
+  .my-race-card { margin: 0 16px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 16px 18px; transition: border-color .2s; }
   .my-race-card.warning { border-color: rgba(255,159,67,.35); background: rgba(255,159,67,.04); }
   .my-race-card.past { opacity: .7; }
-
-  .my-race-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 14px;
-    gap: 10px;
-  }
+  .my-race-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 10px; }
   .my-race-name { font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 4px; }
   .my-race-meta { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--accent); }
-
-  .my-race-badge {
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-weight: 600;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  .my-race-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .my-race-time-left {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--accent);
-  }
+  .my-race-badge { font-size: 10px; font-family: 'DM Mono', monospace; padding: 3px 8px; border-radius: 6px; font-weight: 600; flex-shrink: 0; white-space: nowrap; }
+  .my-race-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--border); gap: 8px; flex-wrap: wrap; }
+  .my-race-time-left { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--accent); }
   .my-race-time-left.warning-text { color: var(--orange); }
   .my-race-time-left strong { color: var(--accent); }
-
   .my-race-actions { display: flex; gap: 7px; }
 
-  .action-btn {
-    padding: 7px 12px;
-    border-radius: 8px;
-    border: 1px solid;
-    font-size: 11px;
-    font-weight: 600;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    transition: all .2s;
-    white-space: nowrap;
-  }
-  .edit-btn {
-    background: rgba(232,255,71,.08);
-    border-color: rgba(232,255,71,.3);
-    color: var(--accent);
-  }
+  .action-btn { padding: 7px 12px; border-radius: 8px; border: 1px solid; font-size: 11px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all .2s; white-space: nowrap; }
+  .edit-btn { background: rgba(232,255,71,.08); border-color: rgba(232,255,71,.3); color: var(--accent); }
   .edit-btn:hover { background: rgba(232,255,71,.15); }
-  .cancel-btn {
-    background: rgba(255,159,67,.08);
-    border-color: rgba(255,159,67,.3);
-    color: var(--orange);
-  }
+  .cancel-btn { background: rgba(255,159,67,.08); border-color: rgba(255,159,67,.3); color: var(--orange); }
   .cancel-btn:hover { background: rgba(255,159,67,.15); }
-  .delete-btn {
-    background: rgba(255,71,87,.08);
-    border-color: rgba(255,71,87,.3);
-    color: var(--accent2);
-  }
+  .delete-btn { background: rgba(255,71,87,.08); border-color: rgba(255,71,87,.3); color: var(--accent2); }
   .delete-btn:hover { background: rgba(255,71,87,.15); }
 
-  /* Overlays / sheets */
-  .rb-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.75);
-    backdrop-filter: blur(4px);
-    z-index: 300;
-    display: none;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 32px;
-  }
+  .rb-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.75); backdrop-filter: blur(4px); z-index: 300; display: none; align-items: flex-end; justify-content: center; padding-bottom: 32px; }
   .rb-overlay.visible { display: flex; }
-  .rb-sheet {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 24px 20px;
-    width: 100%;
-    margin: 0 16px;
-  }
-  .rb-sheet-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--text);
-    margin-bottom: 4px;
-    letter-spacing: 1px;
-  }
-  .rb-sheet-sub {
-    font-size: 12px;
-    font-family: 'DM Mono', monospace;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-  .rb-sheet-btns {
-    display: flex;
-    gap: 10px;
-    margin-top: 16px;
-  }
+  .rb-sheet { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 24px 20px; width: 100%; margin: 0 16px; }
+  .rb-sheet-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--text); margin-bottom: 4px; letter-spacing: 1px; }
+  .rb-sheet-sub { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--accent); margin-bottom: 4px; }
+  .rb-sheet-btns { display: flex; gap: 10px; margin-top: 16px; }
 
-  /* === RACE BOARD TABS === */
-  .rb-tab {
-    flex: 1;
-    padding: 9px 10px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--accent);
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    cursor: pointer;
-    transition: all .2s;
-    letter-spacing: .3px;
-    white-space: nowrap;
-    text-align: center;
-  }
-  .rb-tab.active {
-    background: var(--accent);
-    color: #000;
-    border-color: var(--accent);
-    font-weight: 700;
-  }
+  .rb-tab { flex: 1; padding: 9px 10px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--accent); font-size: 11px; font-family: 'DM Mono', monospace; cursor: pointer; transition: all .2s; letter-spacing: .3px; white-space: nowrap; text-align: center; }
+  .rb-tab.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -865,18 +678,14 @@
   <div class="notch"></div>
   <div class="status-bar">
     <span class="time">09:41</span>
-    <div class="status-icons">
-      <span>▲▲▲</span>
-      <span>WiFi</span>
-      <span>🔋</span>
-    </div>
+    <div class="status-icons"><span>▲▲▲</span><span>WiFi</span><span>🔋</span></div>
   </div>
 
   <!-- SCREEN 1: LOGIN -->
   <div id="screen-login" class="screen active">
     <div class="login-screen">
       <div class="logo-block">
-        <img src="data:image/png;base64,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" alt="rankFit" style="width:200px;height:auto;display:block;margin-bottom:12px;">
+        <img src="data:image/png;base64,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" alt="rankFit" style="width:220px;height:auto;display:block;margin-bottom:12px;">
         <div class="logo-sub">Race. Anywhere. Together.</div>
       </div>
 
@@ -896,15 +705,10 @@
         <div class="form-label">Prefisso + Numero</div>
         <div class="input-row">
           <select class="select-pill" id="loginPrefix">
-            <option>🇮🇹 +39</option>
-            <option>🇺🇸 +1</option>
-            <option>🇬🇧 +44</option>
-            <option>🇩🇪 +49</option>
-            <option>🇫🇷 +33</option>
+            <option>🇮🇹 +39</option><option>🇺🇸 +1</option><option>🇬🇧 +44</option><option>🇩🇪 +49</option><option>🇫🇷 +33</option>
           </select>
           <input class="input-field" id="loginPhone" type="tel" placeholder="333 456 7890">
         </div>
-
         <div id="otpBlock" style="display:none">
           <div class="form-label" style="margin-top:20px">Codice OTP</div>
           <input class="otp-field" id="otpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
@@ -914,12 +718,8 @@
           </div>
           <div id="otpError" class="otp-error" style="display:none"></div>
         </div>
-
         <button class="btn-primary" id="loginBtn" onclick="handleLogin()">ACCEDI →</button>
-
-        <div class="link-small">
-          Non hai un account? <span onclick="showScreen('register')">Registrati</span>
-        </div>
+        <div class="link-small">Non hai un account? <span onclick="showScreen('register')">Registrati</span></div>
       </div>
     </div>
   </div>
@@ -931,36 +731,28 @@
         <div class="back-btn" onclick="showScreen('login')">←</div>
         <div class="screen-title">CREA ACCOUNT</div>
       </div>
-
       <div class="form-label">Prefisso + Numero</div>
       <div class="input-row">
         <select class="select-pill" id="regPrefix">
-          <option>🇮🇹 +39</option>
-          <option>🇺🇸 +1</option>
-          <option>🇬🇧 +44</option>
-          <option>🇩🇪 +49</option>
-          <option>🇫🇷 +33</option>
+          <option>🇮🇹 +39</option><option>🇺🇸 +1</option><option>🇬🇧 +44</option><option>🇩🇪 +49</option><option>🇫🇷 +33</option>
         </select>
         <input class="input-field" id="regPhone" type="tel" placeholder="333 456 7890">
       </div>
-
       <div id="regOtpBlock" style="display:none">
         <div class="form-label" style="margin-top:20px">Codice OTP</div>
         <input class="otp-field" id="regOtpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
         <div class="otp-status-row">
-          <span id="regOtpMsg" class="otp-msg">Ti è stato inviato un codice OTP. Inseriscilo per verificare la tua identità</span>
+          <span id="regOtpMsg" class="otp-msg">Ti è stato inviato un codice OTP.</span>
           <span id="regOtpCountdown" class="otp-countdown">2:00</span>
         </div>
         <div id="regOtpError" class="otp-error" style="display:none"></div>
       </div>
-
       <div class="form-label" style="margin-top:16px">Nickname</div>
       <div class="nickname-wrapper">
         <input class="input-field" id="regNickname" type="text" placeholder="scegli il tuo nome" style="width:100%" oninput="handleNicknameInput(this.value)">
         <div class="nickname-badge" id="nickBadge" style="display:none"></div>
       </div>
       <div id="regWarning" class="otp-error" style="display:none"></div>
-
       <button class="btn-primary" id="regBtn" style="margin-top:28px" onclick="handleRegister()">CREA ACCOUNT →</button>
     </div>
   </div>
@@ -969,13 +761,9 @@
   <div id="screen-list" class="screen">
     <div class="list-screen">
       <div class="list-header">
-        <div>
-          <div class="list-title">GARE</div>
-          <div class="list-subtitle">3 ATTIVE OGGI</div>
-        </div>
+        <div><div class="list-title">GARE</div><div class="list-subtitle">3 ATTIVE OGGI</div></div>
         <div class="icon-btn" onclick="showScreen('create')">＋</div>
       </div>
-
       <div class="filter-row">
         <div class="filter-chip active">Tutte</div>
         <div class="filter-chip">Le mie</div>
@@ -983,72 +771,43 @@
         <div class="filter-chip">10K</div>
         <div class="filter-chip">21K</div>
       </div>
-
       <div class="race-card live" onclick="showScreen('monitor')">
-        <div class="race-top">
-          <div class="race-name">Milano Urban Sprint</div>
-          <div class="race-badge badge-live">● LIVE</div>
-        </div>
+        <div class="race-top"><div class="race-name">Milano Urban Sprint</div><div class="race-badge badge-live">● LIVE</div></div>
         <div class="race-meta">
           <div class="race-stat">🏃 <span class="val">12</span> iscritti</div>
           <div class="race-stat">📍 <span class="val">5.0</span> km</div>
           <div class="race-stat">⏱ <span class="val">00:18:22</span></div>
         </div>
-        <div class="race-bottom">
-          <div class="race-datetime">Iniziata alle 09:23</div>
-          <button class="join-btn leave">Sei iscritto</button>
-        </div>
+        <div class="race-bottom"><div class="race-datetime">Iniziata alle 09:23</div><button class="join-btn leave">Sei iscritto</button></div>
       </div>
-
       <div class="race-card soon">
-        <div class="race-top">
-          <div class="race-name">Roma Parkway 10K</div>
-          <div class="race-badge badge-soon">⏰ TRA 4 MIN</div>
-        </div>
+        <div class="race-top"><div class="race-name">Roma Parkway 10K</div><div class="race-badge badge-soon">⏰ TRA 4 MIN</div></div>
         <div class="race-meta">
           <div class="race-stat">🏃 <span class="val">27</span> iscritti</div>
           <div class="race-stat">📍 <span class="val">10.0</span> km</div>
           <div class="race-stat">🌤 <span class="val">14°C</span></div>
         </div>
-        <div class="race-bottom">
-          <div class="race-datetime">Oggi 09:45</div>
-          <button class="join-btn join">+ Iscriviti</button>
-        </div>
+        <div class="race-bottom"><div class="race-datetime">Oggi 09:45</div><button class="join-btn join">+ Iscriviti</button></div>
       </div>
-
       <div class="race-card upcoming">
-        <div class="race-top">
-          <div class="race-name">Torino Riverside Half</div>
-          <div class="race-badge badge-open">APERTA</div>
-        </div>
+        <div class="race-top"><div class="race-name">Torino Riverside Half</div><div class="race-badge badge-open">APERTA</div></div>
         <div class="race-meta">
           <div class="race-stat">🏃 <span class="val">8</span> iscritti</div>
           <div class="race-stat">📍 <span class="val">21.1</span> km</div>
           <div class="race-stat">📅 <span class="val">dom</span></div>
         </div>
-        <div class="race-bottom">
-          <div class="race-datetime">Dom 06 Mar · 07:00</div>
-          <button class="join-btn join">+ Iscriviti</button>
-        </div>
+        <div class="race-bottom"><div class="race-datetime">Dom 06 Mar · 07:00</div><button class="join-btn join">+ Iscriviti</button></div>
       </div>
-
       <div class="race-card upcoming">
-        <div class="race-top">
-          <div class="race-name">Firenze Hills 5K</div>
-          <div class="race-badge badge-open">APERTA</div>
-        </div>
+        <div class="race-top"><div class="race-name">Firenze Hills 5K</div><div class="race-badge badge-open">APERTA</div></div>
         <div class="race-meta">
           <div class="race-stat">🏃 <span class="val">41</span> iscritti</div>
           <div class="race-stat">📍 <span class="val">5.0</span> km</div>
           <div class="race-stat">📅 <span class="val">lun</span></div>
         </div>
-        <div class="race-bottom">
-          <div class="race-datetime">Lun 07 Mar · 18:30</div>
-          <button class="join-btn join">+ Iscriviti</button>
-        </div>
+        <div class="race-bottom"><div class="race-datetime">Lun 07 Mar · 18:30</div><button class="join-btn join">+ Iscriviti</button></div>
       </div>
     </div>
-
     <div class="bottom-nav">
       <div class="nav-item active" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
       <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
@@ -1067,33 +826,15 @@
         </div>
         <div class="live-pill"><div class="live-dot"></div>LIVE</div>
       </div>
-
       <div class="podium-section">
         <div class="podium-label">Classifica in tempo reale</div>
         <div class="podium-row">
-          <div class="podium-item">
-            <div class="pos-num pos-1">1</div>
-            <div class="runner-info"><div class="runner-name">FastLeg_Marco</div><div class="runner-city">Milano</div></div>
-            <div class="runner-progress"><div class="runner-km">4.21 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:84%"></div></div></div>
-          </div>
-          <div class="podium-item">
-            <div class="pos-num pos-2">2</div>
-            <div class="runner-info"><div class="runner-name">RunnerX_Giulia</div><div class="runner-city">Roma</div></div>
-            <div class="runner-progress"><div class="runner-km">4.05 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:81%"></div></div></div>
-          </div>
-          <div class="podium-item">
-            <div class="pos-num pos-3">3</div>
-            <div class="runner-info"><div class="runner-name">BlazePaolo</div><div class="runner-city">Torino</div></div>
-            <div class="runner-progress"><div class="runner-km">3.88 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:77.6%"></div></div></div>
-          </div>
-          <div class="podium-item me">
-            <div class="pos-num pos-me">4</div>
-            <div class="runner-info"><div class="runner-name">SpeedyRunner42</div><div class="runner-city" style="color:var(--accent);font-size:10px">● TU</div></div>
-            <div class="runner-progress"><div class="runner-km" style="color:var(--accent)">3.61 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:72.2%"></div></div></div>
-          </div>
+          <div class="podium-item"><div class="pos-num pos-1">1</div><div class="runner-info"><div class="runner-name">FastLeg_Marco</div><div class="runner-city">Milano</div></div><div class="runner-progress"><div class="runner-km">4.21 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:84%"></div></div></div></div>
+          <div class="podium-item"><div class="pos-num pos-2">2</div><div class="runner-info"><div class="runner-name">RunnerX_Giulia</div><div class="runner-city">Roma</div></div><div class="runner-progress"><div class="runner-km">4.05 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:81%"></div></div></div></div>
+          <div class="podium-item"><div class="pos-num pos-3">3</div><div class="runner-info"><div class="runner-name">BlazePaolo</div><div class="runner-city">Torino</div></div><div class="runner-progress"><div class="runner-km">3.88 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:77.6%"></div></div></div></div>
+          <div class="podium-item me"><div class="pos-num pos-me">4</div><div class="runner-info"><div class="runner-name">SpeedyRunner42</div><div class="runner-city" style="color:var(--accent);font-size:10px">● TU</div></div><div class="runner-progress"><div class="runner-km" style="color:var(--accent)">3.61 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:72.2%"></div></div></div></div>
         </div>
       </div>
-
       <div class="my-stats-section">
         <div class="my-stats-label">● I tuoi dati</div>
         <div class="stats-grid">
@@ -1106,7 +847,6 @@
       </div>
       <div class="refresh-note">↻ AGGIORNAMENTO OGNI 3 SEC</div>
     </div>
-
     <div class="bottom-nav">
       <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
       <div class="nav-item active" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
@@ -1122,8 +862,6 @@
         <div class="back-btn" onclick="exitCreateMode()">←</div>
         <div class="screen-title" id="createScreenTitle">CREA GARA</div>
       </div>
-
-      <!-- Edit mode banner (hidden by default) -->
       <div id="createModeBanner" style="display:none;align-items:center;gap:10px;padding:10px 14px;background:rgba(232,255,71,.07);border:1px solid rgba(232,255,71,.25);border-radius:12px;margin-bottom:16px">
         <span style="font-size:16px">✏️</span>
         <div style="flex:1">
@@ -1132,40 +870,29 @@
         </div>
         <div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);cursor:pointer" onclick="resetCreateMode()">✕ Nuova</div>
       </div>
-
       <div class="section-divider">Informazioni base</div>
       <div class="form-label">Nome della gara</div>
       <input class="input-field" style="width:100%" type="text" placeholder="es. Milano Sprint 5K">
       <div class="form-label" style="margin-top:14px">Descrizione</div>
       <textarea class="textarea-field" placeholder="Breve descrizione della gara..."></textarea>
-
       <div class="section-divider">Data e orario</div>
       <div class="two-col">
         <div><div class="form-label">Data</div><input class="input-field" style="width:100%" type="date" value="2026-03-10"></div>
         <div><div class="form-label">Ora inizio</div><input class="input-field" style="width:100%" type="time" value="08:00"></div>
       </div>
-
       <div class="section-divider">Tipo di competizione</div>
       <div class="toggle-group" id="compTypeToggle">
         <div class="toggle-option active" onclick="selectCompType('distance')">
           <div class="toggle-icon">📏</div>
-          <div class="toggle-text">
-            <div class="toggle-label">A distanza</div>
-            <div class="toggle-desc">Vince chi raggiunge il traguardo prima</div>
-          </div>
+          <div class="toggle-text"><div class="toggle-label">A distanza</div><div class="toggle-desc">Vince chi raggiunge il traguardo prima</div></div>
           <div class="toggle-check" id="check-dist">✓</div>
         </div>
         <div class="toggle-option" onclick="selectCompType('time')">
           <div class="toggle-icon">⏱</div>
-          <div class="toggle-text">
-            <div class="toggle-label">A tempo</div>
-            <div class="toggle-desc">Vince chi percorre più km nel tempo dato</div>
-          </div>
+          <div class="toggle-text"><div class="toggle-label">A tempo</div><div class="toggle-desc">Vince chi percorre più km nel tempo dato</div></div>
           <div class="toggle-check" id="check-time" style="opacity:0">✓</div>
         </div>
       </div>
-
-      <!-- SEZIONE A DISTANZA -->
       <div id="distanceSection">
         <div class="form-label" style="margin-top:14px">Distanza (km)</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px" id="distChips">
@@ -1187,8 +914,6 @@
           <span class="comp-info-text">Vince chi raggiunge i <strong id="distSummary">5 km</strong> nel minor tempo</span>
         </div>
       </div>
-
-      <!-- SEZIONE A TEMPO -->
       <div id="timeSection" style="display:none">
         <div class="form-label" style="margin-top:14px">Durata (minuti)</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px" id="timeChips">
@@ -1210,7 +935,6 @@
           <span class="comp-info-text">Tutti corrono per <strong id="timeSummary">20 minuti</strong> — vince chi percorre più km</span>
         </div>
       </div>
-
       <div class="section-divider">Tipo di gara</div>
       <div class="toggle-group" id="raceTypeToggle">
         <div class="toggle-option active" onclick="selectRaceType('virtual')">
@@ -1224,7 +948,6 @@
           <div class="toggle-check" id="check-physical" style="opacity:0">✓</div>
         </div>
       </div>
-
       <div id="physicalSection" style="display:none">
         <div class="form-label" style="margin-top:16px">Indirizzo punto di ritrovo</div>
         <input class="input-field" style="width:100%" type="text" placeholder="es. Via Sempione 12, Milano">
@@ -1233,9 +956,8 @@
           <input class="input-field" style="width:100%" type="text" placeholder="Lat  45.4654">
           <input class="input-field" style="width:100%" type="text" placeholder="Lon  9.1859">
         </div>
-        <div class="gps-auto-btn" onclick="this.textContent='📡 Posizione acquisita ✓'; this.style.color='var(--green)'; this.style.borderColor='var(--green)'">📡 Usa la mia posizione attuale</div>
+        <div class="gps-auto-btn" onclick="this.textContent='📡 Posizione acquisita ✓';this.style.color='var(--green)';this.style.borderColor='var(--green)'">📡 Usa la mia posizione attuale</div>
       </div>
-
       <div class="section-divider">Visibilità</div>
       <div class="toggle-group" id="visibilityToggle">
         <div class="toggle-option active" onclick="selectVisibility('public')">
@@ -1249,7 +971,6 @@
           <div class="toggle-check" id="check-private" style="opacity:0">✓</div>
         </div>
       </div>
-
       <div id="privateSection" style="display:none">
         <div class="form-label" style="margin-top:16px">Invita partecipanti</div>
         <div class="invite-row">
@@ -1262,28 +983,15 @@
         </div>
         <div class="share-link-box">
           <div class="share-link-label">oppure condividi il link</div>
-          <div class="share-link-row">
-            <div class="share-link-val">rankfit.app/inv/xK9mP2</div>
-            <div class="share-link-copy">Copia</div>
-          </div>
+          <div class="share-link-row"><div class="share-link-val">rankfit.app/inv/xK9mP2</div><div class="share-link-copy">Copia</div></div>
         </div>
       </div>
-
       <div class="section-divider">Codice segreto <span style="font-size:9px;color:var(--muted);letter-spacing:1px">(opzionale)</span></div>
-
       <div class="secret-code-wrapper">
         <div class="form-label" style="margin-top:0">Codice di accesso</div>
         <div style="display:flex;gap:10px;align-items:center">
-          <input
-            class="input-field secret-code-input"
-            id="secretCodeInput"
-            type="text"
-            maxlength="6"
-            placeholder="es. RUN24"
-            style="flex:1;letter-spacing:4px;font-family:'DM Mono',monospace;font-size:18px;text-transform:uppercase"
-            oninput="handleSecretCode(this.value)"
-          >
-          <button class="gen-btn" onclick="generateSecretCode()" type="button" title="Genera codice casuale">⚡</button>
+          <input class="input-field secret-code-input" id="secretCodeInput" type="text" maxlength="6" placeholder="es. RUN24" style="flex:1;letter-spacing:4px;font-family:'DM Mono',monospace;font-size:18px;text-transform:uppercase" oninput="handleSecretCode(this.value)">
+          <button class="gen-btn" onclick="generateSecretCode()" type="button">⚡</button>
         </div>
         <div id="secretCodeHint" class="secret-code-hint" style="display:none"></div>
         <div class="secret-code-info" id="secretCodeInfo" style="display:none">
@@ -1295,10 +1003,9 @@
         </div>
         <div class="secret-code-empty">
           <span style="font-size:16px">🔓</span>
-          <span id="secretCodeEmptyMsg">Nessun codice — la gara è liberamente accessibile (in base alla visibilità)</span>
+          <span id="secretCodeEmptyMsg">Nessun codice — la gara è liberamente accessibile</span>
         </div>
       </div>
-
       <button class="btn-primary" style="margin-top:28px" id="publishBtn" onclick="handlePublish()">PUBBLICA GARA →</button>
     </div>
   </div>
@@ -1306,26 +1013,17 @@
   <!-- SCREEN 6: RACE BOARD -->
   <div id="screen-history" class="screen">
     <div class="history-screen">
-
-      <!-- Header -->
-      <div class="history-header" style="padding-bottom:14px">
-        <div class="history-title">RACE BOARD</div>
-      </div>
-
-      <!-- Toggle filter tabs -->
+      <div class="history-header" style="padding-bottom:14px"><div class="history-title">RACE BOARD</div></div>
       <div style="display:flex;gap:8px;padding:0 16px 16px">
         <button class="rb-tab active" id="rbTabMie" onclick="switchRbTab('mie')">🏃 Le mie gare</button>
         <button class="rb-tab" id="rbTabCreate" onclick="switchRbTab('create')">🎯 Competizioni create</button>
       </div>
-
-      <!-- ===== TAB: LE MIE GARE ===== -->
       <div id="rbTabMieView">
         <div class="history-stats-row">
           <div class="history-stat-box"><div class="history-stat-val">24</div><div class="history-stat-key">Gare</div></div>
           <div class="history-stat-box"><div class="history-stat-val">186</div><div class="history-stat-key">km tot</div></div>
           <div class="history-stat-box"><div class="history-stat-val">3</div><div class="history-stat-key">Vittorie</div></div>
         </div>
-
         <div class="history-card">
           <div class="history-card-top"><div><div class="history-race-name">Milano Urban Sprint</div><div class="history-date">Oggi · 5.0 km</div></div><div class="result-badge result-2">2°</div></div>
           <div class="history-row"><div class="history-mini-stat"><div class="h-val">24:31</div><div class="h-key">Tempo</div></div><div class="history-mini-stat"><div class="h-val">4:54</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">12</div><div class="h-key">Corridori</div></div><div class="segment-bar"><div class="segment-fill" style="width:92%"></div></div></div>
@@ -1339,69 +1037,30 @@
           <div class="history-row"><div class="history-mini-stat"><div class="h-val">1:48:03</div><div class="h-key">Tempo</div></div><div class="history-mini-stat"><div class="h-val">5:07</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">34</div><div class="h-key">Corridori</div></div><div class="segment-bar"><div class="segment-fill" style="width:68%"></div></div></div>
         </div>
       </div>
-
-      <!-- ===== TAB: COMPETIZIONI CREATE ===== -->
       <div id="rbTabCreateView" style="display:none">
         <div style="padding:0 16px 8px;font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);letter-spacing:1px">3 GARE CREATE · tocca per modificare</div>
-
-        <!-- Gara futura: modificabile -->
         <div class="race-card upcoming" onclick="editRace({name:'Torino Riverside Half',date:'2026-03-06',time:'07:00',km:'21.1',type:'distance',visibility:'public',badge:'APERTA'})">
-          <div class="race-top">
-            <div class="race-name">Torino Riverside Half</div>
-            <div class="race-badge badge-open">APERTA</div>
-          </div>
-          <div class="race-meta">
-            <div class="race-stat">🏃 <span class="val">8</span> iscritti</div>
-            <div class="race-stat">📍 <span class="val">21.1</span> km</div>
-            <div class="race-stat">📅 <span class="val">dom</span></div>
-          </div>
-          <div class="race-bottom">
-            <div class="race-datetime">Dom 06 Mar · 07:00</div>
+          <div class="race-top"><div class="race-name">Torino Riverside Half</div><div class="race-badge badge-open">APERTA</div></div>
+          <div class="race-meta"><div class="race-stat">🏃 <span class="val">8</span> iscritti</div><div class="race-stat">📍 <span class="val">21.1</span> km</div><div class="race-stat">📅 <span class="val">dom</span></div></div>
+          <div class="race-bottom"><div class="race-datetime">Dom 06 Mar · 07:00</div>
             <div style="display:flex;gap:6px">
               <button class="join-btn" style="background:rgba(232,255,71,.1);color:var(--accent);border:1px solid rgba(232,255,71,.3)" onclick="event.stopPropagation();editRace({name:'Torino Riverside Half',date:'2026-03-06',time:'07:00',km:'21.1',type:'distance',visibility:'public'})">✏️ Modifica</button>
               <button class="join-btn leave" onclick="event.stopPropagation();openCancelSheet('cr1','Torino Riverside Half')">✕ Annulla</button>
             </div>
           </div>
         </div>
-
-        <!-- Gara imminente: solo annullamento -->
         <div class="race-card soon" style="border-color:rgba(255,159,67,.35)">
-          <div class="race-top">
-            <div class="race-name">Firenze Hills 5K</div>
-            <div class="race-badge badge-soon">TRA 4 ORE</div>
-          </div>
-          <div class="race-meta">
-            <div class="race-stat">🏃 <span class="val">41</span> iscritti</div>
-            <div class="race-stat">📍 <span class="val">5.0</span> km</div>
-            <div class="race-stat">⚠️ <span class="val" style="color:var(--orange)">no modifica</span></div>
-          </div>
-          <div class="race-bottom">
-            <div class="race-datetime">Lun 07 Mar · 18:30</div>
-            <button class="join-btn leave" onclick="openCancelSheet('cr2','Firenze Hills 5K')">✕ Annulla</button>
-          </div>
+          <div class="race-top"><div class="race-name">Firenze Hills 5K</div><div class="race-badge badge-soon">TRA 4 ORE</div></div>
+          <div class="race-meta"><div class="race-stat">🏃 <span class="val">41</span> iscritti</div><div class="race-stat">📍 <span class="val">5.0</span> km</div><div class="race-stat">⚠️ <span class="val" style="color:var(--orange)">no modifica</span></div></div>
+          <div class="race-bottom"><div class="race-datetime">Lun 07 Mar · 18:30</div><button class="join-btn leave" onclick="openCancelSheet('cr2','Firenze Hills 5K')">✕ Annulla</button></div>
         </div>
-
-        <!-- Gara live: solo visualizzazione -->
         <div class="race-card live">
-          <div class="race-top">
-            <div class="race-name">Milano Urban Sprint</div>
-            <div class="race-badge badge-live">● LIVE</div>
-          </div>
-          <div class="race-meta">
-            <div class="race-stat">🏃 <span class="val">12</span> iscritti</div>
-            <div class="race-stat">📍 <span class="val">5.0</span> km</div>
-            <div class="race-stat">⏱ <span class="val">00:18:22</span></div>
-          </div>
-          <div class="race-bottom">
-            <div class="race-datetime">In corso · non modificabile</div>
-            <button class="join-btn disabled">🔒 Live</button>
-          </div>
+          <div class="race-top"><div class="race-name">Milano Urban Sprint</div><div class="race-badge badge-live">● LIVE</div></div>
+          <div class="race-meta"><div class="race-stat">🏃 <span class="val">12</span> iscritti</div><div class="race-stat">📍 <span class="val">5.0</span> km</div><div class="race-stat">⏱ <span class="val">00:18:22</span></div></div>
+          <div class="race-bottom"><div class="race-datetime">In corso · non modificabile</div><button class="join-btn disabled">🔒 Live</button></div>
         </div>
-
       </div>
-
     </div>
-
     <div class="bottom-nav">
       <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
       <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
@@ -1424,542 +1083,51 @@
 </div>
 
 <script>
-// ============================================================
-// REGISTER STATE MACHINE
-// ============================================================
-let registrationState = 'idle';
-let regOtpTimer = null;
-let regOtpSeconds = 120;
-let nicknameAvailable = false;
-let nicknameDebounceTimer = null;
-
-function handleRegister() {
-  if (registrationState === 'idle') {
-    const phone = document.getElementById('regPhone').value.trim();
-    if (!phone) { flashRegError('Inserisci il numero di telefono'); return; }
-    if (!nicknameAvailable) { flashRegError('Scegli un nickname valido e disponibile'); return; }
-    requestRegOTP();
-  } else if (registrationState === 'otp_sent') {
-    const otp = document.getElementById('regOtpInput').value.trim();
-    if (!otp || otp.length < 5) { showRegOtpError('Inserisci il codice OTP a 5 caratteri'); return; }
-    verifyRegOTP(otp);
-  }
-}
-
-function requestRegOTP() {
-  registrationState = 'otp_sent';
-  regOtpSeconds = 120;
-  document.getElementById('regOtpBlock').style.display = 'block';
-  document.getElementById('regBtn').textContent = 'VERIFICA →';
-  document.getElementById('regOtpError').style.display = 'none';
-  document.getElementById('regOtpMsg').textContent = 'Ti è stato inviato un codice OTP.';
-  startRegCountdown();
-}
-
-function startRegCountdown() {
-  if (regOtpTimer) clearInterval(regOtpTimer);
-  updateRegCountdownDisplay();
-  regOtpTimer = setInterval(() => {
-    regOtpSeconds--;
-    updateRegCountdownDisplay();
-    if (regOtpSeconds <= 0) { clearInterval(regOtpTimer); regOtpExpired(); }
-  }, 1000);
-}
-
-function updateRegCountdownDisplay() {
-  const el = document.getElementById('regOtpCountdown');
-  const m = Math.floor(regOtpSeconds / 60);
-  const s = regOtpSeconds % 60;
-  el.textContent = m + ':' + String(s).padStart(2, '0');
-  el.classList.toggle('expiring', regOtpSeconds <= 20);
-}
-
-function regOtpExpired() {
-  registrationState = 'idle';
-  document.getElementById('regOtpMsg').textContent = '❌ Codice scaduto';
-  document.getElementById('regOtpCountdown').textContent = '0:00';
-  document.getElementById('regOtpInput').value = '';
-  document.getElementById('regBtn').textContent = 'RICHIEDI NUOVO CODICE →';
-  showRegOtpError('Il codice OTP è scaduto. Premi CREA ACCOUNT per riceverne uno nuovo.');
-}
-
-function verifyRegOTP(otp) {
-  const phone = document.getElementById('regPhone').value.trim();
-  const isAlreadyRegistered = phone === '000';
-  const isValid = otp.toUpperCase() === 'AB12C';
-  if (isAlreadyRegistered) {
-    clearInterval(regOtpTimer);
-    registrationState = 'idle';
-    const w = document.getElementById('regWarning');
-    w.textContent = '⚠️ Numero già registrato — effettua il login';
-    w.style.display = 'block';
-    setTimeout(() => { w.style.display = 'none'; showScreen('login'); }, 2000);
-    return;
-  }
-  if (isValid) {
-    clearInterval(regOtpTimer);
-    registrationState = 'completed';
-    loginState = 'authenticated';
-    document.getElementById('loggedNick').textContent = document.getElementById('regNickname').value;
-    document.getElementById('regOtpMsg').textContent = '✓ Account creato con successo';
-    document.getElementById('regOtpCountdown').textContent = '';
-    document.getElementById('regBtn').textContent = 'CREA ACCOUNT →';
-    setTimeout(() => showScreen('list'), 600);
-  } else {
-    showRegOtpError('Codice errato — riprova');
-    document.getElementById('regOtpInput').value = '';
-  }
-}
-
-function showRegOtpError(msg) {
-  const el = document.getElementById('regOtpError');
-  el.textContent = msg;
-  el.style.display = 'block';
-}
-
-function flashRegError(msg) {
-  const btn = document.getElementById('regBtn');
-  const orig = btn.textContent;
-  btn.textContent = msg;
-  btn.style.background = 'var(--accent2)';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1800);
-}
-
-function handleNicknameInput(value) {
-  const badge = document.getElementById('nickBadge');
-  const valid = /^[a-zA-Z0-9_]{2,13}$/.test(value);
-  if (!valid) {
-    nicknameAvailable = false;
-    badge.style.display = value.length > 0 ? 'block' : 'none';
-    badge.textContent = value.length < 2 ? 'troppo corto' : value.length > 13 ? 'troppo lungo' : 'caratteri non validi';
-    badge.style.background = 'rgba(255,71,87,.1)';
-    badge.style.color = 'var(--accent2)';
-    return;
-  }
-  clearTimeout(nicknameDebounceTimer);
-  badge.style.display = 'block';
-  badge.textContent = '...';
-  badge.style.background = 'rgba(102,102,102,.1)';
-  badge.style.color = 'var(--muted)';
-  nicknameDebounceTimer = setTimeout(() => {
-    const isTaken = value.toLowerCase() === 'taken';
-    nicknameAvailable = !isTaken;
-    badge.textContent = isTaken ? '✕ già utilizzato' : '✓ libero';
-    badge.style.background = isTaken ? 'rgba(255,71,87,.1)' : 'rgba(57,217,138,.1)';
-    badge.style.color = isTaken ? 'var(--accent2)' : 'var(--green)';
-  }, 600);
-}
-
-// ============================================================
-// LOGIN STATE MACHINE
-// ============================================================
-let loginState = 'idle';
-let otpTimer = null;
-let otpSeconds = 120;
-const MAX_ATTEMPTS = 3;
-let attempts = 0;
-
-function handleLogin() {
-  if (loginState === 'idle') {
-    const phone = document.getElementById('loginPhone').value.trim();
-    if (!phone) { flashLoginError('Inserisci il numero di telefono'); return; }
-    requestOTP();
-  } else if (loginState === 'otp_sent') {
-    const otp = document.getElementById('otpInput').value.trim();
-    if (!otp || otp.length < 5) { showOtpError('Inserisci il codice OTP a 5 caratteri'); return; }
-    verifyOTP(otp);
-  }
-}
-
-function requestOTP() {
-  loginState = 'otp_sent';
-  attempts = 0;
-  otpSeconds = 120;
-  document.getElementById('otpBlock').style.display = 'block';
-  document.getElementById('loginBtn').textContent = 'VERIFICA →';
-  document.getElementById('otpError').style.display = 'none';
-  document.getElementById('otpMsg').textContent = 'Ti è stato inviato un codice OTP.';
-  startCountdown();
-}
-
-function startCountdown() {
-  if (otpTimer) clearInterval(otpTimer);
-  otpSeconds = 120;
-  updateCountdownDisplay();
-  otpTimer = setInterval(() => {
-    otpSeconds--;
-    updateCountdownDisplay();
-    if (otpSeconds <= 0) { clearInterval(otpTimer); otpExpired(); }
-  }, 1000);
-}
-
-function updateCountdownDisplay() {
-  const el = document.getElementById('otpCountdown');
-  const m = Math.floor(otpSeconds / 60);
-  const s = otpSeconds % 60;
-  el.textContent = m + ':' + String(s).padStart(2, '0');
-  el.classList.toggle('expiring', otpSeconds <= 20);
-}
-
-function otpExpired() {
-  loginState = 'idle';
-  document.getElementById('otpMsg').textContent = '❌ Codice scaduto';
-  document.getElementById('otpCountdown').textContent = '0:00';
-  document.getElementById('otpInput').value = '';
-  document.getElementById('loginBtn').textContent = 'RICHIEDI NUOVO CODICE →';
-  showOtpError('Il codice OTP è scaduto. Premi ACCEDI per riceverne uno nuovo.');
-}
-
-function verifyOTP(otp) {
-  const isValid = otp.toUpperCase() === 'AB12C';
-  if (isValid) {
-    clearInterval(otpTimer);
-    loginState = 'authenticated';
-    document.getElementById('loggedNick').textContent = 'SpeedyRunner42';
-    document.getElementById('otpMsg').textContent = '✓ Accesso effettuato';
-    document.getElementById('otpCountdown').textContent = '';
-    document.getElementById('otpError').style.display = 'none';
-    document.getElementById('loginBtn').textContent = 'ACCEDI →';
-    setTimeout(() => showScreen('list'), 600);
-  } else {
-    attempts++;
-    const remaining = MAX_ATTEMPTS - attempts;
-    if (remaining <= 0) {
-      clearInterval(otpTimer);
-      loginState = 'idle';
-      document.getElementById('otpBlock').style.display = 'none';
-      document.getElementById('loginBtn').textContent = 'ACCEDI →';
-      showOtpError('⛔ Troppi tentativi errati. Richiedi un nuovo codice.');
-    } else {
-      showOtpError('Codice errato — ' + remaining + ' tentativ' + (remaining === 1 ? 'o' : 'i') + ' rimast' + (remaining === 1 ? 'o' : 'i'));
-      document.getElementById('otpInput').value = '';
-    }
-  }
-}
-
-function showOtpError(msg) {
-  const el = document.getElementById('otpError');
-  el.textContent = msg;
-  el.style.display = 'block';
-}
-
-function flashLoginError(msg) {
-  const btn = document.getElementById('loginBtn');
-  const orig = btn.textContent;
-  btn.textContent = msg;
-  btn.style.background = 'var(--accent2)';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1800);
-}
-
-// ============================================================
-// LOGOUT
-// ============================================================
-function showLogoutSheet() { document.getElementById('logoutOverlay').classList.add('visible'); }
-function hideLogoutSheet() { document.getElementById('logoutOverlay').classList.remove('visible'); }
-function doLogout() {
-  loginState = 'idle';
-  if (otpTimer) clearInterval(otpTimer);
-  document.getElementById('otpBlock').style.display = 'none';
-  document.getElementById('loginBtn').textContent = 'ACCEDI →';
-  document.getElementById('loginPhone').value = '';
-  document.getElementById('alreadyLoggedBlock').style.display = 'none';
-  document.getElementById('notLoggedBlock').style.display = 'block';
-  hideLogoutSheet();
-  showScreen('login');
-}
-
-// ============================================================
-// SCREEN NAVIGATION
-// ============================================================
-function showScreen(name) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('screen-' + name).classList.add('active');
-  const tabs = ['login','register','list','monitor','create','history'];
-  const idx = tabs.indexOf(name);
-  if (idx >= 0) document.querySelectorAll('.nav-tab')[idx].classList.add('active');
-  if (name === 'login') {
-    const isAuth = loginState === 'authenticated';
-    document.getElementById('alreadyLoggedBlock').style.display = isAuth ? 'block' : 'none';
-    document.getElementById('notLoggedBlock').style.display = isAuth ? 'none' : 'block';
-  }
-  document.querySelector('.phone').scrollTop = 0;
-}
-
-// ============================================================
-// CREATE RACE — COMP TYPE
-// ============////////////////////////////////////////////////
-let currentDist = '5';
-let currentTime = '20';
-
-function selectCompType(type) {
-  document.querySelectorAll('#compTypeToggle .toggle-option').forEach(o => o.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-  document.getElementById('check-dist').style.opacity = type === 'distance' ? '1' : '0';
-  document.getElementById('check-time').style.opacity = type === 'time' ? '1' : '0';
-  document.getElementById('distanceSection').style.display = type === 'distance' ? 'block' : 'none';
-  document.getElementById('timeSection').style.display = type === 'time' ? 'block' : 'none';
-}
-
-function selectCompTypeDirect(type) {
-  const els = document.querySelectorAll('#compTypeToggle .toggle-option');
-  els.forEach(o => o.classList.remove('active'));
-  if (type === 'distance') els[0] && els[0].classList.add('active');
-  else els[1] && els[1].classList.add('active');
-  document.getElementById('check-dist').style.opacity = type === 'distance' ? '1' : '0';
-  document.getElementById('check-time').style.opacity = type === 'time' ? '1' : '0';
-  document.getElementById('distanceSection').style.display = type === 'distance' ? 'block' : 'none';
-  document.getElementById('timeSection').style.display = type === 'time' ? 'block' : 'none';
-}
-
-function selectDistChip(el, val) {
-  document.querySelectorAll('.dist-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  const isCustom = val === 'custom';
-  document.getElementById('customDistBox').style.display = isCustom ? 'block' : 'none';
-  if (!isCustom) {
-    currentDist = val;
-    document.getElementById('distSummary').textContent = val + ' km';
-  }
-}
-
-function selectTimeChip(el, val) {
-  document.querySelectorAll('.time-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  const isCustom = val === 'custom';
-  document.getElementById('customTimeBox').style.display = isCustom ? 'block' : 'none';
-  if (!isCustom) {
-    currentTime = val;
-    const lbl = val === '60' ? '1 ora' : val + ' minuti';
-    document.getElementById('timeSummary').textContent = lbl;
-  }
-}
-
-function selectRaceType(type) {
-  document.querySelectorAll('#raceTypeToggle .toggle-option').forEach(o => o.classList.remove('active'));
-  document.getElementById('check-virtual').style.opacity = type === 'virtual' ? '1' : '0';
-  document.getElementById('check-physical').style.opacity = type === 'physical' ? '1' : '0';
-  event.currentTarget.classList.add('active');
-  document.getElementById('physicalSection').style.display = type === 'physical' ? 'block' : 'none';
-}
-
-function selectVisibility(type) {
-  document.querySelectorAll('#visibilityToggle .toggle-option').forEach(o => o.classList.remove('active'));
-  document.getElementById('check-public').style.opacity = type === 'public' ? '1' : '0';
-  document.getElementById('check-private').style.opacity = type === 'private' ? '1' : '0';
-  event.currentTarget.classList.add('active');
-  document.getElementById('privateSection').style.display = type === 'private' ? 'block' : 'none';
-}
-
-function selectVisibilityDirect(type) {
-  const els = document.querySelectorAll('#visibilityToggle .toggle-option');
-  els.forEach(o => o.classList.remove('active'));
-  if (type === 'public') els[0] && els[0].classList.add('active');
-  else els[1] && els[1].classList.add('active');
-  document.getElementById('check-public').style.opacity = type === 'public' ? '1' : '0';
-  document.getElementById('check-private').style.opacity = type === 'private' ? '1' : '0';
-  document.getElementById('privateSection').style.display = type === 'private' ? 'block' : 'none';
-}
-
-// ============================================================
-// SECRET CODE
-// ============================================================
-function handleSecretCode(raw) {
-  const val = raw.toUpperCase().replace(/[^A-Z0-9]/g,'');
-  const input = document.getElementById('secretCodeInput');
-  input.value = val;
-  const hint  = document.getElementById('secretCodeHint');
-  const info  = document.getElementById('secretCodeInfo');
-  const empty = document.querySelector('.secret-code-empty');
-  if (val.length === 0) {
-    hint.style.display = 'none';
-    info.style.display = 'none';
-    empty.style.display = 'flex';
-    return;
-  }
-  empty.style.display = 'none';
-  if (val.length < 3) {
-    hint.className = 'secret-code-hint invalid';
-    hint.textContent = '⚠ Minimo 3 caratteri';
-    hint.style.display = 'block';
-    info.style.display = 'none';
-    return;
-  }
-  hint.className = 'secret-code-hint valid';
-  hint.textContent = '✓ Codice valido · ' + val.length + '/6 caratteri';
-  hint.style.display = 'block';
-  info.style.display = 'flex';
-  document.getElementById('secretCodeDisplay').textContent = val;
-}
-
-function generateSecretCode() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let code = '';
-  for (let i = 0; i < 5; i++) code += chars[Math.floor(Math.random() * chars.length)];
-  document.getElementById('secretCodeInput').value = code;
-  handleSecretCode(code);
-  const btn = document.querySelector('.gen-btn');
-  btn.textContent = '✓';
-  btn.style.borderColor = 'var(--accent)';
-  btn.style.color = 'var(--accent)';
-  setTimeout(() => { btn.textContent = '⚡'; btn.style.borderColor = ''; btn.style.color = ''; }, 1200);
-}
-
-// ============================================================
-// PUBLISH / EDIT FLOW
-// ============================================================
-let isEditMode = false;
-
-function exitCreateMode() {
-  if (isEditMode) {
-    resetCreateMode();
-    showScreen('history');
-    switchRbTab('create');
-  } else {
-    showScreen('list');
-  }
-}
-
-function resetCreateMode() {
-  isEditMode = false;
-  document.getElementById('createModeBanner').style.display = 'none';
-  document.getElementById('createScreenTitle').textContent = 'CREA GARA';
-  document.getElementById('publishBtn').textContent = 'PUBBLICA GARA →';
-}
-
-function handlePublish() {
-  const codeEl = document.getElementById('secretCodeInput');
-  const code = codeEl ? codeEl.value.trim() : '';
-  if (code.length > 0 && code.length < 3) {
-    const hint = document.getElementById('secretCodeHint');
-    hint.className = 'secret-code-hint invalid';
-    hint.textContent = '⚠ Codice troppo corto — minimo 3 caratteri o lascia vuoto';
-    hint.style.display = 'block';
-    codeEl.focus();
-    return;
-  }
-  if (isEditMode) {
-    resetCreateMode();
-    showScreen('history');
-    switchRbTab('create');
-    setTimeout(() => flashToast('✓ Gara aggiornata con successo'), 150);
-  } else {
-    showScreen('list');
-  }
-}
-
-// ============================================================
-// RACE BOARD
-// ============================================================
-function switchRbTab(tab) {
-  const mieView    = document.getElementById('rbTabMieView');
-  const createView = document.getElementById('rbTabCreateView');
-  const tabMie     = document.getElementById('rbTabMie');
-  const tabCreate  = document.getElementById('rbTabCreate');
-  if (tab === 'mie') {
-    mieView.style.display    = 'block';
-    createView.style.display = 'none';
-    tabMie.classList.add('active');
-    tabCreate.classList.remove('active');
-  } else {
-    mieView.style.display    = 'none';
-    createView.style.display = 'block';
-    tabMie.classList.remove('active');
-    tabCreate.classList.add('active');
-  }
-}
-
-function editRace(data) {
-  isEditMode = true;
-  const nameInput = document.querySelector('#screen-create input[placeholder="es. Milano Sprint 5K"]');
-  const dateInputs = document.querySelectorAll('#screen-create input[type="date"]');
-  const timeInputs = document.querySelectorAll('#screen-create input[type="time"]');
-  if (nameInput) nameInput.value = data.name || '';
-  if (dateInputs[0]) dateInputs[0].value = data.date || '';
-  if (timeInputs[0]) timeInputs[0].value = data.time || '';
-  selectCompTypeDirect(data.type || 'distance');
-  if (data.type === 'distance') {
-    document.querySelectorAll('.dist-chip').forEach(c => {
-      c.classList.remove('active');
-      if (c.textContent.trim() === (data.km || '')) c.classList.add('active');
-    });
-    const ds = document.getElementById('distSummary');
-    if (ds) ds.textContent = (data.km || '') + ' km';
-  }
-  selectVisibilityDirect(data.visibility || 'public');
-  document.getElementById('createModeBanner').style.display = 'flex';
-  document.getElementById('createModeRaceName').textContent = data.name || '';
-  document.getElementById('createScreenTitle').textContent = 'MODIFICA GARA';
-  document.getElementById('publishBtn').textContent = 'SALVA MODIFICHE →';
-  showScreen('create');
-}
-
-// ============================================================
-// CANCEL / DELETE SHEETS
-// ============================================================
-let currentActionName = null;
-
-function openCancelSheet(cardId, name) {
-  currentActionName = name;
-  document.getElementById('cancelSheetSub').textContent = name;
-  document.getElementById('cancelOverlay').classList.add('visible');
-}
-
-function openDeleteSheet(cardId, name) {
-  currentActionName = name;
-  document.getElementById('deleteSheetSub').textContent = name;
-  document.getElementById('deleteOverlay').classList.add('visible');
-}
-
-function closeAllSheets() {
-  document.querySelectorAll('.rb-overlay, .logout-overlay').forEach(o => o.classList.remove('visible'));
-}
-
-function confirmCancel() {
-  closeAllSheets();
-  flashToast('Gara annullata — iscritti notificati');
-}
-
-function confirmDelete() {
-  closeAllSheets();
-  flashToast('🗑 Eliminata dallo storico');
-}
-
-function flashToast(msg) {
-  const toast = document.createElement('div');
-  toast.textContent = msg;
-  toast.style.cssText = 'position:absolute;bottom:110px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--accent);color:var(--accent);font-family:"DM Mono",monospace;font-size:11px;padding:8px 16px;border-radius:20px;white-space:nowrap;z-index:400;letter-spacing:.5px;transition:opacity .5s';
-  document.querySelector('.phone').appendChild(toast);
-  setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 500); }, 1800);
-}
-
-// ============================================================
-// FILTER CHIPS (list screen)
-// ============================================================
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.filter-row .filter-chip').forEach(chip => {
-    chip.addEventListener('click', function() {
-      this.closest('.filter-row').querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-  const customDist = document.getElementById('customDistInput');
-  if (customDist) {
-    customDist.addEventListener('input', function() {
-      if (this.value) document.getElementById('distSummary').textContent = this.value + ' km';
-    });
-  }
-  const customTime = document.getElementById('customTimeInput');
-  if (customTime) {
-    customTime.addEventListener('input', function() {
-      if (this.value) {
-        const mins = parseInt(this.value);
-        const lbl = mins >= 60 ? Math.floor(mins/60) + 'h ' + (mins % 60 ? (mins % 60) + 'min' : '') : mins + ' minuti';
-        document.getElementById('timeSummary').textContent = lbl.trim();
-      }
-    });
-  }
-});
+let registrationState='idle',regOtpTimer=null,regOtpSeconds=120,nicknameAvailable=false,nicknameDebounceTimer=null;
+function handleRegister(){if(registrationState==='idle'){const p=document.getElementById('regPhone').value.trim();if(!p){flashRegError('Inserisci il numero di telefono');return;}if(!nicknameAvailable){flashRegError('Scegli un nickname valido e disponibile');return;}requestRegOTP();}else if(registrationState==='otp_sent'){const o=document.getElementById('regOtpInput').value.trim();if(!o||o.length<5){showRegOtpError('Inserisci il codice OTP a 5 caratteri');return;}verifyRegOTP(o);}}
+function requestRegOTP(){registrationState='otp_sent';regOtpSeconds=120;document.getElementById('regOtpBlock').style.display='block';document.getElementById('regBtn').textContent='VERIFICA →';document.getElementById('regOtpError').style.display='none';document.getElementById('regOtpMsg').textContent='Ti è stato inviato un codice OTP.';startRegCountdown();}
+function startRegCountdown(){if(regOtpTimer)clearInterval(regOtpTimer);updateRegCountdownDisplay();regOtpTimer=setInterval(()=>{regOtpSeconds--;updateRegCountdownDisplay();if(regOtpSeconds<=0){clearInterval(regOtpTimer);regOtpExpired();}},1000);}
+function updateRegCountdownDisplay(){const el=document.getElementById('regOtpCountdown');const m=Math.floor(regOtpSeconds/60),s=regOtpSeconds%60;el.textContent=m+':'+String(s).padStart(2,'0');el.classList.toggle('expiring',regOtpSeconds<=20);}
+function regOtpExpired(){registrationState='idle';document.getElementById('regOtpMsg').textContent='❌ Codice scaduto';document.getElementById('regOtpCountdown').textContent='0:00';document.getElementById('regOtpInput').value='';document.getElementById('regBtn').textContent='RICHIEDI NUOVO CODICE →';showRegOtpError('Il codice OTP è scaduto.');}
+function verifyRegOTP(otp){const phone=document.getElementById('regPhone').value.trim();const isAlreadyRegistered=phone==='000';const isValid=otp.toUpperCase()==='AB12C';if(isAlreadyRegistered){clearInterval(regOtpTimer);registrationState='idle';const w=document.getElementById('regWarning');w.textContent='⚠️ Numero già registrato — effettua il login';w.style.display='block';setTimeout(()=>{w.style.display='none';showScreen('login');},2000);return;}if(isValid){clearInterval(regOtpTimer);registrationState='completed';loginState='authenticated';document.getElementById('loggedNick').textContent=document.getElementById('regNickname').value;document.getElementById('regOtpMsg').textContent='✓ Account creato con successo';document.getElementById('regOtpCountdown').textContent='';document.getElementById('regBtn').textContent='CREA ACCOUNT →';setTimeout(()=>showScreen('list'),600);}else{showRegOtpError('Codice errato — riprova');document.getElementById('regOtpInput').value='';}}
+function showRegOtpError(msg){const el=document.getElementById('regOtpError');el.textContent=msg;el.style.display='block';}
+function flashRegError(msg){const btn=document.getElementById('regBtn');const orig=btn.textContent;btn.textContent=msg;btn.style.background='var(--accent2)';setTimeout(()=>{btn.textContent=orig;btn.style.background='';},1800);}
+function handleNicknameInput(value){const badge=document.getElementById('nickBadge');const valid=/^[a-zA-Z0-9_]{2,13}$/.test(value);if(!valid){nicknameAvailable=false;badge.style.display=value.length>0?'block':'none';badge.textContent=value.length<2?'troppo corto':value.length>13?'troppo lungo':'caratteri non validi';badge.style.background='rgba(255,71,87,.1)';badge.style.color='var(--accent2)';return;}clearTimeout(nicknameDebounceTimer);badge.style.display='block';badge.textContent='...';badge.style.background='rgba(102,102,102,.1)';badge.style.color='var(--muted)';nicknameDebounceTimer=setTimeout(()=>{const isTaken=value.toLowerCase()==='taken';nicknameAvailable=!isTaken;badge.textContent=isTaken?'✕ già utilizzato':'✓ libero';badge.style.background=isTaken?'rgba(255,71,87,.1)':'rgba(57,217,138,.1)';badge.style.color=isTaken?'var(--accent2)':'var(--green)';},600);}
+let loginState='idle',otpTimer=null,otpSeconds=120;const MAX_ATTEMPTS=3;let attempts=0;
+function handleLogin(){if(loginState==='idle'){const p=document.getElementById('loginPhone').value.trim();if(!p){flashLoginError('Inserisci il numero di telefono');return;}requestOTP();}else if(loginState==='otp_sent'){const o=document.getElementById('otpInput').value.trim();if(!o||o.length<5){showOtpError('Inserisci il codice OTP a 5 caratteri');return;}verifyOTP(o);}}
+function requestOTP(){loginState='otp_sent';attempts=0;otpSeconds=120;document.getElementById('otpBlock').style.display='block';document.getElementById('loginBtn').textContent='VERIFICA →';document.getElementById('otpError').style.display='none';document.getElementById('otpMsg').textContent='Ti è stato inviato un codice OTP.';startCountdown();}
+function startCountdown(){if(otpTimer)clearInterval(otpTimer);otpSeconds=120;updateCountdownDisplay();otpTimer=setInterval(()=>{otpSeconds--;updateCountdownDisplay();if(otpSeconds<=0){clearInterval(otpTimer);otpExpired();}},1000);}
+function updateCountdownDisplay(){const el=document.getElementById('otpCountdown');const m=Math.floor(otpSeconds/60),s=otpSeconds%60;el.textContent=m+':'+String(s).padStart(2,'0');el.classList.toggle('expiring',otpSeconds<=20);}
+function otpExpired(){loginState='idle';document.getElementById('otpMsg').textContent='❌ Codice scaduto';document.getElementById('otpCountdown').textContent='0:00';document.getElementById('otpInput').value='';document.getElementById('loginBtn').textContent='RICHIEDI NUOVO CODICE →';showOtpError('Il codice OTP è scaduto.');}
+function verifyOTP(otp){const isValid=otp.toUpperCase()==='AB12C';if(isValid){clearInterval(otpTimer);loginState='authenticated';document.getElementById('loggedNick').textContent='SpeedyRunner42';document.getElementById('otpMsg').textContent='✓ Accesso effettuato';document.getElementById('otpCountdown').textContent='';document.getElementById('otpError').style.display='none';document.getElementById('loginBtn').textContent='ACCEDI →';setTimeout(()=>showScreen('list'),600);}else{attempts++;const remaining=MAX_ATTEMPTS-attempts;if(remaining<=0){clearInterval(otpTimer);loginState='idle';document.getElementById('otpBlock').style.display='none';document.getElementById('loginBtn').textContent='ACCEDI →';showOtpError('⛔ Troppi tentativi errati.');}else{showOtpError('Codice errato — '+remaining+' tentativ'+(remaining===1?'o':'i')+' rimast'+(remaining===1?'o':'i'));document.getElementById('otpInput').value='';}}}
+function showOtpError(msg){const el=document.getElementById('otpError');el.textContent=msg;el.style.display='block';}
+function flashLoginError(msg){const btn=document.getElementById('loginBtn');const orig=btn.textContent;btn.textContent=msg;btn.style.background='var(--accent2)';setTimeout(()=>{btn.textContent=orig;btn.style.background='';},1800);}
+function showLogoutSheet(){document.getElementById('logoutOverlay').classList.add('visible');}
+function hideLogoutSheet(){document.getElementById('logoutOverlay').classList.remove('visible');}
+function doLogout(){loginState='idle';if(otpTimer)clearInterval(otpTimer);document.getElementById('otpBlock').style.display='none';document.getElementById('loginBtn').textContent='ACCEDI →';document.getElementById('loginPhone').value='';document.getElementById('alreadyLoggedBlock').style.display='none';document.getElementById('notLoggedBlock').style.display='block';hideLogoutSheet();showScreen('login');}
+function showScreen(name){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('screen-'+name).classList.add('active');const tabs=['login','register','list','monitor','create','history'];const idx=tabs.indexOf(name);if(idx>=0)document.querySelectorAll('.nav-tab')[idx].classList.add('active');if(name==='login'){const isAuth=loginState==='authenticated';document.getElementById('alreadyLoggedBlock').style.display=isAuth?'block':'none';document.getElementById('notLoggedBlock').style.display=isAuth?'none':'block';}document.querySelector('.phone').scrollTop=0;}
+let currentDist='5',currentTime='20';
+function selectCompType(type){document.querySelectorAll('#compTypeToggle .toggle-option').forEach(o=>o.classList.remove('active'));event.currentTarget.classList.add('active');document.getElementById('check-dist').style.opacity=type==='distance'?'1':'0';document.getElementById('check-time').style.opacity=type==='time'?'1':'0';document.getElementById('distanceSection').style.display=type==='distance'?'block':'none';document.getElementById('timeSection').style.display=type==='time'?'block':'none';}
+function selectCompTypeDirect(type){const els=document.querySelectorAll('#compTypeToggle .toggle-option');els.forEach(o=>o.classList.remove('active'));if(type==='distance')els[0]&&els[0].classList.add('active');else els[1]&&els[1].classList.add('active');document.getElementById('check-dist').style.opacity=type==='distance'?'1':'0';document.getElementById('check-time').style.opacity=type==='time'?'1':'0';document.getElementById('distanceSection').style.display=type==='distance'?'block':'none';document.getElementById('timeSection').style.display=type==='time'?'block':'none';}
+function selectDistChip(el,val){document.querySelectorAll('.dist-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');const isCustom=val==='custom';document.getElementById('customDistBox').style.display=isCustom?'block':'none';if(!isCustom){currentDist=val;document.getElementById('distSummary').textContent=val+' km';}}
+function selectTimeChip(el,val){document.querySelectorAll('.time-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');const isCustom=val==='custom';document.getElementById('customTimeBox').style.display=isCustom?'block':'none';if(!isCustom){currentTime=val;const lbl=val==='60'?'1 ora':val+' minuti';document.getElementById('timeSummary').textContent=lbl;}}
+function selectRaceType(type){document.querySelectorAll('#raceTypeToggle .toggle-option').forEach(o=>o.classList.remove('active'));document.getElementById('check-virtual').style.opacity=type==='virtual'?'1':'0';document.getElementById('check-physical').style.opacity=type==='physical'?'1':'0';event.currentTarget.classList.add('active');document.getElementById('physicalSection').style.display=type==='physical'?'block':'none';}
+function selectVisibility(type){document.querySelectorAll('#visibilityToggle .toggle-option').forEach(o=>o.classList.remove('active'));document.getElementById('check-public').style.opacity=type==='public'?'1':'0';document.getElementById('check-private').style.opacity=type==='private'?'1':'0';event.currentTarget.classList.add('active');document.getElementById('privateSection').style.display=type==='private'?'block':'none';}
+function selectVisibilityDirect(type){const els=document.querySelectorAll('#visibilityToggle .toggle-option');els.forEach(o=>o.classList.remove('active'));if(type==='public')els[0]&&els[0].classList.add('active');else els[1]&&els[1].classList.add('active');document.getElementById('check-public').style.opacity=type==='public'?'1':'0';document.getElementById('check-private').style.opacity=type==='private'?'1':'0';document.getElementById('privateSection').style.display=type==='private'?'block':'none';}
+function handleSecretCode(raw){const val=raw.toUpperCase().replace(/[^A-Z0-9]/g,'');const input=document.getElementById('secretCodeInput');input.value=val;const hint=document.getElementById('secretCodeHint');const info=document.getElementById('secretCodeInfo');const empty=document.querySelector('.secret-code-empty');if(val.length===0){hint.style.display='none';info.style.display='none';empty.style.display='flex';return;}empty.style.display='none';if(val.length<3){hint.className='secret-code-hint invalid';hint.textContent='⚠ Minimo 3 caratteri';hint.style.display='block';info.style.display='none';return;}hint.className='secret-code-hint valid';hint.textContent='✓ Codice valido · '+val.length+'/6 caratteri';hint.style.display='block';info.style.display='flex';document.getElementById('secretCodeDisplay').textContent=val;}
+function generateSecretCode(){const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let code='';for(let i=0;i<5;i++)code+=chars[Math.floor(Math.random()*chars.length)];document.getElementById('secretCodeInput').value=code;handleSecretCode(code);const btn=document.querySelector('.gen-btn');btn.textContent='✓';btn.style.borderColor='var(--accent)';btn.style.color='var(--accent)';setTimeout(()=>{btn.textContent='⚡';btn.style.borderColor='';btn.style.color='';},1200);}
+let isEditMode=false;
+function exitCreateMode(){if(isEditMode){resetCreateMode();showScreen('history');switchRbTab('create');}else{showScreen('list');}}
+function resetCreateMode(){isEditMode=false;document.getElementById('createModeBanner').style.display='none';document.getElementById('createScreenTitle').textContent='CREA GARA';document.getElementById('publishBtn').textContent='PUBBLICA GARA →';}
+function handlePublish(){const codeEl=document.getElementById('secretCodeInput');const code=codeEl?codeEl.value.trim():'';if(code.length>0&&code.length<3){const hint=document.getElementById('secretCodeHint');hint.className='secret-code-hint invalid';hint.textContent='⚠ Codice troppo corto — minimo 3 caratteri o lascia vuoto';hint.style.display='block';codeEl.focus();return;}if(isEditMode){resetCreateMode();showScreen('history');switchRbTab('create');setTimeout(()=>flashToast('✓ Gara aggiornata con successo'),150);}else{showScreen('list');}}
+function switchRbTab(tab){const mieView=document.getElementById('rbTabMieView');const createView=document.getElementById('rbTabCreateView');const tabMie=document.getElementById('rbTabMie');const tabCreate=document.getElementById('rbTabCreate');if(tab==='mie'){mieView.style.display='block';createView.style.display='none';tabMie.classList.add('active');tabCreate.classList.remove('active');}else{mieView.style.display='none';createView.style.display='block';tabMie.classList.remove('active');tabCreate.classList.add('active');}}
+function editRace(data){isEditMode=true;const nameInput=document.querySelector('#screen-create input[placeholder="es. Milano Sprint 5K"]');const dateInputs=document.querySelectorAll('#screen-create input[type="date"]');const timeInputs=document.querySelectorAll('#screen-create input[type="time"]');if(nameInput)nameInput.value=data.name||'';if(dateInputs[0])dateInputs[0].value=data.date||'';if(timeInputs[0])timeInputs[0].value=data.time||'';selectCompTypeDirect(data.type||'distance');if(data.type==='distance'){document.querySelectorAll('.dist-chip').forEach(c=>{c.classList.remove('active');if(c.textContent.trim()===(data.km||''))c.classList.add('active');});const ds=document.getElementById('distSummary');if(ds)ds.textContent=(data.km||'')+' km';}selectVisibilityDirect(data.visibility||'public');document.getElementById('createModeBanner').style.display='flex';document.getElementById('createModeRaceName').textContent=data.name||'';document.getElementById('createScreenTitle').textContent='MODIFICA GARA';document.getElementById('publishBtn').textContent='SALVA MODIFICHE →';showScreen('create');}
+let currentActionName=null;
+function openCancelSheet(cardId,name){currentActionName=name;document.getElementById('cancelSheetSub').textContent=name;document.getElementById('cancelOverlay').classList.add('visible');}
+function closeAllSheets(){document.querySelectorAll('.rb-overlay,.logout-overlay').forEach(o=>o.classList.remove('visible'));}
+function confirmCancel(){closeAllSheets();flashToast('Gara annullata — iscritti notificati');}
+function flashToast(msg){const toast=document.createElement('div');toast.textContent=msg;toast.style.cssText='position:absolute;bottom:110px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--accent);color:var(--accent);font-family:"DM Mono",monospace;font-size:11px;padding:8px 16px;border-radius:20px;white-space:nowrap;z-index:400;letter-spacing:.5px;transition:opacity .5s';document.querySelector('.phone').appendChild(toast);setTimeout(()=>{toast.style.opacity='0';setTimeout(()=>toast.remove(),500);},1800);}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.filter-row .filter-chip').forEach(chip=>{chip.addEventListener('click',function(){this.closest('.filter-row').querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));this.classList.add('active');});});const customDist=document.getElementById('customDistInput');if(customDist)customDist.addEventListener('input',function(){if(this.value)document.getElementById('distSummary').textContent=this.value+' km';});const customTime=document.getElementById('customTimeInput');if(customTime)customTime.addEventListener('input',function(){if(this.value){const mins=parseInt(this.value);const lbl=mins>=60?Math.floor(mins/60)+'h '+(mins%60?(mins%60)+'min':''):mins+' minuti';document.getElementById('timeSummary').textContent=lbl.trim();}});});
 </script>
 </body>
 </html>
