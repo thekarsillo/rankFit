@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,7 +97,7 @@
     min-height: 740px;
     display: flex;
     flex-direction: column;
-    padding: 24px 28px 40px;
+    padding: 24px 28px 100px;
   }
 
   .logo-block { margin-top: 40px; margin-bottom: 48px; }
@@ -661,6 +661,448 @@
 
   .rb-tab { flex: 1; padding: 9px 10px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--accent); font-size: 11px; font-family: 'DM Mono', monospace; cursor: pointer; transition: all .2s; letter-spacing: .3px; white-space: nowrap; text-align: center; }
   .rb-tab.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 700; }
+
+  /* ── Avatar picker ─────────────────────────────── */
+  .avatar-section { display:flex; flex-direction:column; align-items:center; gap:14px; margin:8px 0 4px; }
+  .avatar-ring {
+    width:88px; height:88px; border-radius:50%;
+    border:2px solid var(--border);
+    background:var(--surface2);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; cursor:pointer;
+    transition:border-color .2s;
+  }
+  .avatar-ring.has-image { border-color:var(--accent); }
+  .avatar-ring img { width:100%; height:100%; object-fit:cover; display:none; }
+  .avatar-ring.has-image img { display:block; }
+  .avatar-ring .avatar-placeholder { font-size:36px; transition:opacity .2s; }
+  .avatar-ring.has-image .avatar-placeholder { display:none; }
+  .avatar-ring .avatar-edit-overlay {
+    position:absolute; inset:0; background:rgba(0,0,0,.45);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:opacity .2s; border-radius:50%;
+    font-size:20px;
+  }
+  .avatar-ring:hover .avatar-edit-overlay { opacity:1; }
+  .avatar-actions { display:flex; gap:10px; }
+  .avatar-btn {
+    display:flex; align-items:center; gap:7px;
+    padding:10px 16px; border-radius:12px;
+    border:1px solid var(--border); background:var(--surface);
+    color:var(--text); font-size:12px; font-weight:600;
+    font-family:'DM Sans',sans-serif; cursor:pointer;
+    transition:all .2s; white-space:nowrap;
+  }
+  .avatar-btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(232,255,71,.05); }
+  .avatar-btn .ab-icon { font-size:16px; }
+  .avatar-remove {
+    margin-top:4px; font-size:10px; font-family:'DM Mono',monospace;
+    color:var(--accent2); cursor:pointer; letter-spacing:.5px;
+    display:none; text-align:center;
+  }
+  .avatar-remove:hover { text-decoration:underline; }
+
+  /* ── Profile screen ────────────────────────────── */
+  .profile-screen { padding: 0 24px 40px; }
+  .profile-top-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0 20px;
+  }
+  .profile-screen-title { font-family:'Bebas Neue',sans-serif; font-size:32px; color:var(--text); letter-spacing:1px; }
+  .profile-session-pill {
+    display:flex; align-items:center; gap:6px;
+    font-family:'DM Mono',monospace; font-size:10px; color:var(--green);
+    background:rgba(57,217,138,.1); border:1px solid rgba(57,217,138,.3);
+    padding:4px 10px; border-radius:20px; letter-spacing:.5px;
+  }
+  .profile-session-dot { width:6px; height:6px; border-radius:50%; background:var(--green); animation:pulse 2s infinite; }
+
+  .profile-avatar-wrap {
+    display:flex; flex-direction:column; align-items:center; gap:10px; margin:4px 0 24px;
+  }
+  .profile-avatar-ring {
+    width:96px; height:96px; border-radius:50%;
+    border:2.5px solid var(--border); background:var(--surface2);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; cursor:pointer; transition:border-color .2s;
+  }
+  .profile-avatar-ring.has-image { border-color:var(--accent); }
+  .profile-avatar-ring img { width:100%; height:100%; object-fit:cover; display:none; }
+  .profile-avatar-ring.has-image img { display:block; }
+  .profile-avatar-ring .pa-placeholder { font-size:40px; }
+  .profile-avatar-ring.has-image .pa-placeholder { display:none; }
+  .profile-avatar-ring .pa-overlay {
+    position:absolute; inset:0; background:rgba(0,0,0,.45);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:opacity .2s; font-size:20px;
+  }
+  .profile-avatar-ring:hover .pa-overlay { opacity:1; }
+  .profile-avatar-actions { display:flex; gap:8px; }
+  .profile-avatar-remove {
+    font-size:10px; font-family:'DM Mono',monospace; color:var(--accent2);
+    cursor:pointer; letter-spacing:.5px; display:none; margin-top:2px;
+  }
+  .profile-avatar-remove:hover { text-decoration:underline; }
+
+  .profile-field-block { margin-bottom:16px; }
+  .profile-phone-row {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 16px; background:var(--surface); border:1px solid var(--border);
+    border-radius:12px;
+  }
+  .profile-phone-val { font-family:'DM Mono',monospace; font-size:14px; color:var(--text); }
+  .profile-phone-badge {
+    font-size:9px; font-family:'DM Mono',monospace; color:var(--muted);
+    background:var(--surface2); border:1px solid var(--border);
+    padding:3px 8px; border-radius:6px; letter-spacing:1px;
+  }
+
+  .profile-save-btn {
+    width:100%; background:var(--accent); border:none; border-radius:14px;
+    padding:17px; color:#000; font-size:15px; font-weight:700;
+    font-family:'DM Sans',sans-serif; letter-spacing:1px; cursor:pointer;
+    margin-top:8px; transition:transform .15s, opacity .15s;
+  }
+  .profile-save-btn:active { transform:scale(.97); opacity:.9; }
+  .profile-save-btn:disabled { opacity:.4; cursor:not-allowed; transform:none; }
+
+  .profile-divider {
+    font-size:10px; font-family:'DM Mono',monospace; color:var(--accent);
+    letter-spacing:2px; text-transform:uppercase;
+    padding:16px 0 8px; border-top:1px solid var(--border); margin-top:8px;
+  }
+  .profile-saved-toast {
+    text-align:center; font-size:11px; font-family:'DM Mono',monospace;
+    color:var(--green); letter-spacing:.5px; margin-top:8px;
+    opacity:0; transition:opacity .3s; min-height:18px;
+  }
+
+  /* ── Filter rows (races screen) ─────────────────── */
+  .filter-section { padding: 0 24px 4px; }
+  .filter-section-label {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+  }
+  .filter-section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .filter-row { padding: 0 24px 10px; }
+
+  /* ── Private race deep link ─────────────────────── */
+  .deeplink-box {
+    margin-top: 14px;
+    background: var(--surface2);
+    border: 1px solid rgba(232,255,71,.2);
+    border-radius: 14px;
+    padding: 16px;
+  }
+  .deeplink-label {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--accent); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+  }
+  .deeplink-url-row {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 12px; margin-bottom: 12px;
+  }
+  .deeplink-url {
+    flex: 1; font-size: 12px; font-family: 'DM Mono', monospace;
+    color: var(--accent); word-break: break-all; line-height: 1.4;
+  }
+  .deeplink-copy-btn {
+    flex-shrink: 0; padding: 6px 10px; border-radius: 8px;
+    background: var(--accent); border: none; color: #000;
+    font-size: 10px; font-weight: 700; font-family: 'DM Mono', monospace;
+    cursor: pointer; transition: opacity .2s; letter-spacing: .5px;
+  }
+  .deeplink-copy-btn:active { opacity: .7; }
+
+  .deeplink-share-label {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .deeplink-share-btns {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .share-app-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 12px; border-radius: 10px;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--text); font-size: 12px; font-weight: 600;
+    font-family: 'DM Sans', sans-serif; cursor: pointer;
+    transition: all .2s; white-space: nowrap;
+  }
+  .share-app-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .share-app-btn .sab-icon { font-size: 16px; }
+  .deeplink-info {
+    display: flex; align-items: flex-start; gap: 8px;
+    margin-top: 12px; padding: 10px 12px;
+    background: var(--surface); border: 1px dashed var(--border);
+    border-radius: 10px; font-size: 10px; font-family: 'DM Mono', monospace;
+    color: var(--muted); line-height: 1.6;
+  }
+
+  /* ── Races screen tabs ──────────────────────────── */
+  .races-tab-row {
+    display: flex; gap: 6px; padding: 0 16px 14px;
+  }
+  .races-tab {
+    flex: 1; padding: 9px 6px; border-radius: 20px;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--muted); font-size: 11px; font-family: 'DM Mono', monospace;
+    cursor: pointer; transition: all .2s; text-align: center;
+    white-space: nowrap; position: relative;
+  }
+  .races-tab.active {
+    background: var(--accent); color: #000;
+    border-color: var(--accent); font-weight: 700;
+  }
+  .races-tab .tab-badge {
+    position: absolute; top: -5px; right: 4px;
+    background: var(--accent2); color: #fff;
+    font-size: 9px; font-weight: 700; font-family: 'DM Mono', monospace;
+    padding: 1px 5px; border-radius: 10px; min-width: 16px; text-align: center;
+  }
+  .races-tab-view { display: none; }
+  .races-tab-view.active { display: block; }
+
+  /* ── Invite card ─────────────────────────────────── */
+  .invite-race-card {
+    margin: 0 16px 12px;
+    background: var(--surface);
+    border: 1px solid rgba(232,255,71,.3);
+    border-radius: 18px; padding: 16px 18px;
+    position: relative; overflow: hidden;
+  }
+  .invite-race-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent); border-radius: 3px 0 0 3px;
+  }
+  .invite-from {
+    font-size: 10px; font-family: 'DM Mono', monospace;
+    color: var(--accent); letter-spacing: 1px; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .invite-actions { display: flex; gap: 8px; margin-top: 12px; }
+  .invite-join-btn {
+    flex: 1; padding: 10px; border-radius: 10px; border: none;
+    background: var(--accent); color: #000; font-size: 13px;
+    font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer;
+    transition: opacity .2s;
+  }
+  .invite-join-btn:active { opacity: .8; }
+  .invite-decline-btn {
+    padding: 10px 14px; border-radius: 10px;
+    border: 1px solid rgba(255,71,87,.3);
+    background: rgba(255,71,87,.06); color: var(--accent2);
+    font-size: 12px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+    cursor: pointer; transition: all .2s;
+  }
+
+  /* ── Empty state ─────────────────────────────────── */
+  .empty-state {
+    text-align: center; padding: 40px 24px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .empty-state-icon { font-size: 36px; opacity: .4; }
+  .empty-state-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 20px;
+    color: var(--muted); letter-spacing: 1px;
+  }
+  .empty-state-sub {
+    font-size: 11px; font-family: 'DM Mono', monospace;
+    color: var(--muted); line-height: 1.6; max-width: 220px;
+  }
+
+  /* ── Radar stat groups ──────────────────────────── */
+  .radar-stat-group { margin-bottom: 12px; }
+  .radar-stat-label {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 6px; padding-left: 2px;
+  }
+  .radar-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .radar-stat-row .stat-box.full { grid-column: 1 / -1; }
+
+  /* ── Credits widget ─────────────────────────────── */
+  .credits-widget {
+    margin: 0 16px 16px;
+    background: var(--surface);
+    border: 1px solid rgba(232,255,71,.25);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .credits-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .credits-header-left { display: flex; align-items: center; gap: 10px; }
+  .credits-icon { font-size: 22px; }
+  .credits-label {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
+  }
+  .credits-total {
+    font-family: 'Bebas Neue', sans-serif; font-size: 36px;
+    color: var(--accent); letter-spacing: 1px; line-height: 1;
+  }
+  .credits-unit {
+    font-size: 10px; font-family: 'DM Mono', monospace;
+    color: var(--muted); letter-spacing: 1px;
+  }
+  .credits-level-row {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .credits-level-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 8px;
+  }
+  .credits-level-name {
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .credits-level-next {
+    font-size: 10px; font-family: 'DM Mono', monospace;
+    color: var(--muted);
+  }
+  .credits-xp-bar {
+    height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .credits-xp-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    transition: width 1s ease;
+  }
+  .credits-breakdown {
+    padding: 12px 18px 14px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .credits-breakdown-title {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .credit-row {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .credit-row-left { display: flex; align-items: center; gap: 8px; }
+  .credit-row-icon { font-size: 14px; width: 22px; text-align: center; }
+  .credit-row-label {
+    font-size: 12px; color: var(--text); font-family: 'DM Sans', sans-serif;
+  }
+  .credit-row-sub {
+    font-size: 10px; font-family: 'DM Mono', monospace; color: var(--muted);
+  }
+  .credit-row-val {
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+    color: var(--accent); letter-spacing: .5px;
+  }
+  .credit-row-val.muted { color: var(--muted); }
+  .credits-history-note {
+    text-align: center; padding: 0 18px 14px;
+    font-size: 10px; font-family: 'DM Mono', monospace;
+    color: var(--muted); letter-spacing: .5px; line-height: 1.6;
+  }
+  /* level colors */
+  .lvl-bronze { color: #CD7F32; }
+  .lvl-silver { color: #C0C0C0; }
+  .lvl-gold   { color: #FFD700; }
+  .lvl-elite  { color: var(--accent); }
+
+  /* ── Race leaderboard sheet ─────────────────────── */
+  .lb-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.75); backdrop-filter: blur(4px);
+    z-index: 400; display: none; align-items: flex-end;
+  }
+  .lb-overlay.visible { display: flex; }
+  .lb-sheet {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 24px 24px 0 0;
+    width: 100%; max-height: 82%;
+    display: flex; flex-direction: column;
+    animation: slideUp .25s ease;
+  }
+  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .lb-handle {
+    width: 36px; height: 4px; border-radius: 2px;
+    background: var(--border); margin: 12px auto 0;
+  }
+  .lb-header {
+    padding: 14px 20px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .lb-race-name {
+    font-family: 'Bebas Neue', sans-serif; font-size: 20px;
+    color: var(--text); letter-spacing: 1px; line-height: 1.1;
+  }
+  .lb-race-meta {
+    font-size: 10px; font-family: 'DM Mono', monospace;
+    color: var(--muted); margin-top: 3px; letter-spacing: .5px;
+  }
+  .lb-close {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--muted); font-size: 14px; flex-shrink: 0;
+  }
+  .lb-type-badge {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 6px; margin-top: 5px; display: inline-block;
+  }
+  .lb-type-dist { background: rgba(232,255,71,.1); color: var(--accent); border: 1px solid rgba(232,255,71,.2); }
+  .lb-type-time { background: rgba(57,217,138,.1); color: var(--green); border: 1px solid rgba(57,217,138,.2); }
+  .lb-col-headers {
+    display: grid; grid-template-columns: 28px 1fr 72px 72px;
+    padding: 8px 16px 6px; gap: 4px;
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  .lb-rows { overflow-y: auto; flex: 1; padding: 6px 0 20px; }
+  .lb-row {
+    display: grid; grid-template-columns: 28px 1fr 72px 72px;
+    align-items: center; padding: 10px 16px; gap: 4px;
+    border-bottom: 1px solid rgba(42,42,42,.5);
+    transition: background .15s;
+  }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row.me { background: rgba(232,255,71,.05); }
+  .lb-pos {
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+    text-align: center; line-height: 1;
+  }
+  .lb-pos.p1 { color: #FFD700; }
+  .lb-pos.p2 { color: #C0C0C0; }
+  .lb-pos.p3 { color: #CD7F32; }
+  .lb-pos.pme { color: var(--accent); }
+  .lb-pos.pn  { color: var(--muted); }
+  .lb-nick {
+    font-size: 13px; font-weight: 600; color: var(--text);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .lb-you-tag {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--accent); background: rgba(232,255,71,.1);
+    border: 1px solid rgba(232,255,71,.25); padding: 1px 5px;
+    border-radius: 4px; margin-left: 5px; vertical-align: middle;
+  }
+  .lb-metric {
+    font-family: 'Bebas Neue', sans-serif; font-size: 16px;
+    color: var(--text); text-align: right; line-height: 1;
+  }
+  .lb-metric-sub {
+    font-size: 9px; font-family: 'DM Mono', monospace;
+    color: var(--muted); text-align: right; letter-spacing: .5px;
+  }
+  .lb-metric.me-val { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -668,9 +1110,9 @@
 <div class="nav-tabs">
   <div class="nav-tab active" onclick="showScreen('login')">① Login</div>
   <div class="nav-tab" onclick="showScreen('register')">② Account</div>
-  <div class="nav-tab" onclick="showScreen('list')">③ Gare</div>
-  <div class="nav-tab" onclick="showScreen('monitor')">④ Monitor</div>
-  <div class="nav-tab" onclick="showScreen('create')">⑤ Crea</div>
+  <div class="nav-tab" onclick="showScreen('list')">③ Races</div>
+  <div class="nav-tab" onclick="showScreen('monitor')">④ Radar</div>
+  <div class="nav-tab" onclick="showScreen('create')">⑤ Create</div>
   <div class="nav-tab" onclick="showScreen('history')">⑥ Race Board</div>
 </div>
 
@@ -689,20 +1131,76 @@
         <div class="logo-sub">Race. Anywhere. Together.</div>
       </div>
 
+      <!-- STATE A: Already logged in — Profile editor -->
       <div id="alreadyLoggedBlock" style="display:none">
-        <div class="logged-in-card">
-          <div class="logged-in-avatar">🏃</div>
-          <div class="logged-in-info">
-            <div class="logged-in-label">Sei loggato come</div>
-            <div class="logged-in-nick" id="loggedNick">SpeedyRunner42</div>
+        <div class="profile-top-header">
+          <div class="profile-screen-title">PROFILE</div>
+          <div class="profile-session-pill"><div class="profile-session-dot"></div>ACTIVE</div>
+        </div>
+
+        <!-- Avatar -->
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar-ring" id="profileAvatarRing"
+               onclick="document.getElementById('profileFileInput').click()">
+            <img id="profileAvatarPreview" src="" alt="avatar">
+            <div class="pa-placeholder">🏃</div>
+            <div class="pa-overlay">✏️</div>
+          </div>
+          <div class="profile-avatar-actions">
+            <button class="avatar-btn" type="button" onclick="triggerProfileCamera()">
+              <span class="ab-icon">📷</span> Camera
+            </button>
+            <button class="avatar-btn" type="button"
+                    onclick="document.getElementById('profileFileInput').click()">
+              <span class="ab-icon">📁</span> Upload
+            </button>
+          </div>
+          <div class="profile-avatar-remove" id="profileAvatarRemove"
+               onclick="removeProfileAvatar()">✕ Remove photo</div>
+        </div>
+        <!-- hidden data store for account info -->
+        <span id="loggedNick" style="display:none">SpeedyRunner42</span>
+        <span id="loggedPhone" style="display:none">+39 333 ••• ••90</span>
+        <input type="file" id="profileFileInput" accept="image/*"
+               style="display:none" onchange="handleProfileAvatarFile(this)">
+        <input type="file" id="profileCameraInput" accept="image/*" capture="user"
+               style="display:none" onchange="handleProfileAvatarFile(this)">
+
+        <!-- Nickname -->
+        <div class="profile-field-block">
+          <div class="form-label" style="margin-top:0">Nickname</div>
+          <div class="nickname-wrapper">
+            <input class="input-field" id="profileNickname" type="text"
+                   style="width:100%" placeholder="your nickname"
+                   oninput="handleProfileNicknameInput(this.value)">
+            <div class="nickname-badge" id="profileNickBadge" style="display:none"></div>
           </div>
         </div>
-        <button class="btn-primary" onclick="showScreen('list')" style="margin-top:20px">CONTINUA →</button>
-        <button class="btn-logout-soft" onclick="showLogoutSheet()">🚪 Esci dall'account</button>
+
+        <!-- Phone (read-only) -->
+        <div class="profile-field-block">
+          <div class="form-label" style="margin-top:0">Phone number</div>
+          <div class="profile-phone-row">
+            <span class="profile-phone-val" id="profilePhoneDisplay">+39 333 ••• ••90</span>
+            <span class="profile-phone-badge">VERIFIED</span>
+          </div>
+        </div>
+
+        <!-- Save -->
+        <div class="profile-divider">Changes</div>
+        <button class="profile-save-btn" id="profileSaveBtn"
+                onclick="saveProfileChanges()" disabled>SAVE CHANGES →</button>
+        <div class="profile-saved-toast" id="profileSavedToast"></div>
+
+        <!-- Sign out -->
+        <div class="profile-divider">Account</div>
+        <button class="btn-logout-soft" onclick="showLogoutSheet()">🚪 Sign Out</button>
       </div>
 
+      <!-- STATE B: Not logged in -->
       <div id="notLoggedBlock">
-        <div class="form-label">Prefisso + Numero</div>
+        <div style="font-size:11px;font-family:'DM Mono',monospace;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">○ No active session</div>
+        <div class="form-label">Country Code + Number</div>
         <div class="input-row">
           <select class="select-pill" id="loginPrefix">
             <option>🇮🇹 +39</option><option>🇺🇸 +1</option><option>🇬🇧 +44</option><option>🇩🇪 +49</option><option>🇫🇷 +33</option>
@@ -710,17 +1208,24 @@
           <input class="input-field" id="loginPhone" type="tel" placeholder="333 456 7890">
         </div>
         <div id="otpBlock" style="display:none">
-          <div class="form-label" style="margin-top:20px">Codice OTP</div>
+          <div class="form-label" style="margin-top:20px">OTP Code</div>
           <input class="otp-field" id="otpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
           <div id="otpStatus" class="otp-status-row">
-            <span id="otpMsg" class="otp-msg">Ti è stato inviato un codice OTP. Inseriscilo per verificare la tua identità</span>
+            <span id="otpMsg" class="otp-msg">An OTP code has been sent to you. Enter it to verify your identity.</span>
             <span id="otpCountdown" class="otp-countdown">2:00</span>
           </div>
           <div id="otpError" class="otp-error" style="display:none"></div>
         </div>
-        <button class="btn-primary" id="loginBtn" onclick="handleLogin()">ACCEDI →</button>
-        <div class="link-small">Non hai un account? <span onclick="showScreen('register')">Registrati</span></div>
+        <button class="btn-primary" id="loginBtn" onclick="handleLogin()">SIGN IN →</button>
+        <div class="link-small">Don't have an account? <span onclick="showScreen('register')">Sign Up</span></div>
       </div>
+    </div>
+    <div class="bottom-nav">
+      <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">RACES</div></div>
+      <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">RADAR</div></div>
+      <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">🎯</div><div class="nav-label">CREATE</div></div>
+      <div class="nav-item" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">RACE BOARD</div></div>
+      <div class="nav-item active" onclick="showScreen('login')"><div class="nav-icon">👤</div><div class="nav-label">PROFILE</div></div>
     </div>
   </div>
 
@@ -729,9 +1234,9 @@
     <div class="register-screen">
       <div class="screen-header">
         <div class="back-btn" onclick="showScreen('login')">←</div>
-        <div class="screen-title">CREA ACCOUNT</div>
+        <div class="screen-title">CREATE ACCOUNT</div>
       </div>
-      <div class="form-label">Prefisso + Numero</div>
+      <div class="form-label">Country Code + Number</div>
       <div class="input-row">
         <select class="select-pill" id="regPrefix">
           <option>🇮🇹 +39</option><option>🇺🇸 +1</option><option>🇬🇧 +44</option><option>🇩🇪 +49</option><option>🇫🇷 +33</option>
@@ -739,119 +1244,289 @@
         <input class="input-field" id="regPhone" type="tel" placeholder="333 456 7890">
       </div>
       <div id="regOtpBlock" style="display:none">
-        <div class="form-label" style="margin-top:20px">Codice OTP</div>
+        <div class="form-label" style="margin-top:20px">OTP Code</div>
         <input class="otp-field" id="regOtpInput" type="text" maxlength="5" placeholder="· · · · ·" style="width:100%">
         <div class="otp-status-row">
-          <span id="regOtpMsg" class="otp-msg">Ti è stato inviato un codice OTP.</span>
+          <span id="regOtpMsg" class="otp-msg">An OTP code has been sent to you.</span>
           <span id="regOtpCountdown" class="otp-countdown">2:00</span>
         </div>
         <div id="regOtpError" class="otp-error" style="display:none"></div>
       </div>
       <div class="form-label" style="margin-top:16px">Nickname</div>
       <div class="nickname-wrapper">
-        <input class="input-field" id="regNickname" type="text" placeholder="scegli il tuo nome" style="width:100%" oninput="handleNicknameInput(this.value)">
+        <input class="input-field" id="regNickname" type="text" placeholder="choose your name" style="width:100%" oninput="handleNicknameInput(this.value)">
         <div class="nickname-badge" id="nickBadge" style="display:none"></div>
       </div>
+      <div class="form-label" style="margin-top:20px">Profile Photo <span style="color:var(--muted);font-size:9px;letter-spacing:1px">(OPTIONAL)</span></div>
+      <div class="avatar-section">
+        <div class="avatar-ring" id="avatarRing" onclick="document.getElementById('avatarFileInput').click()">
+          <img id="avatarPreview" src="" alt="avatar">
+          <div class="avatar-placeholder">🏃</div>
+          <div class="avatar-edit-overlay">✏️</div>
+        </div>
+        <div class="avatar-actions">
+          <button class="avatar-btn" type="button" onclick="triggerCamera()">
+            <span class="ab-icon">📷</span> Camera
+          </button>
+          <button class="avatar-btn" type="button" onclick="document.getElementById('avatarFileInput').click()">
+            <span class="ab-icon">📁</span> Upload
+          </button>
+        </div>
+        <div class="avatar-remove" id="avatarRemove" onclick="removeAvatar()">✕ Remove photo</div>
+      </div>
+      <!-- hidden inputs -->
+      <input type="file" id="avatarFileInput" accept="image/*" style="display:none" onchange="handleAvatarFile(this)">
+      <input type="file" id="avatarCameraInput" accept="image/*" capture="user" style="display:none" onchange="handleAvatarFile(this)">
       <div id="regWarning" class="otp-error" style="display:none"></div>
-      <button class="btn-primary" id="regBtn" style="margin-top:28px" onclick="handleRegister()">CREA ACCOUNT →</button>
+      <button class="btn-primary" id="regBtn" style="margin-top:28px" onclick="handleRegister()">CREATE ACCOUNT →</button>
     </div>
   </div>
 
   <!-- SCREEN 3: LIST -->
   <div id="screen-list" class="screen">
     <div class="list-screen">
+
+      <!-- Header -->
       <div class="list-header">
-        <div><div class="list-title">GARE</div><div class="list-subtitle">3 ATTIVE OGGI</div></div>
-        <div class="icon-btn" onclick="showScreen('create')">＋</div>
-      </div>
-      <div class="filter-row">
-        <div class="filter-chip active">Tutte</div>
-        <div class="filter-chip">Le mie</div>
-        <div class="filter-chip">5K</div>
-        <div class="filter-chip">10K</div>
-        <div class="filter-chip">21K</div>
-      </div>
-      <div class="race-card live" onclick="showScreen('monitor')">
-        <div class="race-top"><div class="race-name">Milano Urban Sprint</div><div class="race-badge badge-live">● LIVE</div></div>
-        <div class="race-meta">
-          <div class="race-stat">🏃 <span class="val">12</span> iscritti</div>
-          <div class="race-stat">📍 <span class="val">5.0</span> km</div>
-          <div class="race-stat">⏱ <span class="val">00:18:22</span></div>
+        <div>
+          <div class="list-title">RACES</div>
+          <div class="list-subtitle" id="racesSubtitle">3 ACTIVE TODAY</div>
         </div>
-        <div class="race-bottom"><div class="race-datetime">Iniziata alle 09:23</div><button class="join-btn leave">Sei iscritto</button></div>
+        <div class="icon-btn" onclick="showScreen('create')">🎯</div>
       </div>
-      <div class="race-card soon">
-        <div class="race-top"><div class="race-name">Roma Parkway 10K</div><div class="race-badge badge-soon">⏰ TRA 4 MIN</div></div>
-        <div class="race-meta">
-          <div class="race-stat">🏃 <span class="val">27</span> iscritti</div>
-          <div class="race-stat">📍 <span class="val">10.0</span> km</div>
-          <div class="race-stat">🌤 <span class="val">14°C</span></div>
+
+      <!-- Main tabs -->
+      <div class="races-tab-row">
+        <div class="races-tab active" id="rTabMy" onclick="switchRacesTab('my')">🏃 My Races</div>
+        <div class="races-tab" id="rTabInvites" onclick="switchRacesTab('invites')">
+          ✉️ Invites
+          <span class="tab-badge" id="invitesBadge">1</span>
         </div>
-        <div class="race-bottom"><div class="race-datetime">Oggi 09:45</div><button class="join-btn join">+ Iscriviti</button></div>
+        <div class="races-tab" id="rTabDiscover" onclick="switchRacesTab('discover')">🔍 Discover</div>
       </div>
-      <div class="race-card upcoming">
-        <div class="race-top"><div class="race-name">Torino Riverside Half</div><div class="race-badge badge-open">APERTA</div></div>
-        <div class="race-meta">
-          <div class="race-stat">🏃 <span class="val">8</span> iscritti</div>
-          <div class="race-stat">📍 <span class="val">21.1</span> km</div>
-          <div class="race-stat">📅 <span class="val">dom</span></div>
+
+      <!-- ── TAB: MY RACES ─────────────────────────────────────────────── -->
+      <div class="races-tab-view active" id="rViewMy">
+        <div class="race-card live" onclick="showScreen('monitor')">
+          <div class="race-top"><div class="race-name">Milano Urban Sprint</div><div class="race-badge badge-live">● LIVE</div></div>
+          <div class="race-meta">
+            <div class="race-stat">🏃 <span class="val">12</span> registered</div>
+            <div class="race-stat">📍 <span class="val">5.0</span> km</div>
+            <div class="race-stat">⏱ <span class="val">00:18:22</span></div>
+          </div>
+          <div class="race-bottom"><div class="race-datetime">Started at 09:23</div><button class="join-btn leave">You're in</button></div>
         </div>
-        <div class="race-bottom"><div class="race-datetime">Dom 06 Mar · 07:00</div><button class="join-btn join">+ Iscriviti</button></div>
-      </div>
-      <div class="race-card upcoming">
-        <div class="race-top"><div class="race-name">Firenze Hills 5K</div><div class="race-badge badge-open">APERTA</div></div>
-        <div class="race-meta">
-          <div class="race-stat">🏃 <span class="val">41</span> iscritti</div>
-          <div class="race-stat">📍 <span class="val">5.0</span> km</div>
-          <div class="race-stat">📅 <span class="val">lun</span></div>
+        <div class="race-card upcoming">
+          <div class="race-top"><div class="race-name">Torino Riverside Half</div><div class="race-badge badge-open">OPEN</div></div>
+          <div class="race-meta">
+            <div class="race-stat">🏃 <span class="val">8</span> registered</div>
+            <div class="race-stat">📍 <span class="val">21.1</span> km</div>
+            <div class="race-stat">📅 <span class="val">Sun</span></div>
+          </div>
+          <div class="race-bottom"><div class="race-datetime">Sun 06 Mar · 07:00</div><button class="join-btn leave">You're in</button></div>
         </div>
-        <div class="race-bottom"><div class="race-datetime">Lun 07 Mar · 18:30</div><button class="join-btn join">+ Iscriviti</button></div>
+        <!-- injected from invites after join -->
+        <div id="myRacesInjected"></div>
       </div>
+
+      <!-- ── TAB: INVITES ──────────────────────────────────────────────── -->
+      <div class="races-tab-view" id="rViewInvites">
+
+        <!-- info banner -->
+        <div style="margin:0 16px 12px;padding:12px 14px;background:rgba(232,255,71,.06);border:1px solid rgba(232,255,71,.2);border-radius:12px;font-size:11px;font-family:'DM Mono',monospace;color:var(--muted);line-height:1.6">
+          🔗 Races shared via private link appear here. Accept to join, or decline to remove.
+        </div>
+
+        <!-- invite cards container -->
+        <div id="inviteCardsContainer">
+          <!-- sample invite -->
+          <div class="invite-race-card" id="invite-prv1">
+            <div class="invite-from">🔒 PRIVATE INVITE · from FastLeg_Marco</div>
+            <div class="race-top" style="margin-bottom:10px">
+              <div class="race-name">Marco's Night Run</div>
+              <div class="race-badge badge-open">OPEN</div>
+            </div>
+            <div class="race-meta">
+              <div class="race-stat">📍 <span class="val">10.0</span> km</div>
+              <div class="race-stat">📅 <span class="val">Sat</span></div>
+              <div class="race-stat">🏃 <span class="val">4</span> joined</div>
+            </div>
+            <div style="margin-top:10px;font-size:10px;font-family:'DM Mono',monospace;color:var(--muted)">Sat 08 Mar · 21:00</div>
+            <div class="invite-actions">
+              <button class="invite-join-btn" onclick="acceptInvite('invite-prv1','Marco\'s Night Run','10.0 km','Sat 08 Mar · 21:00')">✓ Join Race</button>
+              <button class="invite-decline-btn" onclick="declineInvite('invite-prv1')">✕ Decline</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- empty state (shown when no invites) -->
+        <div class="empty-state" id="invitesEmpty" style="display:none">
+          <div class="empty-state-icon">✉️</div>
+          <div class="empty-state-title">No invites yet</div>
+          <div class="empty-state-sub">When someone shares a private race link with you, it will appear here.</div>
+        </div>
+      </div>
+
+      <!-- ── TAB: DISCOVER ─────────────────────────────────────────────── -->
+      <div class="races-tab-view" id="rViewDiscover">
+
+        <!-- Distance filters -->
+        <div class="filter-section">
+          <div class="filter-section-label">📏 Distance</div>
+        </div>
+        <div class="filter-row" id="distFilterRow">
+          <div class="filter-chip active" onclick="setDistFilter(this,'all')">All</div>
+          <div class="filter-chip" onclick="setDistFilter(this,'5')">5K</div>
+          <div class="filter-chip" onclick="setDistFilter(this,'10')">10K</div>
+          <div class="filter-chip" onclick="setDistFilter(this,'21')">21K</div>
+          <div class="filter-chip" onclick="setDistFilter(this,'42')">42K</div>
+        </div>
+
+        <!-- Time filters -->
+        <div class="filter-section">
+          <div class="filter-section-label">⏱ Time-based</div>
+        </div>
+        <div class="filter-row" id="timeFilterRow">
+          <div class="filter-chip active" onclick="setTimeFilter(this,'all')">All</div>
+          <div class="filter-chip" onclick="setTimeFilter(this,'20')">20 min</div>
+          <div class="filter-chip" onclick="setTimeFilter(this,'45')">45 min</div>
+          <div class="filter-chip" onclick="setTimeFilter(this,'60')">60 min</div>
+          <div class="filter-chip" onclick="setTimeFilter(this,'90')">90 min</div>
+        </div>
+
+        <div class="race-card soon">
+          <div class="race-top"><div class="race-name">Roma Parkway 10K</div><div class="race-badge badge-soon">⏰ IN 4 MIN</div></div>
+          <div class="race-meta">
+            <div class="race-stat">🏃 <span class="val">27</span> registered</div>
+            <div class="race-stat">📍 <span class="val">10.0</span> km</div>
+            <div class="race-stat">🌤 <span class="val">14°C</span></div>
+          </div>
+          <div class="race-bottom"><div class="race-datetime">Today 09:45</div><button class="join-btn join">+ Join</button></div>
+        </div>
+        <div class="race-card upcoming">
+          <div class="race-top"><div class="race-name">Firenze Hills 5K</div><div class="race-badge badge-open">OPEN</div></div>
+          <div class="race-meta">
+            <div class="race-stat">🏃 <span class="val">41</span> registered</div>
+            <div class="race-stat">📍 <span class="val">5.0</span> km</div>
+            <div class="race-stat">📅 <span class="val">Mon</span></div>
+          </div>
+          <div class="race-bottom"><div class="race-datetime">Mon 07 Mar · 18:30</div><button class="join-btn join">+ Join</button></div>
+        </div>
+        <div class="race-card upcoming">
+          <div class="race-top"><div class="race-name">Napoli Waterfront 21K</div><div class="race-badge badge-open">OPEN</div></div>
+          <div class="race-meta">
+            <div class="race-stat">🏃 <span class="val">19</span> registered</div>
+            <div class="race-stat">📍 <span class="val">21.1</span> km</div>
+            <div class="race-stat">📅 <span class="val">Sat</span></div>
+          </div>
+          <div class="race-bottom"><div class="race-datetime">Sat 08 Mar · 08:00</div><button class="join-btn join">+ Join</button></div>
+        </div>
+      </div>
+
     </div>
     <div class="bottom-nav">
-      <div class="nav-item active" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
-      <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
-      <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">＋</div><div class="nav-label">CREA</div></div>
+      <div class="nav-item active" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">RACES</div></div>
+      <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">RADAR</div></div>
+      <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">🎯</div><div class="nav-label">CREATE</div></div>
       <div class="nav-item" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">RACE BOARD</div></div>
+      <div class="nav-item" onclick="showScreen('login')"><div class="nav-icon">👤</div><div class="nav-label">PROFILE</div></div>
     </div>
   </div>
 
-  <!-- SCREEN 4: MONITOR -->
+  <!-- SCREEN 4: RADAR -->
   <div id="screen-monitor" class="screen">
     <div class="monitor-screen">
       <div class="monitor-header">
         <div>
           <div style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px">Milano Urban Sprint · 5.0 km</div>
-          <div class="monitor-title">LIVE MONITOR</div>
+          <div class="monitor-title">RADAR</div>
         </div>
-        <div class="live-pill"><div class="live-dot"></div>LIVE</div>
+        <div class="live-pill"><div class="live-dot"></div>RADAR</div>
       </div>
       <div class="podium-section">
-        <div class="podium-label">Classifica in tempo reale</div>
+        <div class="podium-label">Real-time leaderboard</div>
         <div class="podium-row">
           <div class="podium-item"><div class="pos-num pos-1">1</div><div class="runner-info"><div class="runner-name">FastLeg_Marco</div><div class="runner-city">Milano</div></div><div class="runner-progress"><div class="runner-km">4.21 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:84%"></div></div></div></div>
           <div class="podium-item"><div class="pos-num pos-2">2</div><div class="runner-info"><div class="runner-name">RunnerX_Giulia</div><div class="runner-city">Roma</div></div><div class="runner-progress"><div class="runner-km">4.05 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:81%"></div></div></div></div>
           <div class="podium-item"><div class="pos-num pos-3">3</div><div class="runner-info"><div class="runner-name">BlazePaolo</div><div class="runner-city">Torino</div></div><div class="runner-progress"><div class="runner-km">3.88 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:77.6%"></div></div></div></div>
-          <div class="podium-item me"><div class="pos-num pos-me">4</div><div class="runner-info"><div class="runner-name">SpeedyRunner42</div><div class="runner-city" style="color:var(--accent);font-size:10px">● TU</div></div><div class="runner-progress"><div class="runner-km" style="color:var(--accent)">3.61 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:72.2%"></div></div></div></div>
+          <div class="podium-item me"><div class="pos-num pos-me">4</div><div class="runner-info"><div class="runner-name">SpeedyRunner42</div><div class="runner-city" style="color:var(--accent);font-size:10px">● YOU</div></div><div class="runner-progress"><div class="runner-km" style="color:var(--accent)">3.61 <span>km</span></div><div class="progress-bar"><div class="progress-fill" style="width:72.2%"></div></div></div></div>
         </div>
       </div>
       <div class="my-stats-section">
-        <div class="my-stats-label">● I tuoi dati</div>
-        <div class="stats-grid">
-          <div class="stat-box"><div class="stat-key">Distanza da 1°</div><div class="stat-val negative">-600</div><div class="stat-unit">metri</div></div>
-          <div class="stat-box"><div class="stat-key">Ritardo su 3°</div><div class="stat-val negative">+01:14</div><div class="stat-unit">min:sec</div></div>
-          <div class="stat-box"><div class="stat-key">Vantaggio su 5°</div><div class="stat-val positive">+02:31</div><div class="stat-unit">min:sec</div></div>
-          <div class="stat-box"><div class="stat-key">Al traguardo</div><div class="stat-val">1.39</div><div class="stat-unit">km</div></div>
-          <div class="stat-box full"><div class="stat-key">Andamento medio</div><div class="stat-val">5:08</div><div class="stat-unit">min/km</div></div>
+        <div class="my-stats-label">● Your stats</div>
+
+        <!-- Gap from 1st -->
+        <div class="radar-stat-group">
+          <div class="radar-stat-label">🥇 Gap from 1st · FastLeg_Marco</div>
+          <div class="radar-stat-row">
+            <div class="stat-box">
+              <div class="stat-key">Distance</div>
+              <div class="stat-val negative">-600</div>
+              <div class="stat-unit">metres</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-key">Time</div>
+              <div class="stat-val negative">-02:18</div>
+              <div class="stat-unit">min:sec</div>
+            </div>
+          </div>
         </div>
+
+        <!-- Gap from runner ahead -->
+        <div class="radar-stat-group">
+          <div class="radar-stat-label">⬆️ Runner ahead · BlazePaolo (3rd)</div>
+          <div class="radar-stat-row">
+            <div class="stat-box">
+              <div class="stat-key">Distance</div>
+              <div class="stat-val negative">-270</div>
+              <div class="stat-unit">metres</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-key">Time</div>
+              <div class="stat-val negative">-01:04</div>
+              <div class="stat-unit">min:sec</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gap from runner behind -->
+        <div class="radar-stat-group">
+          <div class="radar-stat-label">⬇️ Runner behind · Swift_Anna (5th)</div>
+          <div class="radar-stat-row">
+            <div class="stat-box">
+              <div class="stat-key">Distance</div>
+              <div class="stat-val positive">+340</div>
+              <div class="stat-unit">metres</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-key">Time</div>
+              <div class="stat-val positive">+01:18</div>
+              <div class="stat-unit">min:sec</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Average pace -->
+        <div class="radar-stat-group">
+          <div class="radar-stat-label">⚡ Average pace</div>
+          <div class="radar-stat-row">
+            <div class="stat-box full">
+              <div class="stat-key">Pace</div>
+              <div class="stat-val">5:08</div>
+              <div class="stat-unit">min/km</div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="refresh-note">↻ AGGIORNAMENTO OGNI 3 SEC</div>
+      <div class="refresh-note">↻ UPDATING EVERY 3 SEC</div>
     </div>
     <div class="bottom-nav">
-      <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
-      <div class="nav-item active" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
-      <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">＋</div><div class="nav-label">CREA</div></div>
+      <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">RACES</div></div>
+      <div class="nav-item active" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">RADAR</div></div>
+      <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">🎯</div><div class="nav-label">CREATE</div></div>
       <div class="nav-item" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">RACE BOARD</div></div>
+      <div class="nav-item" onclick="showScreen('login')"><div class="nav-icon">👤</div><div class="nav-label">PROFILE</div></div>
     </div>
   </div>
 
@@ -860,41 +1535,41 @@
     <div class="create-screen">
       <div class="screen-header" style="margin-bottom:20px">
         <div class="back-btn" onclick="exitCreateMode()">←</div>
-        <div class="screen-title" id="createScreenTitle">CREA GARA</div>
+        <div class="screen-title" id="createScreenTitle">CREATE RACE</div>
       </div>
       <div id="createModeBanner" style="display:none;align-items:center;gap:10px;padding:10px 14px;background:rgba(232,255,71,.07);border:1px solid rgba(232,255,71,.25);border-radius:12px;margin-bottom:16px">
         <span style="font-size:16px">✏️</span>
         <div style="flex:1">
-          <div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);letter-spacing:1px;margin-bottom:2px">MODIFICA GARA</div>
+          <div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);letter-spacing:1px;margin-bottom:2px">EDIT RACE</div>
           <div style="font-size:13px;font-weight:600;color:var(--text)" id="createModeRaceName"></div>
         </div>
-        <div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);cursor:pointer" onclick="resetCreateMode()">✕ Nuova</div>
+        <div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);cursor:pointer" onclick="resetCreateMode()">✕ New race</div>
       </div>
-      <div class="section-divider">Informazioni base</div>
-      <div class="form-label">Nome della gara</div>
-      <input class="input-field" style="width:100%" type="text" placeholder="es. Milano Sprint 5K">
-      <div class="form-label" style="margin-top:14px">Descrizione</div>
-      <textarea class="textarea-field" placeholder="Breve descrizione della gara..."></textarea>
-      <div class="section-divider">Data e orario</div>
+      <div class="section-divider">Basic info</div>
+      <div class="form-label">Race name</div>
+      <input class="input-field" style="width:100%" type="text" placeholder="e.g. Milano Sprint 5K">
+      <div class="form-label" style="margin-top:14px">Description</div>
+      <textarea class="textarea-field" placeholder="Brief race description..."></textarea>
+      <div class="section-divider">Date & time</div>
       <div class="two-col">
-        <div><div class="form-label">Data</div><input class="input-field" style="width:100%" type="date" value="2026-03-10"></div>
-        <div><div class="form-label">Ora inizio</div><input class="input-field" style="width:100%" type="time" value="08:00"></div>
+        <div><div class="form-label">Date</div><input class="input-field" style="width:100%" type="date" value="2026-03-10"></div>
+        <div><div class="form-label">Start time</div><input class="input-field" style="width:100%" type="time" value="08:00"></div>
       </div>
-      <div class="section-divider">Tipo di competizione</div>
+      <div class="section-divider">Competition type</div>
       <div class="toggle-group" id="compTypeToggle">
         <div class="toggle-option active" onclick="selectCompType('distance')">
           <div class="toggle-icon">📏</div>
-          <div class="toggle-text"><div class="toggle-label">A distanza</div><div class="toggle-desc">Vince chi raggiunge il traguardo prima</div></div>
+          <div class="toggle-text"><div class="toggle-label">By distance</div><div class="toggle-desc">Winner reaches the finish line first</div></div>
           <div class="toggle-check" id="check-dist">✓</div>
         </div>
         <div class="toggle-option" onclick="selectCompType('time')">
           <div class="toggle-icon">⏱</div>
-          <div class="toggle-text"><div class="toggle-label">A tempo</div><div class="toggle-desc">Vince chi percorre più km nel tempo dato</div></div>
+          <div class="toggle-text"><div class="toggle-label">By time</div><div class="toggle-desc">Winner covers the most km in the given time</div></div>
           <div class="toggle-check" id="check-time" style="opacity:0">✓</div>
         </div>
       </div>
       <div id="distanceSection">
-        <div class="form-label" style="margin-top:14px">Distanza (km)</div>
+        <div class="form-label" style="margin-top:14px">Distance (km)</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px" id="distChips">
           <div class="dist-chip filter-chip active" onclick="selectDistChip(this,'5')">5</div>
           <div class="dist-chip filter-chip" onclick="selectDistChip(this,'10')">10</div>
@@ -903,19 +1578,19 @@
           <div class="dist-chip filter-chip" onclick="selectDistChip(this,'custom')">Custom</div>
         </div>
         <div id="customDistBox" style="display:none;margin-top:10px">
-          <div class="form-label">Inserisci la distanza</div>
+          <div class="form-label">Enter distance</div>
           <div style="display:flex;align-items:center;gap:10px">
-            <input class="input-field" id="customDistInput" type="number" min="0.1" step="0.1" placeholder="es. 15.5" style="flex:1">
+            <input class="input-field" id="customDistInput" type="number" min="0.1" step="0.1" placeholder="e.g. 15.5" style="flex:1">
             <span style="font-family:'DM Mono',monospace;color:var(--muted);font-size:13px;flex-shrink:0">km</span>
           </div>
         </div>
         <div class="comp-info-box" style="margin-top:12px">
           <span class="comp-info-icon">🏁</span>
-          <span class="comp-info-text">Vince chi raggiunge i <strong id="distSummary">5 km</strong> nel minor tempo</span>
+          <span class="comp-info-text">Winner reaches <strong id="distSummary">5 km</strong> in the shortest time</span>
         </div>
       </div>
       <div id="timeSection" style="display:none">
-        <div class="form-label" style="margin-top:14px">Durata (minuti)</div>
+        <div class="form-label" style="margin-top:14px">Duration (minutes)</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px" id="timeChips">
           <div class="time-chip filter-chip active" onclick="selectTimeChip(this,'20')">20 min</div>
           <div class="time-chip filter-chip" onclick="selectTimeChip(this,'30')">30 min</div>
@@ -924,89 +1599,86 @@
           <div class="time-chip filter-chip" onclick="selectTimeChip(this,'custom')">Custom</div>
         </div>
         <div id="customTimeBox" style="display:none;margin-top:10px">
-          <div class="form-label">Inserisci la durata</div>
+          <div class="form-label">Enter duration</div>
           <div style="display:flex;align-items:center;gap:10px">
-            <input class="input-field" id="customTimeInput" type="number" min="1" step="1" placeholder="es. 90" style="flex:1">
+            <input class="input-field" id="customTimeInput" type="number" min="1" step="1" placeholder="e.g. 90" style="flex:1">
             <span style="font-family:'DM Mono',monospace;color:var(--muted);font-size:13px;flex-shrink:0">min</span>
           </div>
         </div>
         <div class="comp-info-box" style="margin-top:12px">
           <span class="comp-info-icon">⏱</span>
-          <span class="comp-info-text">Tutti corrono per <strong id="timeSummary">20 minuti</strong> — vince chi percorre più km</span>
+          <span class="comp-info-text">Everyone runs for <strong id="timeSummary">20 minutes</strong> — winner covers the most km</span>
         </div>
       </div>
-      <div class="section-divider">Tipo di gara</div>
+      <div class="section-divider">Race type</div>
       <div class="toggle-group" id="raceTypeToggle">
         <div class="toggle-option active" onclick="selectRaceType('virtual')">
           <div class="toggle-icon">🌐</div>
-          <div class="toggle-text"><div class="toggle-label">Virtuale</div><div class="toggle-desc">Ognuno corre sul proprio percorso</div></div>
+          <div class="toggle-text"><div class="toggle-label">Virtual</div><div class="toggle-desc">Everyone runs their own route</div></div>
           <div class="toggle-check" id="check-virtual">✓</div>
         </div>
         <div class="toggle-option" onclick="selectRaceType('physical')">
           <div class="toggle-icon">📍</div>
-          <div class="toggle-text"><div class="toggle-label">In presenza</div><div class="toggle-desc">Tutti si ritrovano nello stesso luogo</div></div>
+          <div class="toggle-text"><div class="toggle-label">In-person</div><div class="toggle-desc">Everyone meets at the same location</div></div>
           <div class="toggle-check" id="check-physical" style="opacity:0">✓</div>
         </div>
       </div>
       <div id="physicalSection" style="display:none">
-        <div class="form-label" style="margin-top:16px">Indirizzo punto di ritrovo</div>
-        <input class="input-field" style="width:100%" type="text" placeholder="es. Via Sempione 12, Milano">
-        <div class="form-label" style="margin-top:12px">Coordinate GPS</div>
-        <div class="two-col">
-          <input class="input-field" style="width:100%" type="text" placeholder="Lat  45.4654">
-          <input class="input-field" style="width:100%" type="text" placeholder="Lon  9.1859">
-        </div>
-        <div class="gps-auto-btn" onclick="this.textContent='📡 Posizione acquisita ✓';this.style.color='var(--green)';this.style.borderColor='var(--green)'">📡 Usa la mia posizione attuale</div>
+        <div class="form-label" style="margin-top:16px">Meeting point address</div>
+        <input class="input-field" style="width:100%" type="text" placeholder="e.g. Via Sempione 12, Milano">
+        <div class="gps-auto-btn" onclick="this.textContent='📡 Location acquired ✓';this.style.color='var(--green)';this.style.borderColor='var(--green)'">📡 Use my current location</div>
       </div>
-      <div class="section-divider">Visibilità</div>
+      <div class="section-divider">Visibility</div>
       <div class="toggle-group" id="visibilityToggle">
         <div class="toggle-option active" onclick="selectVisibility('public')">
           <div class="toggle-icon">🌍</div>
-          <div class="toggle-text"><div class="toggle-label">Pubblica</div><div class="toggle-desc">Tutti possono vedere e iscriversi</div></div>
+          <div class="toggle-text"><div class="toggle-label">Public</div><div class="toggle-desc">Anyone can view and join</div></div>
           <div class="toggle-check" id="check-public">✓</div>
         </div>
         <div class="toggle-option" onclick="selectVisibility('private')">
           <div class="toggle-icon">🔒</div>
-          <div class="toggle-text"><div class="toggle-label">Privata</div><div class="toggle-desc">Solo chi riceve l'invito può partecipare</div></div>
+          <div class="toggle-text"><div class="toggle-label">Private</div><div class="toggle-desc">Only invited participants can join</div></div>
           <div class="toggle-check" id="check-private" style="opacity:0">✓</div>
         </div>
       </div>
       <div id="privateSection" style="display:none">
-        <div class="form-label" style="margin-top:16px">Invita partecipanti</div>
-        <div class="invite-row">
-          <input class="input-field" style="flex:1" type="tel" placeholder="Numero di telefono">
-          <div class="otp-btn" style="padding:14px 12px">+ Aggiungi</div>
-        </div>
-        <div class="invite-list">
-          <div class="invite-chip">+39 333 456 7890 <span>✕</span></div>
-          <div class="invite-chip">+39 347 123 4567 <span>✕</span></div>
-        </div>
-        <div class="share-link-box">
-          <div class="share-link-label">oppure condividi il link</div>
-          <div class="share-link-row"><div class="share-link-val">rankfit.app/inv/xK9mP2</div><div class="share-link-copy">Copia</div></div>
-        </div>
-      </div>
-      <div class="section-divider">Codice segreto <span style="font-size:9px;color:var(--muted);letter-spacing:1px">(opzionale)</span></div>
-      <div class="secret-code-wrapper">
-        <div class="form-label" style="margin-top:0">Codice di accesso</div>
-        <div style="display:flex;gap:10px;align-items:center">
-          <input class="input-field secret-code-input" id="secretCodeInput" type="text" maxlength="6" placeholder="es. RUN24" style="flex:1;letter-spacing:4px;font-family:'DM Mono',monospace;font-size:18px;text-transform:uppercase" oninput="handleSecretCode(this.value)">
-          <button class="gen-btn" onclick="generateSecretCode()" type="button">⚡</button>
-        </div>
-        <div id="secretCodeHint" class="secret-code-hint" style="display:none"></div>
-        <div class="secret-code-info" id="secretCodeInfo" style="display:none">
-          <span class="comp-info-icon">🔑</span>
-          <div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);margin-bottom:3px">Codice attivo: <strong id="secretCodeDisplay"></strong></div>
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted)">Solo chi inserisce questo codice potrà iscriversi</div>
+        <div class="deeplink-box">
+          <div class="deeplink-label">🔗 Private invite link</div>
+
+          <!-- Deep link URL -->
+          <div class="deeplink-url-row">
+            <div class="deeplink-url" id="deepLinkUrl">rankfit.app/r/xK9mP2?p=RUN24</div>
+            <button class="deeplink-copy-btn" onclick="copyDeepLink()">COPY</button>
+          </div>
+
+          <!-- Share via social apps -->
+          <div class="deeplink-share-label">Share via</div>
+          <div class="deeplink-share-btns">
+            <button class="share-app-btn" onclick="shareVia('whatsapp')">
+              <span class="sab-icon">💬</span> WhatsApp
+            </button>
+            <button class="share-app-btn" onclick="shareVia('telegram')">
+              <span class="sab-icon">✈️</span> Telegram
+            </button>
+            <button class="share-app-btn" onclick="shareVia('native')">
+              <span class="sab-icon">⬆️</span> More…
+            </button>
+          </div>
+
+          <!-- Info note -->
+          <div class="deeplink-info">
+            ℹ️ Only users who open this link will see the race. The passcode is embedded — no manual entry needed.
           </div>
         </div>
-        <div class="secret-code-empty">
-          <span style="font-size:16px">🔓</span>
-          <span id="secretCodeEmptyMsg">Nessun codice — la gara è liberamente accessibile</span>
-        </div>
       </div>
-      <button class="btn-primary" style="margin-top:28px" id="publishBtn" onclick="handlePublish()">PUBBLICA GARA →</button>
+      <button class="btn-primary" style="margin-top:28px" id="publishBtn" onclick="handlePublish()">PUBLISH RACE →</button>
+    </div>
+    <div class="bottom-nav">
+      <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">RACES</div></div>
+      <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">RADAR</div></div>
+      <div class="nav-item active" onclick="showScreen('create')"><div class="nav-icon">🎯</div><div class="nav-label">CREATE</div></div>
+      <div class="nav-item" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">RACE BOARD</div></div>
+      <div class="nav-item" onclick="showScreen('login')"><div class="nav-icon">👤</div><div class="nav-label">PROFILE</div></div>
     </div>
   </div>
 
@@ -1015,68 +1687,173 @@
     <div class="history-screen">
       <div class="history-header" style="padding-bottom:14px"><div class="history-title">RACE BOARD</div></div>
       <div style="display:flex;gap:8px;padding:0 16px 16px">
-        <button class="rb-tab active" id="rbTabMie" onclick="switchRbTab('mie')">🏃 Le mie gare</button>
-        <button class="rb-tab" id="rbTabCreate" onclick="switchRbTab('create')">🎯 Competizioni create</button>
+        <button class="rb-tab active" id="rbTabMie" onclick="switchRbTab('mie')">🏃 My races</button>
+        <button class="rb-tab" id="rbTabCreate" onclick="switchRbTab('create')">🎯 Created races</button>
       </div>
       <div id="rbTabMieView">
+
+        <!-- ── Stats row ─────────────────────────────────────────── -->
         <div class="history-stats-row">
-          <div class="history-stat-box"><div class="history-stat-val">24</div><div class="history-stat-key">Gare</div></div>
-          <div class="history-stat-box"><div class="history-stat-val">186</div><div class="history-stat-key">km tot</div></div>
-          <div class="history-stat-box"><div class="history-stat-val">3</div><div class="history-stat-key">Vittorie</div></div>
+          <div class="history-stat-box"><div class="history-stat-val">24</div><div class="history-stat-key">Races</div></div>
+          <div class="history-stat-box"><div class="history-stat-val">186</div><div class="history-stat-key">total km</div></div>
+          <div class="history-stat-box"><div class="history-stat-val">3</div><div class="history-stat-key">Wins</div></div>
         </div>
-        <div class="history-card">
-          <div class="history-card-top"><div><div class="history-race-name">Milano Urban Sprint</div><div class="history-date">Oggi · 5.0 km</div></div><div class="result-badge result-2">2°</div></div>
-          <div class="history-row"><div class="history-mini-stat"><div class="h-val">24:31</div><div class="h-key">Tempo</div></div><div class="history-mini-stat"><div class="h-val">4:54</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">12</div><div class="h-key">Corridori</div></div><div class="segment-bar"><div class="segment-fill" style="width:92%"></div></div></div>
+
+        <!-- ── Credits widget ────────────────────────────────────── -->
+        <div class="credits-widget">
+
+          <!-- Total + unit -->
+          <div class="credits-header">
+            <div class="credits-header-left">
+              <div class="credits-icon">⚡</div>
+              <div>
+                <div class="credits-label">rankFit Credits</div>
+                <div class="credits-total">1 <span style="font-size:18px">247</span></div>
+              </div>
+            </div>
+            <div style="text-align:right">
+              <div class="credits-unit">XP</div>
+              <div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);margin-top:2px">this season</div>
+            </div>
+          </div>
+
+          <!-- Level + progress bar -->
+          <div class="credits-level-row">
+            <div class="credits-level-header">
+              <div class="credits-level-name lvl-gold">🥇 Gold Runner</div>
+              <div class="credits-level-next">253 XP to <span style="color:var(--accent)">Elite</span></div>
+            </div>
+            <div class="credits-xp-bar">
+              <div class="credits-xp-fill" style="width:83%"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:9px;font-family:'DM Mono',monospace;color:var(--muted)">
+              <span>🥈 Silver  1000</span>
+              <span style="color:var(--accent)">⚡ Elite  1500</span>
+            </div>
+          </div>
+
+          <!-- Breakdown -->
+          <div class="credits-breakdown">
+            <div class="credits-breakdown-title">How you earned them</div>
+
+            <div class="credit-row">
+              <div class="credit-row-left">
+                <div class="credit-row-icon">🏆</div>
+                <div>
+                  <div class="credit-row-label">Race wins</div>
+                  <div class="credit-row-sub">3 wins · 150 XP each</div>
+                </div>
+              </div>
+              <div class="credit-row-val">+450</div>
+            </div>
+
+            <div class="credit-row">
+              <div class="credit-row-left">
+                <div class="credit-row-icon">📏</div>
+                <div>
+                  <div class="credit-row-label">Distance / Time</div>
+                  <div class="credit-row-sub">186 km · 24h total effort</div>
+                </div>
+              </div>
+              <div class="credit-row-val">+677</div>
+            </div>
+
+            <div class="credit-row" style="padding-top:6px;border-top:1px solid var(--border)">
+              <div class="credit-row-left">
+                <div class="credit-row-icon">🎽</div>
+                <div>
+                  <div class="credit-row-label">Participation</div>
+                  <div class="credit-row-sub">24 races completed · 5 XP each</div>
+                </div>
+              </div>
+              <div class="credit-row-val muted">+120</div>
+            </div>
+
+          </div>
+
+          <div class="credits-history-note">
+            ⚠ Credits formula is being fine-tuned.<br>Values are indicative and may change.
+          </div>
         </div>
-        <div class="history-card">
+
+        <!-- ── Race history ───────────────────────────────────────── -->
+        <div style="padding:0 16px 8px;font-size:9px;font-family:'DM Mono',monospace;color:var(--muted);letter-spacing:2px;text-transform:uppercase">Race history</div>
+        <div class="history-card" onclick="openLeaderboard('milano')" style="cursor:pointer">
+          <div class="history-card-top"><div><div class="history-race-name">Milano Urban Sprint</div><div class="history-date">Today · 5.0 km</div></div><div class="result-badge result-2">2°</div></div>
+          <div class="history-row"><div class="history-mini-stat"><div class="h-val">24:31</div><div class="h-key">Time</div></div><div class="history-mini-stat"><div class="h-val">4:54</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">12</div><div class="h-key">Runners</div></div><div class="segment-bar"><div class="segment-fill" style="width:92%"></div></div></div>
+        </div>
+        <div class="history-card" onclick="openLeaderboard('roma')" style="cursor:pointer">
           <div class="history-card-top"><div><div class="history-race-name">Roma Parkway 10K</div><div class="history-date">28 Feb · 10.0 km</div></div><div class="result-badge result-1">1°</div></div>
-          <div class="history-row"><div class="history-mini-stat"><div class="h-val">47:12</div><div class="h-key">Tempo</div></div><div class="history-mini-stat"><div class="h-val">4:43</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">27</div><div class="h-key">Corridori</div></div><div class="segment-bar"><div class="segment-fill" style="width:100%"></div></div></div>
+          <div class="history-row"><div class="history-mini-stat"><div class="h-val">47:12</div><div class="h-key">Time</div></div><div class="history-mini-stat"><div class="h-val">4:43</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">27</div><div class="h-key">Runners</div></div><div class="segment-bar"><div class="segment-fill" style="width:100%"></div></div></div>
         </div>
-        <div class="history-card">
+        <div class="history-card" onclick="openLeaderboard('torino')" style="cursor:pointer">
           <div class="history-card-top"><div><div class="history-race-name">Torino Riverside Half</div><div class="history-date">15 Feb · 21.1 km</div></div><div class="result-badge result-top">5°</div></div>
-          <div class="history-row"><div class="history-mini-stat"><div class="h-val">1:48:03</div><div class="h-key">Tempo</div></div><div class="history-mini-stat"><div class="h-val">5:07</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">34</div><div class="h-key">Corridori</div></div><div class="segment-bar"><div class="segment-fill" style="width:68%"></div></div></div>
+          <div class="history-row"><div class="history-mini-stat"><div class="h-val">1:48:03</div><div class="h-key">Time</div></div><div class="history-mini-stat"><div class="h-val">5:07</div><div class="h-key">min/km</div></div><div class="history-mini-stat"><div class="h-val">34</div><div class="h-key">Runners</div></div><div class="segment-bar"><div class="segment-fill" style="width:68%"></div></div></div>
         </div>
       </div>
       <div id="rbTabCreateView" style="display:none">
-        <div style="padding:0 16px 8px;font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);letter-spacing:1px">3 GARE CREATE · tocca per modificare</div>
-        <div class="race-card upcoming" onclick="editRace({name:'Torino Riverside Half',date:'2026-03-06',time:'07:00',km:'21.1',type:'distance',visibility:'public',badge:'APERTA'})">
+        <div style="padding:0 16px 8px;font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);letter-spacing:1px">3 RACES CREATE · tocca per modificare</div>
+        <div class="race-card upcoming" onclick="editRace({name:'Torino Riverside Half',date:'2026-03-06',time:'07:00',km:'21.1',type:'distance',visibility:'public',badge:'OPEN'})">
           <div class="race-top"><div class="race-name">Torino Riverside Half</div><div class="race-badge badge-open">APERTA</div></div>
-          <div class="race-meta"><div class="race-stat">🏃 <span class="val">8</span> iscritti</div><div class="race-stat">📍 <span class="val">21.1</span> km</div><div class="race-stat">📅 <span class="val">dom</span></div></div>
-          <div class="race-bottom"><div class="race-datetime">Dom 06 Mar · 07:00</div>
+          <div class="race-meta"><div class="race-stat">🏃 <span class="val">8</span> registered</div><div class="race-stat">📍 <span class="val">21.1</span> km</div><div class="race-stat">📅 <span class="val">dom</span></div></div>
+          <div class="race-bottom"><div class="race-datetime">Sun 06 Mar · 07:00</div>
             <div style="display:flex;gap:6px">
-              <button class="join-btn" style="background:rgba(232,255,71,.1);color:var(--accent);border:1px solid rgba(232,255,71,.3)" onclick="event.stopPropagation();editRace({name:'Torino Riverside Half',date:'2026-03-06',time:'07:00',km:'21.1',type:'distance',visibility:'public'})">✏️ Modifica</button>
-              <button class="join-btn leave" onclick="event.stopPropagation();openCancelSheet('cr1','Torino Riverside Half')">✕ Annulla</button>
+              <button class="join-btn" style="background:rgba(232,255,71,.1);color:var(--accent);border:1px solid rgba(232,255,71,.3)" onclick="event.stopPropagation();editRace({name:'Torino Riverside Half',date:'2026-03-06',time:'07:00',km:'21.1',type:'distance',visibility:'public'})">✏️ Edit</button>
+              <button class="join-btn leave" onclick="event.stopPropagation();openCancelSheet('cr1','Torino Riverside Half')">✕ Cancel</button>
             </div>
           </div>
         </div>
         <div class="race-card soon" style="border-color:rgba(255,159,67,.35)">
           <div class="race-top"><div class="race-name">Firenze Hills 5K</div><div class="race-badge badge-soon">TRA 4 ORE</div></div>
-          <div class="race-meta"><div class="race-stat">🏃 <span class="val">41</span> iscritti</div><div class="race-stat">📍 <span class="val">5.0</span> km</div><div class="race-stat">⚠️ <span class="val" style="color:var(--orange)">no modifica</span></div></div>
-          <div class="race-bottom"><div class="race-datetime">Lun 07 Mar · 18:30</div><button class="join-btn leave" onclick="openCancelSheet('cr2','Firenze Hills 5K')">✕ Annulla</button></div>
+          <div class="race-meta"><div class="race-stat">🏃 <span class="val">41</span> registered</div><div class="race-stat">📍 <span class="val">5.0</span> km</div><div class="race-stat">⚠️ <span class="val" style="color:var(--orange)">no edit</span></div></div>
+          <div class="race-bottom"><div class="race-datetime">Mon 07 Mar · 18:30</div><button class="join-btn leave" onclick="openCancelSheet('cr2','Firenze Hills 5K')">✕ Cancel</button></div>
         </div>
         <div class="race-card live">
           <div class="race-top"><div class="race-name">Milano Urban Sprint</div><div class="race-badge badge-live">● LIVE</div></div>
-          <div class="race-meta"><div class="race-stat">🏃 <span class="val">12</span> iscritti</div><div class="race-stat">📍 <span class="val">5.0</span> km</div><div class="race-stat">⏱ <span class="val">00:18:22</span></div></div>
-          <div class="race-bottom"><div class="race-datetime">In corso · non modificabile</div><button class="join-btn disabled">🔒 Live</button></div>
+          <div class="race-meta"><div class="race-stat">🏃 <span class="val">12</span> registered</div><div class="race-stat">📍 <span class="val">5.0</span> km</div><div class="race-stat">⏱ <span class="val">00:18:22</span></div></div>
+          <div class="race-bottom"><div class="race-datetime">In progress · not editable</div><button class="join-btn disabled">🔒 Live</button></div>
         </div>
       </div>
     </div>
     <div class="bottom-nav">
-      <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">GARE</div></div>
-      <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">LIVE</div></div>
-      <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">＋</div><div class="nav-label">CREA</div></div>
+      <div class="nav-item" onclick="showScreen('list')"><div class="nav-icon">🏁</div><div class="nav-label">RACES</div></div>
+      <div class="nav-item" onclick="showScreen('monitor')"><div class="nav-icon">📡</div><div class="nav-label">RADAR</div></div>
+      <div class="nav-item" onclick="showScreen('create')"><div class="nav-icon">🎯</div><div class="nav-label">CREATE</div></div>
       <div class="nav-item active" onclick="showScreen('history')"><div class="nav-icon">📊</div><div class="nav-label">RACE BOARD</div></div>
+      <div class="nav-item" onclick="showScreen('login')"><div class="nav-icon">👤</div><div class="nav-label">PROFILE</div></div>
+    </div>
+
+    <!-- ── Leaderboard sheet overlay ───────────────────────────────────── -->
+    <div class="lb-overlay" id="lbOverlay" onclick="closeLbIfOutside(event)">
+      <div class="lb-sheet" id="lbSheet">
+        <div class="lb-handle"></div>
+        <div class="lb-header">
+          <div>
+            <div class="lb-race-name" id="lbRaceName">Milano Urban Sprint</div>
+            <div class="lb-race-meta" id="lbRaceMeta">Today · 5.0 km · 12 runners</div>
+            <div class="lb-type-badge lb-type-dist" id="lbTypeBadge">📏 By distance</div>
+          </div>
+          <div class="lb-close" onclick="closeLeaderboard()">✕</div>
+        </div>
+        <div class="lb-col-headers">
+          <div>#</div>
+          <div>Athlete</div>
+          <div style="text-align:right" id="lbMetricLabel">Time</div>
+          <div style="text-align:right" id="lbMetricLabel2">Pace</div>
+        </div>
+        <div class="lb-rows" id="lbRows"></div>
+      </div>
     </div>
   </div>
 
   <!-- Logout overlay -->
   <div class="logout-overlay" id="logoutOverlay">
     <div class="logout-sheet">
-      <div class="logout-sheet-title">Esci da rankFit?</div>
-      <div class="logout-sheet-sub">Dovrai autenticarti di nuovo con OTP al prossimo accesso.</div>
+      <div class="logout-sheet-title">Sign out of rankFit?</div>
+      <div class="logout-sheet-sub">You'll need to re-authenticate with OTP next time.</div>
       <div class="logout-sheet-btns">
-        <button class="btn-cancel" onclick="hideLogoutSheet()">Annulla</button>
-        <button class="btn-logout-confirm" onclick="doLogout()">Esci</button>
+        <button class="btn-cancel" onclick="hideLogoutSheet()">Cancel</button>
+        <button class="btn-logout-confirm" onclick="doLogout()">Sign Out</button>
       </div>
     </div>
   </div>
@@ -1084,50 +1861,553 @@
 
 <script>
 let registrationState='idle',regOtpTimer=null,regOtpSeconds=120,nicknameAvailable=false,nicknameDebounceTimer=null;
-function handleRegister(){if(registrationState==='idle'){const p=document.getElementById('regPhone').value.trim();if(!p){flashRegError('Inserisci il numero di telefono');return;}if(!nicknameAvailable){flashRegError('Scegli un nickname valido e disponibile');return;}requestRegOTP();}else if(registrationState==='otp_sent'){const o=document.getElementById('regOtpInput').value.trim();if(!o||o.length<5){showRegOtpError('Inserisci il codice OTP a 5 caratteri');return;}verifyRegOTP(o);}}
-function requestRegOTP(){registrationState='otp_sent';regOtpSeconds=120;document.getElementById('regOtpBlock').style.display='block';document.getElementById('regBtn').textContent='VERIFICA →';document.getElementById('regOtpError').style.display='none';document.getElementById('regOtpMsg').textContent='Ti è stato inviato un codice OTP.';startRegCountdown();}
+function handleRegister(){if(registrationState==='idle'){const p=document.getElementById('regPhone').value.trim();if(!p){flashRegError('Enter your phone number');return;}if(!nicknameAvailable){flashRegError('Choose a valid and available nickname');return;}requestRegOTP();}else if(registrationState==='otp_sent'){const o=document.getElementById('regOtpInput').value.trim();if(!o||o.length<5){showRegOtpError('Enter the 5-character OTP code');return;}verifyRegOTP(o);}}
+function requestRegOTP(){registrationState='otp_sent';regOtpSeconds=120;document.getElementById('regOtpBlock').style.display='block';document.getElementById('regBtn').textContent='VERIFY →';document.getElementById('regOtpError').style.display='none';document.getElementById('regOtpMsg').textContent='An OTP code has been sent to you.';startRegCountdown();}
 function startRegCountdown(){if(regOtpTimer)clearInterval(regOtpTimer);updateRegCountdownDisplay();regOtpTimer=setInterval(()=>{regOtpSeconds--;updateRegCountdownDisplay();if(regOtpSeconds<=0){clearInterval(regOtpTimer);regOtpExpired();}},1000);}
 function updateRegCountdownDisplay(){const el=document.getElementById('regOtpCountdown');const m=Math.floor(regOtpSeconds/60),s=regOtpSeconds%60;el.textContent=m+':'+String(s).padStart(2,'0');el.classList.toggle('expiring',regOtpSeconds<=20);}
-function regOtpExpired(){registrationState='idle';document.getElementById('regOtpMsg').textContent='❌ Codice scaduto';document.getElementById('regOtpCountdown').textContent='0:00';document.getElementById('regOtpInput').value='';document.getElementById('regBtn').textContent='RICHIEDI NUOVO CODICE →';showRegOtpError('Il codice OTP è scaduto.');}
-function verifyRegOTP(otp){const phone=document.getElementById('regPhone').value.trim();const isAlreadyRegistered=phone==='000';const isValid=otp.toUpperCase()==='AB12C';if(isAlreadyRegistered){clearInterval(regOtpTimer);registrationState='idle';const w=document.getElementById('regWarning');w.textContent='⚠️ Numero già registrato — effettua il login';w.style.display='block';setTimeout(()=>{w.style.display='none';showScreen('login');},2000);return;}if(isValid){clearInterval(regOtpTimer);registrationState='completed';loginState='authenticated';document.getElementById('loggedNick').textContent=document.getElementById('regNickname').value;document.getElementById('regOtpMsg').textContent='✓ Account creato con successo';document.getElementById('regOtpCountdown').textContent='';document.getElementById('regBtn').textContent='CREA ACCOUNT →';setTimeout(()=>showScreen('list'),600);}else{showRegOtpError('Codice errato — riprova');document.getElementById('regOtpInput').value='';}}
+function regOtpExpired(){registrationState='idle';document.getElementById('regOtpMsg').textContent='❌ Code expired';document.getElementById('regOtpCountdown').textContent='0:00';document.getElementById('regOtpInput').value='';document.getElementById('regBtn').textContent='REQUEST NEW CODE →';showRegOtpError('The OTP code has expired.');}
+function verifyRegOTP(otp){const phone=document.getElementById('regPhone').value.trim();const isAlreadyRegistered=phone==='000';const isValid=otp.toUpperCase()==='AB12C';if(isAlreadyRegistered){clearInterval(regOtpTimer);registrationState='idle';const w=document.getElementById('regWarning');w.textContent='⚠️ Number already registered — please sign in';w.style.display='block';setTimeout(()=>{w.style.display='none';showScreen('login');},2000);return;}if(isValid){clearInterval(regOtpTimer);registrationState='completed';loginState='authenticated';document.getElementById('loggedNick').textContent=document.getElementById('regNickname').value;document.getElementById('regOtpMsg').textContent='✓ Account created successfully';document.getElementById('regOtpCountdown').textContent='';document.getElementById('regBtn').textContent='CREATE ACCOUNT →';setTimeout(()=>showScreen('list'),600);}else{showRegOtpError('Wrong code — please try again');document.getElementById('regOtpInput').value='';}}
 function showRegOtpError(msg){const el=document.getElementById('regOtpError');el.textContent=msg;el.style.display='block';}
 function flashRegError(msg){const btn=document.getElementById('regBtn');const orig=btn.textContent;btn.textContent=msg;btn.style.background='var(--accent2)';setTimeout(()=>{btn.textContent=orig;btn.style.background='';},1800);}
-function handleNicknameInput(value){const badge=document.getElementById('nickBadge');const valid=/^[a-zA-Z0-9_]{2,13}$/.test(value);if(!valid){nicknameAvailable=false;badge.style.display=value.length>0?'block':'none';badge.textContent=value.length<2?'troppo corto':value.length>13?'troppo lungo':'caratteri non validi';badge.style.background='rgba(255,71,87,.1)';badge.style.color='var(--accent2)';return;}clearTimeout(nicknameDebounceTimer);badge.style.display='block';badge.textContent='...';badge.style.background='rgba(102,102,102,.1)';badge.style.color='var(--muted)';nicknameDebounceTimer=setTimeout(()=>{const isTaken=value.toLowerCase()==='taken';nicknameAvailable=!isTaken;badge.textContent=isTaken?'✕ già utilizzato':'✓ libero';badge.style.background=isTaken?'rgba(255,71,87,.1)':'rgba(57,217,138,.1)';badge.style.color=isTaken?'var(--accent2)':'var(--green)';},600);}
+function handleNicknameInput(value){const badge=document.getElementById('nickBadge');const valid=/^[a-zA-Z0-9_]{2,13}$/.test(value);if(!valid){nicknameAvailable=false;badge.style.display=value.length>0?'block':'none';badge.textContent=value.length<2?'too short':value.length>13?'too long':'invalid characters';badge.style.background='rgba(255,71,87,.1)';badge.style.color='var(--accent2)';return;}clearTimeout(nicknameDebounceTimer);badge.style.display='block';badge.textContent='...';badge.style.background='rgba(102,102,102,.1)';badge.style.color='var(--muted)';nicknameDebounceTimer=setTimeout(()=>{const isTaken=value.toLowerCase()==='taken';nicknameAvailable=!isTaken;badge.textContent=isTaken?'✕ already taken':'✓ available';badge.style.background=isTaken?'rgba(255,71,87,.1)':'rgba(57,217,138,.1)';badge.style.color=isTaken?'var(--accent2)':'var(--green)';},600);}
 let loginState='idle',otpTimer=null,otpSeconds=120;const MAX_ATTEMPTS=3;let attempts=0;
-function handleLogin(){if(loginState==='idle'){const p=document.getElementById('loginPhone').value.trim();if(!p){flashLoginError('Inserisci il numero di telefono');return;}requestOTP();}else if(loginState==='otp_sent'){const o=document.getElementById('otpInput').value.trim();if(!o||o.length<5){showOtpError('Inserisci il codice OTP a 5 caratteri');return;}verifyOTP(o);}}
-function requestOTP(){loginState='otp_sent';attempts=0;otpSeconds=120;document.getElementById('otpBlock').style.display='block';document.getElementById('loginBtn').textContent='VERIFICA →';document.getElementById('otpError').style.display='none';document.getElementById('otpMsg').textContent='Ti è stato inviato un codice OTP.';startCountdown();}
+function handleLogin(){if(loginState==='idle'){const p=document.getElementById('loginPhone').value.trim();if(!p){flashLoginError('Enter your phone number');return;}requestOTP();}else if(loginState==='otp_sent'){const o=document.getElementById('otpInput').value.trim();if(!o||o.length<5){showOtpError('Enter the 5-character OTP code');return;}verifyOTP(o);}}
+function requestOTP(){loginState='otp_sent';attempts=0;otpSeconds=120;document.getElementById('otpBlock').style.display='block';document.getElementById('loginBtn').textContent='VERIFY →';document.getElementById('otpError').style.display='none';document.getElementById('otpMsg').textContent='An OTP code has been sent to you.';startCountdown();}
 function startCountdown(){if(otpTimer)clearInterval(otpTimer);otpSeconds=120;updateCountdownDisplay();otpTimer=setInterval(()=>{otpSeconds--;updateCountdownDisplay();if(otpSeconds<=0){clearInterval(otpTimer);otpExpired();}},1000);}
 function updateCountdownDisplay(){const el=document.getElementById('otpCountdown');const m=Math.floor(otpSeconds/60),s=otpSeconds%60;el.textContent=m+':'+String(s).padStart(2,'0');el.classList.toggle('expiring',otpSeconds<=20);}
-function otpExpired(){loginState='idle';document.getElementById('otpMsg').textContent='❌ Codice scaduto';document.getElementById('otpCountdown').textContent='0:00';document.getElementById('otpInput').value='';document.getElementById('loginBtn').textContent='RICHIEDI NUOVO CODICE →';showOtpError('Il codice OTP è scaduto.');}
-function verifyOTP(otp){const isValid=otp.toUpperCase()==='AB12C';if(isValid){clearInterval(otpTimer);loginState='authenticated';document.getElementById('loggedNick').textContent='SpeedyRunner42';document.getElementById('otpMsg').textContent='✓ Accesso effettuato';document.getElementById('otpCountdown').textContent='';document.getElementById('otpError').style.display='none';document.getElementById('loginBtn').textContent='ACCEDI →';setTimeout(()=>showScreen('list'),600);}else{attempts++;const remaining=MAX_ATTEMPTS-attempts;if(remaining<=0){clearInterval(otpTimer);loginState='idle';document.getElementById('otpBlock').style.display='none';document.getElementById('loginBtn').textContent='ACCEDI →';showOtpError('⛔ Troppi tentativi errati.');}else{showOtpError('Codice errato — '+remaining+' tentativ'+(remaining===1?'o':'i')+' rimast'+(remaining===1?'o':'i'));document.getElementById('otpInput').value='';}}}
+function otpExpired(){loginState='idle';document.getElementById('otpMsg').textContent='❌ Code expired';document.getElementById('otpCountdown').textContent='0:00';document.getElementById('otpInput').value='';document.getElementById('loginBtn').textContent='REQUEST NEW CODE →';showOtpError('The OTP code has expired.');}
+function verifyOTP(otp){const isValid=otp.toUpperCase()==='AB12C';if(isValid){clearInterval(otpTimer);loginState='authenticated';const phone=document.getElementById('loginPhone').value.trim();const prefix=document.getElementById('loginPrefix').value.replace(/[^+0-9]/g,'');const masked=phone.length>4?phone.slice(0,-4).replace(/\d/g,'•')+phone.slice(-4):phone;document.getElementById('loggedNick').textContent='SpeedyRunner42';document.getElementById('loggedPhone').textContent=prefix+' '+masked;document.getElementById('otpMsg').textContent='✓ Successfully signed in';document.getElementById('otpCountdown').textContent='';document.getElementById('otpError').style.display='none';document.getElementById('loginBtn').textContent='SIGN IN →';setTimeout(()=>showScreen('list'),600);}else{attempts++;const remaining=MAX_ATTEMPTS-attempts;if(remaining<=0){clearInterval(otpTimer);loginState='idle';document.getElementById('otpBlock').style.display='none';document.getElementById('loginBtn').textContent='SIGN IN →';showOtpError('⛔ Too many failed attempts.');}else{showOtpError('Wrong code — '+remaining+' attempt'+(remaining===1?'':'s')+' remaining');document.getElementById('otpInput').value='';}}}
 function showOtpError(msg){const el=document.getElementById('otpError');el.textContent=msg;el.style.display='block';}
 function flashLoginError(msg){const btn=document.getElementById('loginBtn');const orig=btn.textContent;btn.textContent=msg;btn.style.background='var(--accent2)';setTimeout(()=>{btn.textContent=orig;btn.style.background='';},1800);}
 function showLogoutSheet(){document.getElementById('logoutOverlay').classList.add('visible');}
 function hideLogoutSheet(){document.getElementById('logoutOverlay').classList.remove('visible');}
-function doLogout(){loginState='idle';if(otpTimer)clearInterval(otpTimer);document.getElementById('otpBlock').style.display='none';document.getElementById('loginBtn').textContent='ACCEDI →';document.getElementById('loginPhone').value='';document.getElementById('alreadyLoggedBlock').style.display='none';document.getElementById('notLoggedBlock').style.display='block';hideLogoutSheet();showScreen('login');}
-function showScreen(name){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('screen-'+name).classList.add('active');const tabs=['login','register','list','monitor','create','history'];const idx=tabs.indexOf(name);if(idx>=0)document.querySelectorAll('.nav-tab')[idx].classList.add('active');if(name==='login'){const isAuth=loginState==='authenticated';document.getElementById('alreadyLoggedBlock').style.display=isAuth?'block':'none';document.getElementById('notLoggedBlock').style.display=isAuth?'none':'block';}document.querySelector('.phone').scrollTop=0;}
+function doLogout(){loginState='idle';if(otpTimer)clearInterval(otpTimer);document.getElementById('otpBlock').style.display='none';document.getElementById('otpError').style.display='none';document.getElementById('loginBtn').textContent='SIGN IN →';document.getElementById('loginPhone').value='';document.getElementById('otpInput').value='';hideLogoutSheet();showScreen('login');}
+function showScreen(name){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('screen-'+name).classList.add('active');const tabs=['login','register','list','monitor','create','history'];const idx=tabs.indexOf(name);if(idx>=0)document.querySelectorAll('.nav-tab')[idx].classList.add('active');if(name==='login'){const isAuth=loginState==='authenticated';document.getElementById('alreadyLoggedBlock').style.display=isAuth?'block':'none';document.getElementById('notLoggedBlock').style.display=isAuth?'none':'block';if(isAuth)initProfileScreen();}
+  // Highlight PROFILE tab in all bottom navs when on login screen
+  document.querySelectorAll('.bottom-nav .nav-item').forEach(item=>{
+    const goesTo=item.getAttribute('onclick')||'';
+    if(name==='login'&&goesTo.includes("'login'")){item.classList.add('active');}
+    else if(name!=='login'&&goesTo.includes("'login'")){item.classList.remove('active');}
+  });
+  document.querySelector('.phone').scrollTop=0;}
 let currentDist='5',currentTime='20';
 function selectCompType(type){document.querySelectorAll('#compTypeToggle .toggle-option').forEach(o=>o.classList.remove('active'));event.currentTarget.classList.add('active');document.getElementById('check-dist').style.opacity=type==='distance'?'1':'0';document.getElementById('check-time').style.opacity=type==='time'?'1':'0';document.getElementById('distanceSection').style.display=type==='distance'?'block':'none';document.getElementById('timeSection').style.display=type==='time'?'block':'none';}
 function selectCompTypeDirect(type){const els=document.querySelectorAll('#compTypeToggle .toggle-option');els.forEach(o=>o.classList.remove('active'));if(type==='distance')els[0]&&els[0].classList.add('active');else els[1]&&els[1].classList.add('active');document.getElementById('check-dist').style.opacity=type==='distance'?'1':'0';document.getElementById('check-time').style.opacity=type==='time'?'1':'0';document.getElementById('distanceSection').style.display=type==='distance'?'block':'none';document.getElementById('timeSection').style.display=type==='time'?'block':'none';}
 function selectDistChip(el,val){document.querySelectorAll('.dist-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');const isCustom=val==='custom';document.getElementById('customDistBox').style.display=isCustom?'block':'none';if(!isCustom){currentDist=val;document.getElementById('distSummary').textContent=val+' km';}}
-function selectTimeChip(el,val){document.querySelectorAll('.time-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');const isCustom=val==='custom';document.getElementById('customTimeBox').style.display=isCustom?'block':'none';if(!isCustom){currentTime=val;const lbl=val==='60'?'1 ora':val+' minuti';document.getElementById('timeSummary').textContent=lbl;}}
+function selectTimeChip(el,val){document.querySelectorAll('.time-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');const isCustom=val==='custom';document.getElementById('customTimeBox').style.display=isCustom?'block':'none';if(!isCustom){currentTime=val;const lbl=val==='60'?'1 hour':val+' minutes';document.getElementById('timeSummary').textContent=lbl;}}
 function selectRaceType(type){document.querySelectorAll('#raceTypeToggle .toggle-option').forEach(o=>o.classList.remove('active'));document.getElementById('check-virtual').style.opacity=type==='virtual'?'1':'0';document.getElementById('check-physical').style.opacity=type==='physical'?'1':'0';event.currentTarget.classList.add('active');document.getElementById('physicalSection').style.display=type==='physical'?'block':'none';}
-function selectVisibility(type){document.querySelectorAll('#visibilityToggle .toggle-option').forEach(o=>o.classList.remove('active'));document.getElementById('check-public').style.opacity=type==='public'?'1':'0';document.getElementById('check-private').style.opacity=type==='private'?'1':'0';event.currentTarget.classList.add('active');document.getElementById('privateSection').style.display=type==='private'?'block':'none';}
 function selectVisibilityDirect(type){const els=document.querySelectorAll('#visibilityToggle .toggle-option');els.forEach(o=>o.classList.remove('active'));if(type==='public')els[0]&&els[0].classList.add('active');else els[1]&&els[1].classList.add('active');document.getElementById('check-public').style.opacity=type==='public'?'1':'0';document.getElementById('check-private').style.opacity=type==='private'?'1':'0';document.getElementById('privateSection').style.display=type==='private'?'block':'none';}
-function handleSecretCode(raw){const val=raw.toUpperCase().replace(/[^A-Z0-9]/g,'');const input=document.getElementById('secretCodeInput');input.value=val;const hint=document.getElementById('secretCodeHint');const info=document.getElementById('secretCodeInfo');const empty=document.querySelector('.secret-code-empty');if(val.length===0){hint.style.display='none';info.style.display='none';empty.style.display='flex';return;}empty.style.display='none';if(val.length<3){hint.className='secret-code-hint invalid';hint.textContent='⚠ Minimo 3 caratteri';hint.style.display='block';info.style.display='none';return;}hint.className='secret-code-hint valid';hint.textContent='✓ Codice valido · '+val.length+'/6 caratteri';hint.style.display='block';info.style.display='flex';document.getElementById('secretCodeDisplay').textContent=val;}
-function generateSecretCode(){const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let code='';for(let i=0;i<5;i++)code+=chars[Math.floor(Math.random()*chars.length)];document.getElementById('secretCodeInput').value=code;handleSecretCode(code);const btn=document.querySelector('.gen-btn');btn.textContent='✓';btn.style.borderColor='var(--accent)';btn.style.color='var(--accent)';setTimeout(()=>{btn.textContent='⚡';btn.style.borderColor='';btn.style.color='';},1200);}
 let isEditMode=false;
 function exitCreateMode(){if(isEditMode){resetCreateMode();showScreen('history');switchRbTab('create');}else{showScreen('list');}}
-function resetCreateMode(){isEditMode=false;document.getElementById('createModeBanner').style.display='none';document.getElementById('createScreenTitle').textContent='CREA GARA';document.getElementById('publishBtn').textContent='PUBBLICA GARA →';}
-function handlePublish(){const codeEl=document.getElementById('secretCodeInput');const code=codeEl?codeEl.value.trim():'';if(code.length>0&&code.length<3){const hint=document.getElementById('secretCodeHint');hint.className='secret-code-hint invalid';hint.textContent='⚠ Codice troppo corto — minimo 3 caratteri o lascia vuoto';hint.style.display='block';codeEl.focus();return;}if(isEditMode){resetCreateMode();showScreen('history');switchRbTab('create');setTimeout(()=>flashToast('✓ Gara aggiornata con successo'),150);}else{showScreen('list');}}
+function resetCreateMode(){isEditMode=false;document.getElementById('createModeBanner').style.display='none';document.getElementById('createScreenTitle').textContent='CREATE RACE';document.getElementById('publishBtn').textContent='PUBLISH RACE →';}
+function handlePublish(){if(isEditMode){resetCreateMode();showScreen('history');switchRbTab('create');setTimeout(()=>flashToast('✓ Race updated successfully'),150);}else{showScreen('list');}}
 function switchRbTab(tab){const mieView=document.getElementById('rbTabMieView');const createView=document.getElementById('rbTabCreateView');const tabMie=document.getElementById('rbTabMie');const tabCreate=document.getElementById('rbTabCreate');if(tab==='mie'){mieView.style.display='block';createView.style.display='none';tabMie.classList.add('active');tabCreate.classList.remove('active');}else{mieView.style.display='none';createView.style.display='block';tabMie.classList.remove('active');tabCreate.classList.add('active');}}
-function editRace(data){isEditMode=true;const nameInput=document.querySelector('#screen-create input[placeholder="es. Milano Sprint 5K"]');const dateInputs=document.querySelectorAll('#screen-create input[type="date"]');const timeInputs=document.querySelectorAll('#screen-create input[type="time"]');if(nameInput)nameInput.value=data.name||'';if(dateInputs[0])dateInputs[0].value=data.date||'';if(timeInputs[0])timeInputs[0].value=data.time||'';selectCompTypeDirect(data.type||'distance');if(data.type==='distance'){document.querySelectorAll('.dist-chip').forEach(c=>{c.classList.remove('active');if(c.textContent.trim()===(data.km||''))c.classList.add('active');});const ds=document.getElementById('distSummary');if(ds)ds.textContent=(data.km||'')+' km';}selectVisibilityDirect(data.visibility||'public');document.getElementById('createModeBanner').style.display='flex';document.getElementById('createModeRaceName').textContent=data.name||'';document.getElementById('createScreenTitle').textContent='MODIFICA GARA';document.getElementById('publishBtn').textContent='SALVA MODIFICHE →';showScreen('create');}
+function editRace(data){isEditMode=true;const nameInput=document.querySelector('#screen-create input[placeholder="e.g. Milano Sprint 5K"]');const dateInputs=document.querySelectorAll('#screen-create input[type="date"]');const timeInputs=document.querySelectorAll('#screen-create input[type="time"]');if(nameInput)nameInput.value=data.name||'';if(dateInputs[0])dateInputs[0].value=data.date||'';if(timeInputs[0])timeInputs[0].value=data.time||'';selectCompTypeDirect(data.type||'distance');if(data.type==='distance'){document.querySelectorAll('.dist-chip').forEach(c=>{c.classList.remove('active');if(c.textContent.trim()===(data.km||''))c.classList.add('active');});const ds=document.getElementById('distSummary');if(ds)ds.textContent=(data.km||'')+' km';}selectVisibilityDirect(data.visibility||'public');document.getElementById('createModeBanner').style.display='flex';document.getElementById('createModeRaceName').textContent=data.name||'';document.getElementById('createScreenTitle').textContent='EDIT RACE';document.getElementById('publishBtn').textContent='SAVE CHANGES →';showScreen('create');}
 let currentActionName=null;
 function openCancelSheet(cardId,name){currentActionName=name;document.getElementById('cancelSheetSub').textContent=name;document.getElementById('cancelOverlay').classList.add('visible');}
 function closeAllSheets(){document.querySelectorAll('.rb-overlay,.logout-overlay').forEach(o=>o.classList.remove('visible'));}
-function confirmCancel(){closeAllSheets();flashToast('Gara annullata — iscritti notificati');}
+function confirmCancel(){closeAllSheets();flashToast('Race cancelled — registrants notified');}
 function flashToast(msg){const toast=document.createElement('div');toast.textContent=msg;toast.style.cssText='position:absolute;bottom:110px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--accent);color:var(--accent);font-family:"DM Mono",monospace;font-size:11px;padding:8px 16px;border-radius:20px;white-space:nowrap;z-index:400;letter-spacing:.5px;transition:opacity .5s';document.querySelector('.phone').appendChild(toast);setTimeout(()=>{toast.style.opacity='0';setTimeout(()=>toast.remove(),500);},1800);}
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.filter-row .filter-chip').forEach(chip=>{chip.addEventListener('click',function(){this.closest('.filter-row').querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));this.classList.add('active');});});const customDist=document.getElementById('customDistInput');if(customDist)customDist.addEventListener('input',function(){if(this.value)document.getElementById('distSummary').textContent=this.value+' km';});const customTime=document.getElementById('customTimeInput');if(customTime)customTime.addEventListener('input',function(){if(this.value){const mins=parseInt(this.value);const lbl=mins>=60?Math.floor(mins/60)+'h '+(mins%60?(mins%60)+'min':''):mins+' minuti';document.getElementById('timeSummary').textContent=lbl.trim();}});});
+document.addEventListener('DOMContentLoaded',()=>{const customDist=document.getElementById('customDistInput');if(customDist)customDist.addEventListener('input',function(){if(this.value)document.getElementById('distSummary').textContent=this.value+' km';});const customTime=document.getElementById('customTimeInput');if(customTime)customTime.addEventListener('input',function(){if(this.value){const mins=parseInt(this.value);const lbl=mins>=60?Math.floor(mins/60)+'h '+(mins%60?(mins%60)+'min':''):mins+' minutes';document.getElementById('timeSummary').textContent=lbl.trim();}});});
+
+function triggerCamera(){
+  const cam=document.getElementById('avatarCameraInput');
+  cam.value=''; cam.click();
+}
+function handleAvatarFile(input){
+  if(!input.files||!input.files[0])return;
+  const file=input.files[0];
+  if(!file.type.startsWith('image/')){return;}
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const preview=document.getElementById('avatarPreview');
+    const ring=document.getElementById('avatarRing');
+    const removeBtn=document.getElementById('avatarRemove');
+    preview.src=e.target.result;
+    ring.classList.add('has-image');
+    removeBtn.style.display='block';
+  };
+  reader.readAsDataURL(file);
+  input.value='';
+}
+function removeAvatar(){
+  const preview=document.getElementById('avatarPreview');
+  const ring=document.getElementById('avatarRing');
+  const removeBtn=document.getElementById('avatarRemove');
+  preview.src='';
+  ring.classList.remove('has-image');
+  removeBtn.style.display='none';
+}
+
+// ── Profile screen ──────────────────────────────────────────────────────────
+let profileNicknameDirty = false;
+let profileAvatarDirty   = false;
+let profileNicknameValid = true;  // starts true (existing nick is valid)
+
+function initProfileScreen() {
+  const get = id => document.getElementById(id);
+  const nickStore  = get('loggedNick');
+  const phoneStore = get('loggedPhone');
+  const nickEl     = get('profileNickname');
+  const phoneEl    = get('profilePhoneDisplay');
+  const toast      = get('profileSavedToast');
+  const badge      = get('profileNickBadge');
+  if (nickEl && nickStore)  nickEl.value = nickStore.textContent || '';
+  if (phoneEl && phoneStore) phoneEl.textContent = phoneStore.textContent || '';
+  profileNicknameDirty = false;
+  profileAvatarDirty   = false;
+  profileNicknameValid = true;
+  updateProfileSaveBtn();
+  if (toast) { toast.style.opacity = '0'; toast.textContent = ''; }
+  if (badge) badge.style.display = 'none';
+}
+
+function handleProfileNicknameInput(value) {
+  profileNicknameDirty = true;
+  const badge = document.getElementById('profileNickBadge');
+  const _nickStore = document.getElementById('loggedNick'); const currentNick = _nickStore ? _nickStore.textContent : '';
+  if (value === currentNick) {
+    profileNicknameDirty = false;
+    profileNicknameValid = true;
+    badge.style.display = 'none';
+    updateProfileSaveBtn(); return;
+  }
+  const valid = /^[a-zA-Z0-9_]{2,13}$/.test(value);
+  if (!valid) {
+    profileNicknameValid = false;
+    badge.style.display = 'block';
+    badge.textContent = value.length < 2 ? 'too short' : value.length > 13 ? 'too long' : 'invalid characters';
+    badge.style.background = 'rgba(255,71,87,.1)'; badge.style.color = 'var(--accent2)';
+    updateProfileSaveBtn(); return;
+  }
+  badge.style.display = 'block';
+  badge.textContent = '...';
+  badge.style.background = 'rgba(102,102,102,.1)'; badge.style.color = 'var(--muted)';
+  setTimeout(() => {
+    const isTaken = value.toLowerCase() === 'taken';
+    profileNicknameValid = !isTaken;
+    badge.textContent = isTaken ? '✕ already taken' : '✓ available';
+    badge.style.background = isTaken ? 'rgba(255,71,87,.1)' : 'rgba(57,217,138,.1)';
+    badge.style.color = isTaken ? 'var(--accent2)' : 'var(--green)';
+    updateProfileSaveBtn();
+  }, 500);
+}
+
+function updateProfileSaveBtn() {
+  const btn = document.getElementById('profileSaveBtn');
+  if (!btn) return;
+  const dirty = profileNicknameDirty || profileAvatarDirty;
+  const valid = profileNicknameValid;
+  btn.disabled = !(dirty && valid);
+}
+
+function saveProfileChanges() {
+  const nickInput = document.getElementById('profileNickname');
+  const newNick = nickInput ? nickInput.value.trim() : '';
+  if (newNick) {
+    const store = document.getElementById('loggedNick');
+    if (store) store.textContent = newNick;
+  }
+  // Sync avatar to login card if set
+  const profileImg = document.getElementById('profileAvatarPreview');
+  if (profileAvatarDirty && profileImg && profileImg.src) {
+    // In a real app: upload to server. Here we just keep it in state.
+  }
+  profileNicknameDirty = false;
+  profileAvatarDirty   = false;
+  const badge = document.getElementById('profileNickBadge');
+  if (badge) badge.style.display = 'none';
+  updateProfileSaveBtn();
+  const toast = document.getElementById('profileSavedToast');
+  if (toast) {
+    toast.textContent = '✓ Profile updated successfully';
+    toast.style.opacity = '1';
+    setTimeout(() => { toast.style.opacity = '0'; }, 2500);
+  }
+}
+
+// Avatar handlers for profile screen
+function triggerProfileCamera() {
+  const cam = document.getElementById('profileCameraInput');
+  cam.value = ''; cam.click();
+}
+function handleProfileAvatarFile(input) {
+  if (!input.files || !input.files[0]) return;
+  const file = input.files[0];
+  if (!file.type.startsWith('image/')) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const preview = document.getElementById('profileAvatarPreview');
+    const ring    = document.getElementById('profileAvatarRing');
+    const removeBtn = document.getElementById('profileAvatarRemove');
+    preview.src = e.target.result;
+    ring.classList.add('has-image');
+    removeBtn.style.display = 'block';
+    profileAvatarDirty = true;
+    updateProfileSaveBtn();
+  };
+  reader.readAsDataURL(file);
+  input.value = '';
+}
+function removeProfileAvatar() {
+  const preview = document.getElementById('profileAvatarPreview');
+  const ring    = document.getElementById('profileAvatarRing');
+  const removeBtn = document.getElementById('profileAvatarRemove');
+  preview.src = '';
+  ring.classList.remove('has-image');
+  removeBtn.style.display = 'none';
+  profileAvatarDirty = true;
+  updateProfileSaveBtn();
+}
+
+
+// ── Race list filters ────────────────────────────────────────────────────────
+// setStatusFilter removed — replaced by switchRacesTab()
+function setDistFilter(el, val) {
+  document.querySelectorAll('#distFilterRow .filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  // Reset time row to "All" — mutually exclusive
+  if (val !== 'all') {
+    document.querySelectorAll('#timeFilterRow .filter-chip').forEach(c => c.classList.remove('active'));
+    document.querySelector('#timeFilterRow .filter-chip:first-child').classList.add('active');
+  }
+}
+function setTimeFilter(el, val) {
+  document.querySelectorAll('#timeFilterRow .filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  // Reset distance row to "All" — mutually exclusive
+  if (val !== 'all') {
+    document.querySelectorAll('#distFilterRow .filter-chip').forEach(c => c.classList.remove('active'));
+    document.querySelector('#distFilterRow .filter-chip:first-child').classList.add('active');
+  }
+}
+
+
+// ── Private race deep link ───────────────────────────────────────────────────
+function generateDeepLink() {
+  const passcode = generateRandCode();
+  const slug = generateRandCode(6).toLowerCase();
+  const url  = 'rankfit.app/r/' + slug + '?p=' + passcode;
+  const urlEl = document.getElementById('deepLinkUrl');
+  if (urlEl) urlEl.textContent = url;
+}
+function generateRandCode(len) {
+  len = len || 5;
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let out = '';
+  for (let i = 0; i < len; i++) out += chars[Math.floor(Math.random() * chars.length)];
+  return out;
+}
+function copyDeepLink() {
+  const urlEl = document.getElementById('deepLinkUrl');
+  if (!urlEl) return;
+  const txt = 'https://' + urlEl.textContent;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).catch(() => {});
+  }
+  const btn = document.querySelector('.deeplink-copy-btn');
+  if (btn) {
+    const orig = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.style.background = 'var(--green)';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1600);
+  }
+}
+function shareVia(app) {
+  const urlEl = document.getElementById('deepLinkUrl');
+  const url   = urlEl ? 'https://' + urlEl.textContent : 'https://rankfit.app';
+  const msg   = encodeURIComponent('Join my private race on rankFit! 🏃\n' + url);
+  const urls  = {
+    whatsapp: 'https://wa.me/?text=' + msg,
+    telegram: 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent('Join my private race on rankFit! 🏃'),
+  };
+  if (app === 'native' && navigator.share) {
+    navigator.share({ title: 'Join my rankFit race', text: 'Join my private race!', url: 'https://' + (urlEl ? urlEl.textContent : '') });
+    return;
+  }
+  if (urls[app]) window.open(urls[app], '_blank');
+}
+
+// selectVisibility — handles visibility toggle + deep link generation
+function selectVisibility(type) {
+  document.querySelectorAll('#visibilityToggle .toggle-option').forEach(o => o.classList.remove('active'));
+  document.getElementById('check-public').style.opacity  = type === 'public'  ? '1' : '0';
+  document.getElementById('check-private').style.opacity = type === 'private' ? '1' : '0';
+  event.currentTarget.classList.add('active');
+  document.getElementById('privateSection').style.display = type === 'private' ? 'block' : 'none';
+  if (type === 'private') generateDeepLink();
+}
+
+
+// ── Races screen tabs ────────────────────────────────────────────────────────
+function switchRacesTab(tab) {
+  ['my','invites','discover'].forEach(t => {
+    document.getElementById('rTab' + t.charAt(0).toUpperCase() + t.slice(1)).classList.toggle('active', t === tab);
+    document.getElementById('rView' + t.charAt(0).toUpperCase() + t.slice(1)).classList.toggle('active', t === tab);
+  });
+}
+
+// ── Deep link simulation: called when user opens a private link ───────────────
+// In production this would be triggered by the OS/browser opening the app URL.
+// Here we expose it as a global so it can be called to demo the flow.
+function openDeepLinkInvite(raceName, dist, datetime, fromUser) {
+  var id = 'invite-dl-' + Date.now();
+  var card = document.createElement('div');
+  card.className = 'invite-race-card';
+  card.id = id;
+
+  var fromDiv = document.createElement('div');
+  fromDiv.className = 'invite-from';
+  fromDiv.textContent = '🔒 PRIVATE INVITE · from ' + fromUser;
+
+  var topDiv = document.createElement('div');
+  topDiv.className = 'race-top';
+  topDiv.style.marginBottom = '10px';
+  var nameDiv = document.createElement('div');
+  nameDiv.className = 'race-name';
+  nameDiv.textContent = raceName;
+  var badgeDiv = document.createElement('div');
+  badgeDiv.className = 'race-badge badge-open';
+  badgeDiv.textContent = 'OPEN';
+  topDiv.appendChild(nameDiv);
+  topDiv.appendChild(badgeDiv);
+
+  var metaDiv = document.createElement('div');
+  metaDiv.className = 'race-meta';
+  var s1 = document.createElement('div'); s1.className = 'race-stat';
+  s1.innerHTML = '📍 <span class="val">' + dist + '</span>';
+  var s2 = document.createElement('div'); s2.className = 'race-stat';
+  s2.innerHTML = '🏃 <span class="val">...</span> joined';
+  metaDiv.appendChild(s1); metaDiv.appendChild(s2);
+
+  var dateDiv = document.createElement('div');
+  dateDiv.style.cssText = 'margin-top:10px;font-size:10px;font-family:DM Mono,monospace;color:var(--muted)';
+  dateDiv.textContent = datetime;
+
+  var actionsDiv = document.createElement('div');
+  actionsDiv.className = 'invite-actions';
+  var joinBtn = document.createElement('button');
+  joinBtn.className = 'invite-join-btn';
+  joinBtn.textContent = '✓ Join Race';
+  joinBtn.setAttribute('onclick', 'acceptInvite("' + id + '","' + raceName + '","' + dist + '","' + datetime + '")');
+  var declineBtn = document.createElement('button');
+  declineBtn.className = 'invite-decline-btn';
+  declineBtn.textContent = '✕ Decline';
+  declineBtn.setAttribute('onclick', 'declineInvite("' + id + '")');
+  actionsDiv.appendChild(joinBtn);
+  actionsDiv.appendChild(declineBtn);
+
+  card.appendChild(fromDiv);
+  card.appendChild(topDiv);
+  card.appendChild(metaDiv);
+  card.appendChild(dateDiv);
+  card.appendChild(actionsDiv);
+
+  var container = document.getElementById('inviteCardsContainer');
+  if (container) container.prepend(card);
+  updateInviteBadge();
+  showScreen('list');
+  switchRacesTab('invites');
+}
+
+function acceptInvite(cardId, name, dist, datetime) {
+  var card = document.getElementById(cardId);
+  if (card) card.remove();
+  updateInviteBadge();
+
+  var injected = document.getElementById('myRacesInjected');
+  if (injected) {
+    var newCard = document.createElement('div');
+    newCard.className = 'race-card upcoming';
+
+    var topDiv = document.createElement('div');
+    topDiv.className = 'race-top';
+    var nameDiv = document.createElement('div');
+    nameDiv.className = 'race-name';
+    nameDiv.innerHTML = name + ' <span style="font-size:10px;color:var(--accent);font-family:DM Mono,monospace">🔒</span>';
+    var badgeDiv = document.createElement('div');
+    badgeDiv.className = 'race-badge badge-open';
+    badgeDiv.textContent = 'OPEN';
+    topDiv.appendChild(nameDiv);
+    topDiv.appendChild(badgeDiv);
+
+    var metaDiv = document.createElement('div');
+    metaDiv.className = 'race-meta';
+    var s1 = document.createElement('div'); s1.className = 'race-stat';
+    s1.innerHTML = '📍 <span class="val">' + dist + '</span>';
+    metaDiv.appendChild(s1);
+
+    var bottomDiv = document.createElement('div');
+    bottomDiv.className = 'race-bottom';
+    var dateDiv = document.createElement('div');
+    dateDiv.className = 'race-datetime';
+    dateDiv.textContent = datetime;
+    var btn = document.createElement('button');
+    btn.className = 'join-btn leave';
+    btn.textContent = "You're in";
+    bottomDiv.appendChild(dateDiv);
+    bottomDiv.appendChild(btn);
+
+    newCard.appendChild(topDiv);
+    newCard.appendChild(metaDiv);
+    newCard.appendChild(bottomDiv);
+    injected.prepend(newCard);
+  }
+  switchRacesTab('my');
+  flashToast('✓ Joined — race added to My Races');
+}
+
+function declineInvite(cardId) {
+  const card = document.getElementById(cardId);
+  if (card) { card.style.opacity='0'; card.style.transition='opacity .3s'; setTimeout(()=>card.remove(), 300); }
+  setTimeout(updateInviteBadge, 350);
+}
+
+function updateInviteBadge() {
+  const container = document.getElementById('inviteCardsContainer');
+  const badge = document.getElementById('invitesBadge');
+  const emptyState = document.getElementById('invitesEmpty');
+  if (!container || !badge) return;
+  const count = container.querySelectorAll('.invite-race-card').length;
+  badge.textContent = count;
+  badge.style.display = count > 0 ? 'block' : 'none';
+  if (emptyState) emptyState.style.display = count === 0 ? 'flex' : 'none';
+}
+
+
+// ── Race leaderboard data ────────────────────────────────────────────────────
+var RACE_DATA = {
+  milano: {
+    name: 'Milano Urban Sprint', meta: 'Today · 5.0 km · 12 runners',
+    type: 'distance', typeBadge: '📏 By distance', typeClass: 'lb-type-dist',
+    col1: 'Time', col2: 'Pace',
+    rows: [
+      {nick:'FastLeg_Marco',   v1:'23:14', v2:'4:38', me:false},
+      {nick:'SpeedyRunner42',  v1:'24:31', v2:'4:54', me:true },
+      {nick:'RunnerX_Giulia',  v1:'24:58', v2:'4:59', me:false},
+      {nick:'BlazePaolo',      v1:'25:33', v2:'5:06', me:false},
+      {nick:'NightOwl_Luca',   v1:'26:11', v2:'5:14', me:false},
+      {nick:'IronLegs_Sara',   v1:'27:02', v2:'5:24', me:false},
+      {nick:'QuickFeet_Ale',   v1:'27:45', v2:'5:33', me:false},
+      {nick:'PaceKing_Enzo',   v1:'28:19', v2:'5:39', me:false},
+      {nick:'TrailRunner_Bia', v1:'29:04', v2:'5:48', me:false},
+      {nick:'Sunrise_Carla',   v1:'30:22', v2:'6:04', me:false},
+      {nick:'SteadyGo_Remo',   v1:'31:55', v2:'6:23', me:false},
+      {nick:'LastLap_Dino',    v1:'34:10', v2:'6:50', me:false}
+    ]
+  },
+  roma: {
+    name: 'Roma Parkway 10K', meta: '28 Feb · 10.0 km · 27 runners',
+    type: 'distance', typeBadge: '📏 By distance', typeClass: 'lb-type-dist',
+    col1: 'Time', col2: 'Pace',
+    rows: [
+      {nick:'SpeedyRunner42',  v1:'47:12', v2:'4:43', me:true },
+      {nick:'FastLeg_Marco',   v1:'47:55', v2:'4:47', me:false},
+      {nick:'BlazePaolo',      v1:'48:30', v2:'4:51', me:false},
+      {nick:'NightOwl_Luca',   v1:'49:14', v2:'4:55', me:false},
+      {nick:'RunnerX_Giulia',  v1:'50:02', v2:'5:00', me:false},
+      {nick:'IronLegs_Sara',   v1:'51:10', v2:'5:07', me:false},
+      {nick:'QuickFeet_Ale',   v1:'52:33', v2:'5:15', me:false},
+      {nick:'PaceKing_Enzo',   v1:'53:07', v2:'5:18', me:false},
+      {nick:'TrailRunner_Bia', v1:'54:22', v2:'5:26', me:false},
+      {nick:'Sunrise_Carla',   v1:'56:01', v2:'5:36', me:false}
+    ]
+  },
+  torino: {
+    name: 'Torino Riverside Half', meta: '15 Feb · 21.1 km · 34 runners',
+    type: 'distance', typeBadge: '📏 By distance', typeClass: 'lb-type-dist',
+    col1: 'Time', col2: 'Pace',
+    rows: [
+      {nick:'FastLeg_Marco',   v1:'1:38:44', v2:'4:41', me:false},
+      {nick:'BlazePaolo',      v1:'1:40:12', v2:'4:45', me:false},
+      {nick:'NightOwl_Luca',   v1:'1:41:58', v2:'4:50', me:false},
+      {nick:'RunnerX_Giulia',  v1:'1:44:33', v2:'4:57', me:false},
+      {nick:'SpeedyRunner42',  v1:'1:48:03', v2:'5:07', me:true },
+      {nick:'IronLegs_Sara',   v1:'1:49:11', v2:'5:10', me:false},
+      {nick:'QuickFeet_Ale',   v1:'1:51:22', v2:'5:16', me:false},
+      {nick:'PaceKing_Enzo',   v1:'1:53:44', v2:'5:23', me:false},
+      {nick:'TrailRunner_Bia', v1:'1:55:00', v2:'5:27', me:false},
+      {nick:'Sunrise_Carla',   v1:'1:58:12', v2:'5:36', me:false}
+    ]
+  }
+};
+
+function openLeaderboard(raceId) {
+  var data = RACE_DATA[raceId];
+  if (!data) return;
+
+  document.getElementById('lbRaceName').textContent  = data.name;
+  document.getElementById('lbRaceMeta').textContent   = data.meta;
+  document.getElementById('lbMetricLabel').textContent  = data.col1;
+  document.getElementById('lbMetricLabel2').textContent = data.col2;
+
+  var badge = document.getElementById('lbTypeBadge');
+  badge.textContent = data.typeBadge;
+  badge.className   = 'lb-type-badge ' + data.typeClass;
+
+  var rowsEl = document.getElementById('lbRows');
+  rowsEl.innerHTML = '';
+
+  data.rows.forEach(function(r, i) {
+    var pos   = i + 1;
+    var posClass = pos===1?'p1':pos===2?'p2':pos===3?'p3':r.me?'pme':'pn';
+    var posLabel = pos===1?'🥇':pos===2?'🥈':pos===3?'🥉':pos;
+
+    var row = document.createElement('div');
+    row.className = 'lb-row' + (r.me ? ' me' : '');
+
+    var posEl = document.createElement('div');
+    posEl.className = 'lb-pos ' + posClass;
+    posEl.innerHTML = posLabel;
+
+    var nickEl = document.createElement('div');
+    nickEl.className = 'lb-nick';
+    nickEl.innerHTML = r.nick + (r.me ? '<span class="lb-you-tag">YOU</span>' : '');
+
+    var v1Wrap = document.createElement('div');
+    var v1El = document.createElement('div');
+    v1El.className = 'lb-metric' + (r.me ? ' me-val' : '');
+    v1El.textContent = r.v1;
+    var v1Sub = document.createElement('div');
+    v1Sub.className = 'lb-metric-sub';
+    v1Sub.textContent = data.col1.toLowerCase();
+    v1Wrap.appendChild(v1El);
+    v1Wrap.appendChild(v1Sub);
+
+    var v2Wrap = document.createElement('div');
+    var v2El = document.createElement('div');
+    v2El.className = 'lb-metric' + (r.me ? ' me-val' : '');
+    v2El.textContent = r.v2;
+    var v2Sub = document.createElement('div');
+    v2Sub.className = 'lb-metric-sub';
+    v2Sub.textContent = data.col2.toLowerCase();
+    v2Wrap.appendChild(v2El);
+    v2Wrap.appendChild(v2Sub);
+
+    row.appendChild(posEl);
+    row.appendChild(nickEl);
+    row.appendChild(v1Wrap);
+    row.appendChild(v2Wrap);
+    rowsEl.appendChild(row);
+  });
+
+  // Scroll to user's row
+  setTimeout(function() {
+    var meRow = rowsEl.querySelector('.lb-row.me');
+    if (meRow) meRow.scrollIntoView({block:'center', behavior:'smooth'});
+  }, 150);
+
+  document.getElementById('lbOverlay').classList.add('visible');
+}
+
+function closeLeaderboard() {
+  document.getElementById('lbOverlay').classList.remove('visible');
+}
+
+function closeLbIfOutside(e) {
+  if (e.target === document.getElementById('lbOverlay')) closeLeaderboard();
+}
+
 </script>
 </body>
 </html>
